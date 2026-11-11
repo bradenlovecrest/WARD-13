@@ -61,7 +61,7 @@ payload = {
         "content": [{
             "type": "text",
             "text": transcript,
-            "annotations": [{"type": "speech_metadata", "style": STYLES[cue]}],
+            "annotations": [{"type": "speech_metadata", "style": selected_style}],
         }],
     }],
     "response_format": {"type": "audio"},
