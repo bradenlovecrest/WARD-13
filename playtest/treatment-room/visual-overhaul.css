@@ -15,7 +15,7 @@
 .inv[data-item="treatmentMAR"] strong{background-image:url("./assets/items/treatmentMAR.svg")}
 .inv[data-item="treatmentTray"] strong{background-image:url("./assets/items/treatmentTray.svg")}
 #stage:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,#01050983,transparent 16%,transparent 74%,#01050973),repeating-linear-gradient(180deg,#0000 0px,#0000 4px,#040b0e19 5px);opacity:.72;z-index:1}
-#stage #hotspots,#stage .room-sign,#stage .bottom-caption{position:relative;z-index:2}
+#stage .room-sign,#stage .bottom-caption{z-index:5}
 .ward-art-mode .scene-photo.treatment{background-image:url("./assets/scenes/treatment.svg")}
 .ward-art-mode .scene-photo.records{background-image:url("./assets/scenes/records.svg")}
 .ward-art-mode .scene-photo{filter:brightness(.79) saturate(.9) contrast(1.12)}
