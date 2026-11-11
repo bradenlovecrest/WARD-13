@@ -85,13 +85,39 @@ except (urllib.error.URLError, TimeoutError) as exc:
 except (json.JSONDecodeError, UnicodeDecodeError):
     raise SystemExit("Gemini returned an unexpected response.")
 
-encoded = (result.get("output_audio") or {}).get("data")
-if not encoded:
-    raise SystemExit("Gemini returned no audio. Check model/voice support.")
+# The REST Interactions API returns audio inside steps[].content[].data.
+# The output_audio convenience property exists on the Python SDK object,
+# NOT as a top-level field in the raw REST JSON.
+audio_blocks = []
+for step in result.get("steps", []):
+    if step.get("type") != "model_output":
+        continue
+    for part in step.get("content", []):
+        if part.get("type") == "audio" and isinstance(part.get("data"), str):
+            audio_blocks.append(part["data"])
+# Defensive compatibility with SDK-shaped or enveloped responses.
+if not audio_blocks and isinstance(result.get("output_audio"), dict):
+    block = result["output_audio"].get("data")
+    if isinstance(block, str):
+        audio_blocks.append(block)
+if not audio_blocks and isinstance(result.get("interaction"), dict):
+    for step in result["interaction"].get("steps", []):
+        if step.get("type") == "model_output":
+            for part in step.get("content", []):
+                if part.get("type") == "audio" and isinstance(part.get("data"), str):
+                    audio_blocks.append(part["data"])
+if not audio_blocks:
+    # Reveal only the response *shape*, never the full JSON/audio/key.
+    step_types = [str(x.get("type", "unknown")) for x in result.get("steps", [])]
+    print("Google response has no extractable audio; interaction status:",
+          str(result.get("status", "unspecified")), "; step types:", step_types,
+          file=sys.stderr)
+    raise SystemExit("Tavi generation did not return a readable audio block.")
+encoded = audio_blocks[-1]
 try:
     decoded = base64.b64decode(encoded, validate=True)
 except (ValueError, base64.binascii.Error):
-    raise SystemExit("Gemini returned invalid audio encoding.")
+    raise SystemExit("Gemini returned invalid base64 audio encoding.")
 if not decoded.startswith(b"RIFF") or b"WAVE" not in decoded[:16]:
     raise SystemExit("Gemini returned audio, but not the expected WAV format.")
 dest = out / ("nurse-tavi-" + cue + ".wav")
