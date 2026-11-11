@@ -1,0 +1,49 @@
+name: WARD 13 — One-line Gemini paid-tier check
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "voice-jobs/paid-tier-check-05.txt"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ward13-tavi-paid-check
+  cancel-in-progress: false
+
+jobs:
+  record-one-line:
+    if: ${{ github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - name: Make only missing line 5 (one Gemini request maximum)
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          WARD_PUBLISH_MODE: generate
+          WARD_START_INDEX: "5"
+          WARD_BATCH_COUNT: "1"
+          WARD_RIGHTS: "true"
+        run: python3 tools/publish_tavi.py
+      - name: Preserve the generated recording even if the API call fails
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: ward13-paid-check-05
+          path: playtest/treatment-room/audio/tavi/*.wav
+          if-no-files-found: warn
+          retention-days: 7
+      - name: Publish successful recording to the existing game
+        if: ${{ always() }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A playtest/treatment-room/audio/tavi/
+          if ! git diff --cached --quiet; then
+            git commit -m "Publish Tavi recording 05"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
