@@ -1,0 +1,65 @@
+name: WARD 13 — Finish Tavi voice safely (one-time)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "voice-jobs/finish-tavi-06-18.txt"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ward13-tavi-finish
+  cancel-in-progress: false
+
+jobs:
+  finish-recordings:
+    if: ${{ github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - name: Generate missing Tavi lines 06–18 slowly, preserving completed WAV files
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          WARD_PUBLISH_MODE: generate
+          WARD_BATCH_COUNT: "1"
+          WARD_RIGHTS: "true"
+        run: |
+          set -u
+          failed=0
+          for index in $(seq 6 18); do
+            echo "Checking Tavi dialogue line ${index} of 18"
+            export WARD_START_INDEX="${index}"
+            if python3 tools/publish_tavi.py; then
+              echo "Line ${index} complete or already present."
+            else
+              echo "Generation stopped at line ${index}; keeping previously completed WAVs."
+              failed=1
+              break
+            fi
+            if [ "${index}" -lt 18 ]; then sleep 20; fi
+          done
+          echo "One-time voice pack exited with partial_failed=${failed}"
+      - name: Back up completed recordings
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: ward13-tavi-finish-06-18
+          path: playtest/treatment-room/audio/tavi/*.wav
+          if-no-files-found: warn
+          retention-days: 7
+      - name: Publish any new recordings
+        if: ${{ always() }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A playtest/treatment-room/audio/tavi/
+          if ! git diff --cached --quiet; then
+            git commit -m "Publish remaining Tavi voice pack"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          else
+            echo "No new audio to commit."
+          fi
