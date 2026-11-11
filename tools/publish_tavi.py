@@ -110,18 +110,32 @@ def main():
         raise SystemExit('Start must be 1..catalog size and count 1..3.')
     selected=catalog[start-1:start-1+count]
     OUT.mkdir(parents=True,exist_ok=True)
+    completed=0
+    failed=0
     for line,ident,phase in selected:
         target=OUT/f'{ident}.wav'
         if target.exists():
-            print('Already recorded; skipping',target.name)
+            print('Already recorded; skipping',target.name, flush=True)
             continue
         env=os.environ.copy()
         env.update(WARD_CUE='custom',WARD_CUSTOM_LINE=line,WARD_MODE='generate',WARD_RIGHTS='true',WARD_TAVI_STYLE={0:'welcome',1:'security',2:'fracture'}[phase])
-        subprocess.run([sys.executable,str(ROOT/'tools/nurse_voice_studio.py')],cwd=ROOT,env=env,check=True)
         generated=ROOT/'voice-output/nurse-tavi-custom.wav'
+        if generated.exists():
+            generated.unlink()  # Never publish an earlier line under the next filename.
+        result=subprocess.run([sys.executable,str(ROOT/'tools/nurse_voice_studio.py')],cwd=ROOT,env=env,check=False)
+        if result.returncode != 0:
+            failed+=1
+            print('Voice provider failed; stopping this batch without discarding earlier WAVs.',flush=True)
+            break  # No hammering a rate-limited provider.
         if not generated.is_file():
-            raise SystemExit('Tavi generator succeeded without expected WAV file.')
+            failed+=1
+            print('Voice provider reported success but no WAV was generated.',flush=True)
+            break
         shutil.move(str(generated),str(target))
-        print('Published',target.relative_to(ROOT))
+        completed+=1
+        print('Published',target.relative_to(ROOT),flush=True)
+    print(f'Batch complete: {completed} new recording(s), {failed} failed request(s).', flush=True)
+    if failed:
+        raise SystemExit('Partial batch. Already generated WAV files will be published by the workflow despite this failed step.')
 
 if __name__=='__main__':main()
