@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-label="Dark hospital medical records archive full of boxes and an illuminated terminal">
+<defs>
+<linearGradient id="w" x2="0" y2="1"><stop stop-color="#1b3034"/><stop offset="1" stop-color="#07141c"/></linearGradient>
+<radialGradient id="light"><stop stop-color="#acd1c1" stop-opacity=".33"/><stop offset="1" stop-color="#a9cab5" stop-opacity="0"/></radialGradient>
+<filter id="n"><feTurbulence baseFrequency=".4" numOctaves="2" seed="5"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope=".06"/></feComponentTransfer></filter>
+</defs>
+<rect width="1280" height="720" fill="url(#w)"/>
+<path d="M0 480L1280 415V720H0Z" fill="#243639"/>
+<path d="M0 480L1280 415" stroke="#607973" stroke-opacity=".3" stroke-width="12"/>
+<path d="M670 0L660 455M300 0L300 467M1010 0L1010 432" stroke="#476463" stroke-opacity=".2" stroke-width="9"/>
+<g fill="#1f3037" stroke="#607d79" stroke-width="10">
+<rect x="35" y="96" width="355" height="473"/>
+<rect x="860" y="50" width="380" height="525"/>
+</g>
+<g stroke="#71918b" stroke-opacity=".58" stroke-width="8">
+<path d="M35 212H389M35 329H389M35 443H389M860 172H1240M860 297H1240M860 424H1240"/>
+</g>
+<g fill="#8f9988" opacity=".72">
+<rect x="53" y="118" width="80" height="83"/><rect x="144" y="133" width="105" height="67"/><rect x="261" y="121" width="112" height="82"/>
+<rect x="60" y="238" width="120" height="82"/><rect x="192" y="228" width="100" height="91"/><rect x="302" y="250" width="60" height="69"/>
+<rect x="53" y="356" width="90" height="75"/><rect x="151" y="342" width="110" height="90"/><rect x="275" y="355" width="97" height="75"/>
+<rect x="878" y="70" width="88" height="91"/><rect x="977" y="95" width="114" height="63"/><rect x="1102" y="79" width="112" height="78"/>
+<rect x="878" y="194" width="150" height="90"/><rect x="1040" y="185" width="83" height="100"/><rect x="1134" y="206" width="78" height="78"/>
+<rect x="880" y="316" width="99" height="95"/><rect x="995" y="335" width="97" height="76"/><rect x="1108" y="310" width="103" height="101"/>
+</g>
+<g stroke="#354b4c" stroke-width="3" opacity=".65">
+<path d="M78 149H120M161 153H237M290 143H351M78 274H163M220 262H281M893 115H952M999 121H1075M1132 116H1195M895 356H968M1012 369H1076M1121 348H1197"/>
+</g>
+<rect x="442" y="34" width="355" height="150" fill="#121e25" stroke="#46676d" stroke-width="7"/>
+<rect x="461" y="49" width="317" height="120" fill="#2b4347"/>
+<path d="M476 85H749M476 110H708M476 135H766" stroke="#9bbbb0" stroke-width="4" opacity=".35"/>
+<text x="627" y="75" text-anchor="middle" font-family="monospace" font-size="18" fill="#cee1cf">RECORDS CONTROL</text>
+<path d="M418 490L844 473L902 630L353 652Z" fill="#3c5254" stroke="#101f29" stroke-width="12"/>
+<rect x="499" y="316" width="257" height="181" rx="8" fill="#0c1b22" stroke="#768f88" stroke-width="11"/>
+<rect x="517" y="332" width="220" height="137" fill="#163939"/>
+<path d="M537 364H702M537 382H672M537 400H703M537 419H656M537 439H706" stroke="#80bb9f" stroke-opacity=".78" stroke-width="5"/>
+<rect x="596" y="493" width="65" height="43" fill="#718e88"/>
+<path d="M564 536H690" stroke="#81998b" stroke-width="17"/>
+<ellipse cx="632" cy="417" rx="350" ry="270" fill="url(#light)"/>
+<g transform="rotate(-7 500 564)">
+<rect x="422" y="524" width="170" height="80" fill="#c0c2a7"/><rect x="435" y="536" width="120" height="11" fill="#62807d"/><path d="M441 565H567M441 580H547" stroke="#778c81" stroke-width="4"/>
+</g>
+<rect x="688" y="536" width="112" height="69" fill="#bcb7a2" transform="rotate(10 688 536)"/>
+<path d="M703 556H784M707 570H770" stroke="#836a68" stroke-width="5"/>
+<rect width="1280" height="720" fill="#01080b" opacity=".2"/>
+<rect width="1280" height="720" filter="url(#n)"/>
+<text x="30" y="690" fill="#b6ccc4" font-family="monospace" font-size="18">MEDICAL RECORDS / CAM 05</text>
+</svg>
