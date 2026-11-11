@@ -21,6 +21,12 @@ MATCH = re.compile(r"\bsay\s*\(\s*(['\"])((?:\\.|(?!\1).)*?)\1\s*(?:,\s*([012]))
 def collect(html):
     entries = []
     seen = set()
+    initial = re.search(r"\bdialogue:'([^']{5,700})'", html)
+    if initial:
+        greeting=initial.group(1)
+        ident=hashlib.sha256(greeting.encode('utf-8')).hexdigest()[:12]
+        entries.append((greeting,ident,0))
+        seen.add(greeting)
     for match in MATCH.finditer(html):
         line = match.group(2).replace("\\'", "'").replace('\\"', '"')
         if not 1 <= len(line) <= 700 or line in seen:
@@ -64,6 +70,12 @@ function speakScript(line,phase=0){
     stop="if(supported)window.speechSynthesis.cancel()"
     if stop in html:
         html=html.replace(stop,"if(supported)window.speechSynthesis.cancel();try{currentTaviAudio?.pause()}catch(e){}",1)
+    html=html.replace('Her three prerecorded Treatment Room scenes are listed below. For dialogue not yet recorded, the game uses a device voice or on-screen captions.',
+                      'Tavi has three embedded Treatment Room performances and additional prerecorded lines across the ward when available. Missing recordings fall back to device speech or captions.')
+    html=html.replace("Tavi's three v0.6 Treatment Room scenes are original recordings embedded in the game. The other choices are device text-to-speech and vary by browser.",
+                      'Tavi has prerecorded scenes, with additional audio loading as available. Other performer choices use device speech and vary by browser.')
+    html=html.replace('★ Tavi — prerecorded N.U.R.S.E. (Treatment Room)',
+                      '★ Tavi — recorded N.U.R.S.E. (available scenes)')
     return html
 
 def main():
@@ -74,7 +86,7 @@ def main():
     catalog=collect(source)
     if not catalog:
         raise SystemExit('Could not find any static N.U.R.S.E. dialogue; no files changed.')
-    print(f'Found {len(catalog)} non-Treatment-Room dialogue lines. Three Tavi recordings are already embedded.')
+    print(f'Found {len(catalog)} additional dialogue lines. Three Tavi recordings are already embedded.')
     for i,(line,ident,phase) in enumerate(catalog,1):
         print(f'{i:02d} | {ident} | phase {phase} | {line}')
     if mode=='preview':
