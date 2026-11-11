@@ -21,7 +21,7 @@ on:
         description: Number of lines to record (small batches protect quota)
         required: true
         type: choice
-        default: "3"
+        default: "1"
         options:
           - "1"
           - "2"
@@ -51,16 +51,16 @@ jobs:
           WARD_RIGHTS: ${{ inputs.confirm_rights }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python3 tools/publish_tavi.py
-      - name: Save WAV files as a backup artifact
-        if: ${{ inputs.mode == 'generate' }}
+      - name: Save WAV files as a backup artifact (including partial batches)
+        if: ${{ always() && inputs.mode == 'generate' }}
         uses: actions/upload-artifact@v4
         with:
           name: ward13-published-tavi-${{ github.run_number }}
           path: playtest/treatment-room/audio/tavi/*.wav
           if-no-files-found: warn
           retention-days: 7
-      - name: Publish changes to this branch
-        if: ${{ inputs.mode != 'preview' }}
+      - name: Publish successful recordings even when the provider hits quota
+        if: ${{ always() && inputs.mode != 'preview' }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -69,5 +69,6 @@ jobs:
             echo "Nothing new to publish."
           else
             git commit -m "Add Tavi recorded dialogue and playback"
+            git pull --rebase origin main
             git push
           fi
