@@ -5,11 +5,13 @@ import sys
 from pathlib import Path
 
 CUES = {
+    "test": "Good evening, student nurse. I trust you are enjoying your clinical rotation.",
     "welcome": "Good evening, student nurse. Welcome to Ward Thirteen. Your clinical instructor is currently unavailable. Fortunately, I'm fully qualified to supervise your progress. Now, please disregard the screaming. It's not part of your assessment.",
     "security": "Student nurse. I've noticed that you've accessed several confidential patient records. Your curiosity is admirable. Your judgment, however, is becoming a concern. Please return to your assigned clinical area. That is not a suggestion.",
     "fracture": "Wait. That patient wasn't supposed to be in the archive. I remember their admission. I remember their voice. But I don't remember what happened next. Please... don't open that door. Not yet.",
 }
 STYLES = {
+    "test": "Soft youthful Australian English, warm conversational clinical supervisor, dry humor; understated and natural.",
     "welcome": "Soft youthful natural Australian English. A real, warm professional clinical supervisor with dry humor. Conversational, gently reassuring, not a narrator or horror villain.",
     "security": "Soft youthful natural Australian English. Same woman's voice: calm, carefully controlled and quietly authoritarian; polite but colder and firmer, no shouting.",
     "fracture": "Soft youthful natural Australian English. Same character starting to doubt her memories; hesitant private worry and genuine vulnerability, not theatrical fear.",
@@ -42,38 +44,56 @@ if os.environ.get("WARD_RIGHTS", "").lower() != "true":
 key = os.environ.get("GEMINI_API_KEY")
 if not key:
     raise SystemExit("GEMINI_API_KEY secret is missing. Add it at Settings > Secrets and variables > Actions.")
-from google import genai
-from google.genai import types
+import base64
+import urllib.error
+import urllib.request
 
+# Gemini 3.8 TTS Interaction API; the turn's style is separate from the
+# transcript, so stage directions are NOT spoken.
+payload = {
+    "model": "gemini-3.8-flash-tts",
+    "input": [{
+        "type": "user_input",
+        "content": [{
+            "type": "text",
+            "text": transcript,
+            "annotations": [{"type": "speech_metadata", "style": STYLES[cue]}],
+        }],
+    }],
+    "response_format": {"type": "audio"},
+    "generation_config": {"speech_config": [{"voice": "Tavi"}]},
+}
+request = urllib.request.Request(
+    "https://generativelanguage.googleapis.com/v1beta/interactions",
+    data=json.dumps(payload).encode("utf-8"),
+    headers={
+        "x-goog-api-key": key,
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+    },
+    method="POST",
+)
 try:
-    client = genai.Client(api_key=key)
-    response = client.models.generate_content(
-        model="gemini-3.8-flash-tts",
-        contents=types.Content(
-            role="user",
-            parts=[types.Part(
-                text=transcript,
-                speech_metadata=types.SpeechMetadata(style=STYLES[cue]),
-            )],
-        ),
-        config=types.GenerateContentConfig(
-            response_modalities=["AUDIO"],
-            speech_config=types.SpeechConfig(
-                voice_config=types.VoiceConfig(voice="Tavi"),
-            ),
-        ),
-    )
-except Exception as exc:
-    print("Gemini synthesis failed (" + type(exc).__name__ + "). Check model availability, key, quotas, and account tier.", file=sys.stderr)
+    with urllib.request.urlopen(request, timeout=120) as response:
+        result = json.loads(response.read().decode("utf-8"))
+except urllib.error.HTTPError as exc:
+    print(f"Gemini API returned HTTP {exc.code}. Check your key, free-tier access and quota.", file=sys.stderr)
     sys.exit(1)
-parts = [
-    part.inline_data.data
-    for candidate in (response.candidates or [])
-    for part in (candidate.content.parts or [])
-    if part.inline_data and part.inline_data.data
-]
-if not parts or not parts[0].startswith(b"RIFF"):
-    raise SystemExit("The provider did not return a valid WAV file.")
+except (urllib.error.URLError, TimeoutError) as exc:
+    print("Unable to reach Gemini TTS API (network timeout or connection error).", file=sys.stderr)
+    sys.exit(1)
+except (json.JSONDecodeError, UnicodeDecodeError):
+    raise SystemExit("Gemini returned an unexpected response.")
+
+encoded = (result.get("output_audio") or {}).get("data")
+if not encoded:
+    raise SystemExit("Gemini returned no audio. Check model/voice support.")
+try:
+    decoded = base64.b64decode(encoded, validate=True)
+except (ValueError, base64.binascii.Error):
+    raise SystemExit("Gemini returned invalid audio encoding.")
+if not decoded.startswith(b"RIFF") or b"WAVE" not in decoded[:16]:
+    raise SystemExit("Gemini returned audio, but not the expected WAV format.")
 dest = out / ("nurse-tavi-" + cue + ".wav")
-dest.write_bytes(parts[0])
-print("Generated", dest.name, "(", len(parts[0]), "bytes )")
+dest.write_bytes(decoded)
+print("Generated", dest.name, "|", len(decoded), "bytes")
