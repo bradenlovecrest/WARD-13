@@ -1,0 +1,125 @@
+name: WARD 13 Voice Studio (manual)
+
+on:
+  workflow_dispatch:
+    inputs:
+      cue:
+        description: Which N.U.R.S.E. cue should we generate?
+        required: true
+        type: choice
+        default: welcome
+        options:
+          - welcome
+          - security
+          - fracture
+          - custom
+      custom_line:
+        description: Custom dialogue if cue is custom (max 800 characters)
+        required: false
+        type: string
+      mode:
+        description: Preview uses zero credits; Generate calls ElevenLabs
+        required: true
+        type: choice
+        default: preview
+        options:
+          - preview
+          - generate
+      confirm_rights:
+        description: I confirm I may share this audio via a publicly readable GitHub Actions artifact
+        required: true
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  voice-studio:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - name: Validate cue and usage settings
+        env:
+          WARD_CUE: ${{ inputs.cue }}
+          WARD_CUSTOM_LINE: ${{ inputs.custom_line }}
+          WARD_MODE: ${{ inputs.mode }}
+          WARD_RIGHTS: ${{ inputs.confirm_rights }}
+        run: |
+          python3 - <<'PY'
+          import os
+          from pathlib import Path
+          cues = {
+              "welcome": "Good evening, student nurse. Welcome to Ward Thirteen. Your clinical instructor is currently unavailable. Fortunately, I'm fully qualified to supervise your progress. Now, please disregard the screaming. It's not part of your assessment.",
+              "security": "Student nurse. I've noticed that you've accessed several confidential patient records. Your curiosity is admirable. Your judgment, however, is becoming a concern. Please return to your assigned clinical area. That is not a suggestion.",
+              "fracture": "Wait. That patient wasn't supposed to be in the archive. I remember their admission. I remember their voice. But I don't remember what happened next. Please... don't open that door. Not yet.",
+          }
+          cue = os.environ["WARD_CUE"]
+          if cue not in (*cues, "custom"):
+              raise SystemExit("Unrecognized recording cue")
+          script = os.environ.get("WARD_CUSTOM_LINE", "").strip() if cue == "custom" else cues[cue]
+          if not script or len(script) > 800:
+              raise SystemExit("Script must contain between 1 and 800 characters")
+          mode = os.environ["WARD_MODE"]
+          if mode == "generate" and os.environ["WARD_RIGHTS"].lower() != "true":
+              raise SystemExit("Before generating, confirm permission to share the audio via a publicly accessible Actions artifact. Choose Preview otherwise.")
+          Path("voice-output").mkdir(exist_ok=True)
+          Path("voice-output/script.txt").write_text(script, encoding="utf-8")
+          print("Voice cue:", cue)
+          print("Dialogue characters:", len(script))
+          print("Mode:", mode)
+          if mode == "preview":
+              print("Preview complete. No API call was made and no credits were spent.")
+          PY
+
+      - name: Generate speech using ElevenLabs
+        if: ${{ inputs.mode == 'generate' }}
+        env:
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+          WARD_CUE: ${{ inputs.cue }}
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          import sys
+          import urllib.error
+          import urllib.request
+          from pathlib import Path
+
+          key = os.environ.get("ELEVENLABS_API_KEY", "")
+          if not key:
+              raise SystemExit("ELEVENLABS_API_KEY secret is missing. Add it in repository Settings > Secrets and variables > Actions.")
+          voice_id = "7AT99iuMA9sXzwoSxG9H"
+          script = Path("voice-output/script.txt").read_text(encoding="utf-8")
+          request = urllib.request.Request(
+              f"https://api.elevenlabs.io/v1/text-to-speech/{voice_id}?output_format=mp3_44100_128",
+              data=json.dumps({
+                  "text": script,
+                  "model_id": "eleven_multilingual_v2",
+                  "voice_settings": {"stability": 0.50, "similarity_boost": 0.75},
+              }).encode("utf-8"),
+              headers={"xi-api-key": key, "Content-Type": "application/json", "Accept": "audio/mpeg"},
+              method="POST",
+          )
+          try:
+              with urllib.request.urlopen(request, timeout=90) as response:
+                  audio = response.read()
+          except urllib.error.HTTPError as exc:
+              print(f"ElevenLabs declined the request (HTTP {exc.code}). Check API plan, voice permissions and available credits. The key was not printed.", file=sys.stderr)
+              sys.exit(1)
+          except urllib.error.URLError:
+              raise SystemExit("Could not reach ElevenLabs. Check network access and retry.")
+          if not audio or audio.startswith(b"{"):
+              raise SystemExit("The voice service did not return an MP3 recording.")
+          target = Path("voice-output") / f"nurse-{os.environ['WARD_CUE']}.mp3"
+          target.write_bytes(audio)
+          print(f"Generated {target.name} ({len(audio)} bytes).")
+          PY
+
+      - name: Upload recording for download (public repository artifact)
+        if: ${{ inputs.mode == 'generate' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: ward13-gabby-${{ inputs.cue }}-${{ github.run_number }}
+          path: voice-output/
+          retention-days: 1
