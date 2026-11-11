@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0a151c">
+<title>WARD 13 • Visual Lab 01</title>
+<style>
+:root{color-scheme:dark;--bg:#081318;--panel:#132329;--border:#48655f;--ink:#d2e0d9;--muted:#9bb7ae;--accent:#b9e6d0;--alert:#ec7d78;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 40% 0%,#1a3236,#081318 62%);color:var(--ink)}header{padding:21px clamp(16px,3vw,42px);display:flex;justify-content:space-between;align-items:center;gap:15px;border-bottom:1px solid #405a56;background:#081318b8}h1{font-family:system-ui,sans-serif;letter-spacing:.13em;font-size:clamp(24px,3vw,38px);margin:0;font-weight:800}h1 b{color:#9dccbd}h2{margin:.1em 0 .6em;font-size:15px;letter-spacing:.12em;color:#bde2d2}p{line-height:1.6}small,.muted{color:#a1b7b1}.eyebrow{font-size:11px;letter-spacing:.18em;color:#88ae9f}.mode-label{font-size:12px;color:#b6c9bf;white-space:nowrap}.page{max-width:1320px;margin:auto;padding:clamp(14px,2.4vw,32px)}.intro{max-width:900px;margin:0 0 18px;color:#c3d6ca}.layout{display:grid;grid-template-columns:minmax(0,1.8fr) minmax(250px,.72fr);gap:18px;align-items:start}.scene,.sidebar section,.panel{background:#132329;border:1px solid #47645d;border-radius:12px;overflow:hidden;box-shadow:0 18px 50px #0007}.scene-top{padding:12px 15px;display:flex;justify-content:space-between;align-items:center;gap:10px;border-bottom:1px solid #425952}.tabs{display:flex;gap:7px;flex-wrap:wrap}.tab,button{background:#1b3438;color:#d5e7dd;border:1px solid #65887e;border-radius:7px;padding:10px 13px;cursor:pointer;font:inherit;touch-action:manipulation}.tab[aria-pressed="true"],button:hover,button:focus-visible{background:#365b59;border-color:#a6d5c2;outline:none}.frame{position:relative;aspect-ratio:16/9;overflow:hidden;background:#09171c}.frame>img{width:100%;height:100%;object-fit:cover;display:block}.hotspot{position:absolute;border:1.5px dashed #b4e3c9aa;border-radius:6px;background:#152d2c22;min-width:42px;min-height:42px;padding:0;transition:background .2s,box-shadow .2s}.hotspot:hover,.hotspot:focus-visible{background:#9bdbbf42;box-shadow:0 0 0 6px #8db49d22}.hotspot::after{content:attr(data-label);position:absolute;bottom:105%;left:50%;transform:translateX(-50%);background:#071317dd;padding:3px 7px;color:#d8eddf;font-size:11px;white-space:nowrap;max-width:140px}.hotspot[data-key="cart"]{left:31%;top:57%;width:18%;height:30%}.hotspot[data-key="monitor"]{left:79%;top:22%;width:17%;height:25%}.hotspot[data-key="curtain"]{left:52%;top:22%;width:40%;height:49%}.hotspot[data-key="terminal"]{left:39%;top:42%;width:22%;height:30%}.hotspot[data-key="files"]{left:4%;top:18%;width:27%;height:49%}.hotspot[data-key="archive"]{left:72%;top:18%;width:23%;height:49%}.line{min-height:85px;display:flex;align-items:center;padding:17px 22px;background:linear-gradient(100deg,#17363a,#0c1b22);border-top:1px solid #42635c}.line p{margin:0;font-size:14px}.sidebar{display:grid;gap:16px}.sidebar section{padding:17px}.portrait{width:100%;max-height:290px;object-fit:cover;object-position:50% 25%;border:1px solid #59756d;background:#112329;border-radius:7px}.portrait.uncanny{filter:contrast(1.1) saturate(.6) hue-rotate(-12deg)}.item-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}.item{padding:0;background:transparent;border:1px solid transparent;border-radius:10px}.item.selected{border-color:#cbe7d3;box-shadow:0 0 16px #8ad1b63b}.item img{width:100%;display:block;border-radius:9px}.tool-note{min-height:20px;color:#b8cfc3;font-size:12px}.controls{display:flex;flex-wrap:wrap;gap:8px;padding-top:14px}.danger{border-color:#9c5356;color:#ffcfcb;background:#3f1d28}.preview-note{font-size:12px;color:#abbcb4;margin:15px 0 0}.lab-foot{margin-top:18px;padding:15px 19px;border:1px dashed #58786e;border-radius:10px;font-size:12px;color:#b2c8bf}.toggle{display:inline-flex;align-items:center;gap:9px;font-size:12px;cursor:pointer}.toggle input{accent-color:#82c7ac;width:18px;height:18px}.flash{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;visibility:hidden;opacity:0;pointer-events:none;background:#050207;transition:opacity .08s}.flash.show{visibility:visible;opacity:1}.flash img{object-fit:contain;width:100%;height:100%;max-width:900px}.flash::after{content:"SYSTEM ERROR / DISCHARGE DENIED";position:absolute;bottom:7%;color:#fff;font-size:clamp(14px,3vw,32px);letter-spacing:.2em;text-align:center;background:#340a16ac;padding:12px}.flash button{position:absolute;top:22px;right:22px;z-index:1;background:#1d1a24;border-color:#aaa}.flash.jitter img{animation:shudder .075s steps(2,end) 6}@keyframes shudder{0%{transform:translate(-6px,2px)}100%{transform:translate(9px,-4px)}}@media(max-width:870px){.layout{grid-template-columns:1fr}.sidebar{grid-template-columns:1fr 1fr}.sidebar section:first-child{grid-column:1/3;display:grid;grid-template-columns:130px 1fr;gap:16px}.portrait{max-height:190px}.item-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}@media(max-width:530px){header{align-items:flex-start;flex-direction:column}.sidebar{grid-template-columns:1fr}.sidebar section:first-child{display:block;grid-column:auto}.portrait{max-height:230px;object-position:center 25%}.frame{aspect-ratio:4/3}.frame>img{object-fit:cover}.hotspot::after{font-size:9px}.page{padding:12px}}@media(prefers-reduced-motion:reduce){*,*::after,*::before{animation:none!important;transition:none!important}}
+</style></head><body>
+<header><div><div class="eyebrow">CREATIVE SYSTEM / EXPERIMENTAL BUILD</div><h1>WARD <b>13</b></h1></div><span class="mode-label">VISUAL LAB 01 · NOT LIVE GAME</span></header>
+<main class="page">
+<p class="intro">A safe prototype for original scenery, item art, and N.U.R.S.E. scare choreography. Tap objects to test clue dialogue, switch rooms, and audition a voluntary scare. Your saved game and current Treatment Room remain untouched.</p>
+<div class="layout">
+<div class="scene">
+ <div class="scene-top"><span class="eyebrow" id="roomLabel">TREATMENT ROOM / CAM 02</span><div class="tabs" role="group" aria-label="Choose room"><button class="tab" id="treatmentTab" aria-pressed="true">Treatment</button><button class="tab" id="recordsTab" aria-pressed="false">Records</button></div></div>
+ <div class="frame"><img id="roomImage" src="assets/treatment-room.svg" alt="Empty hospital treatment room with bed, medical supplies and monitor"><div id="hotspots"></div></div>
+ <div class="line" aria-live="polite"><p id="dialogue">“Welcome back, student nurse. Everything here has been accounted for.”</p></div>
+</div>
+<aside class="sidebar">
+ <section><div><h2>01 / N.U.R.S.E.</h2><img class="portrait" src="assets/nurse.svg" alt="N.U.R.S.E. appearing on a surveillance feed"></div><div><p class="muted" style="font-size:13px;margin:.4em 0">Warm, professional, impossible to read. The face remains the same while her voice and demeanor change as the truth emerges.</p><label class="toggle"><input type="checkbox" id="uncanny"> Unsettling feed / later phase</label></div></section>
+ <section><h2>02 / INVENTORY OBJECTS</h2><div class="item-grid" id="inventory"><button class="item selected" data-item="keycard" aria-label="Keycard"><img alt="" src="assets/icon-keycard.svg"></button><button class="item" data-item="clipboard" aria-label="Clipboard"><img alt="" src="assets/icon-clipboard.svg"></button><button class="item" data-item="radio" aria-label="Radio"><img alt="" src="assets/icon-radio.svg"></button><button class="item" data-item="vial" aria-label="Specimen vial"><img alt="" src="assets/icon-vial.svg"></button></div><p class="tool-note" id="selected">Selected: keycard</p></section>
+ <section><h2>03 / SCARE LAB</h2><p class="muted" style="font-size:12px;margin-top:0">This is an opt-in test: a brief visual interruption with a soft synthesized sting. We'll choreograph it to a clue later.</p><label class="toggle"><input id="quiet" type="checkbox" checked> Mute scare audio</label><br><label class="toggle" style="margin-top:10px"><input id="reduce" type="checkbox"> Reduce flashes and motion</label><div class="controls"><button class="danger" id="scareButton">Test jump scare</button></div></section>
+</aside></div>
+<div class="lab-foot"><b>Deployment strategy:</b> Original source SVG assets live beside this preview. Once approved, a separate installation pass connects each image to the existing game rooms and inventory event IDs. No user progress resets, no binary asset uploads, no API keys in the browser.</div>
+</main>
+<div class="flash" id="flash" role="dialog" aria-modal="true" aria-label="Test scare visual" aria-hidden="true"><button id="dismiss">Close ✕</button><img src="assets/scare.svg" alt="The N.U.R.S.E. feed becomes a disturbing apparition"></div>
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const scenes={
+treatment:{name:"TREATMENT ROOM / CAM 02",src:"assets/treatment-room.svg",alt:"Dimly lit clinical room with curtain, medication cart and monitor",hotspots:[
+{key:"cart",label:"MED CART",text:"“I signed off on those medications. No one asked who changed the time.”"},
+{key:"monitor",label:"MONITOR",text:"“Observation Four is not transmitting. It has not transmitted for years.”"},
+{key:"curtain",label:"CURTAIN",text:"“Please do not pull that curtain. There is nothing behind it anymore.”"}]},
+records:{name:"MEDICAL RECORDS / CAM 05",src:"assets/records.svg",alt:"Dark records archive with filing shelves and an illuminated terminal",hotspots:[
+{key:"terminal",label:"TERMINAL",text:"“That audit trail is not part of your assignment.”"},
+{key:"files",label:"FILES",text:"“Authorization is not the same as curiosity, student nurse.”"},
+{key:"archive",label:"ARCHIVE",text:"“I was told these records had been destroyed.”"}]}
+};
+let room="treatment",scareTimeout=null;
+function renderRoom(){
+ const d=scenes[room];$("roomImage").src=d.src;$("roomImage").alt=d.alt;$("roomLabel").textContent=d.name;
+ $("hotspots").replaceChildren(...d.hotspots.map(h=>{const b=document.createElement("button");b.className="hotspot";b.dataset.key=h.key;b.dataset.label=h.label;b.setAttribute("aria-label","Inspect "+h.label);b.addEventListener("click",()=>{$("dialogue").textContent=h.text});return b}));
+ for(const key of Object.keys(scenes))$(key+"Tab").setAttribute("aria-pressed",String(room===key));
+ $("dialogue").textContent=room==="treatment"?"“Everything here has been accounted for.”":"“Student nurse, Records is a restricted area.”";
+}
+$("treatmentTab").addEventListener("click",()=>{room="treatment";renderRoom()});
+$("recordsTab").addEventListener("click",()=>{room="records";renderRoom()});
+$("uncanny").addEventListener("change",e=>{document.querySelector(".portrait").classList.toggle("uncanny",e.target.checked)});
+document.querySelectorAll(".item").forEach(el=>el.addEventListener("click",()=>{
+ document.querySelectorAll(".item").forEach(b=>b.classList.remove("selected"));el.classList.add("selected");$("selected").textContent="Selected: "+el.dataset.item;
+}));
+const flash=$("flash");
+function stopScare(){flash.classList.remove("show","jitter");flash.setAttribute("aria-hidden","true");if(scareTimeout)clearTimeout(scareTimeout);$("scareButton").focus();}
+$("dismiss").addEventListener("click",stopScare);
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&flash.classList.contains("show"))stopScare()});
+function playSting(){
+ try{const C=window.AudioContext||window.webkitAudioContext;if(!C)return;const ac=new C(),osc=ac.createOscillator(),gain=ac.createGain();osc.type="sawtooth";osc.frequency.setValueAtTime(123,ac.currentTime);osc.frequency.exponentialRampToValueAtTime(45,ac.currentTime+.24);gain.gain.setValueAtTime(.0001,ac.currentTime);gain.gain.exponentialRampToValueAtTime(.09,ac.currentTime+.015);gain.gain.exponentialRampToValueAtTime(.0001,ac.currentTime+.33);osc.connect(gain).connect(ac.destination);osc.start();osc.stop(ac.currentTime+.36);osc.onended=()=>ac.close();}catch{}
+}
+$("scareButton").addEventListener("click",()=>{
+ if(!$("quiet").checked)playSting();
+ flash.classList.add("show");flash.setAttribute("aria-hidden","false");
+ const reduce=$("reduce").checked||matchMedia("(prefers-reduced-motion: reduce)").matches;
+ flash.classList.toggle("jitter",!reduce);
+ $("dismiss").focus();if(scareTimeout)clearTimeout(scareTimeout);
+ scareTimeout=setTimeout(stopScare,reduce?1250:700);
+});
+renderRoom();
+</script>
+</body></html>

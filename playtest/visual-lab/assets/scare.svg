@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 860" role="img" aria-label="Horror apparition of N.U.R.S.E. on a glitched screen">
+<defs>
+<radialGradient id="bg"><stop stop-color="#4d0b12"/><stop offset=".5" stop-color="#17080d"/><stop offset="1" stop-color="#020407"/></radialGradient>
+<linearGradient id="face" x2="0" y2="1"><stop stop-color="#d0d7ca"/><stop offset=".5" stop-color="#91b2a5"/><stop offset="1" stop-color="#213d43"/></linearGradient>
+<filter id="warp"><feTurbulence type="fractalNoise" baseFrequency=".02 .13" numOctaves="2" seed="4" result="noise"/><feDisplacementMap in="SourceGraphic" in2="noise" scale="26"/></filter>
+</defs>
+<rect width="860" height="860" fill="url(#bg)"/>
+<g filter="url(#warp)">
+<path d="M144 860Q150 475 261 401Q304 267 440 250Q565 274 603 405Q735 493 730 860Z" fill="#09242b"/>
+<path d="M264 244Q282 114 432 108Q587 112 596 270L574 548Q534 704 437 768Q333 699 293 550Z" fill="url(#face)"/>
+<path d="M259 270Q227 52 429 60Q620 62 600 280L573 317Q558 211 531 218Q437 192 330 209L289 325Z" fill="#03090e"/>
+<path d="M298 370Q358 334 422 378Q365 430 296 387Z" fill="#0a0c12"/><path d="M452 379Q523 333 582 370L574 395Q521 427 454 391Z" fill="#0a0c12"/>
+<ellipse cx="370" cy="384" rx="20" ry="28" fill="#f3eded"/><ellipse cx="507" cy="384" rx="20" ry="28" fill="#f3eded"/>
+<circle cx="370" cy="384" r="10" fill="#b41f2e"/><circle cx="507" cy="384" r="10" fill="#b41f2e"/>
+<path d="M434 358L408 529L457 536" fill="none" stroke="#243840" stroke-width="20"/>
+<path d="M339 595Q428 563 538 594Q501 711 432 712Q369 712 339 595Z" fill="#03060a"/>
+<path d="M362 611L385 641L405 612L427 651L450 614L473 646L492 615L515 612" fill="none" stroke="#d9d7c6" stroke-width="12"/>
+</g>
+<g stroke="#dd243a" stroke-opacity=".55" stroke-width="12">
+<path d="M0 119H860M0 340H860M0 566H860M0 776H860"/>
+</g>
+<text x="430" y="815" font-family="monospace" font-size="28" fill="#f1c4c0" text-anchor="middle" letter-spacing="9">DO NOT DISCHARGE</text>
+</svg>
