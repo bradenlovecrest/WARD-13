@@ -1,0 +1,3 @@
+One-time WARD 13 Tavi voice rollout: remaining dialogue 06–18.
+Runs each missing line once, with 20-second spacing and no automatic retries after quota errors.
+Commits completed WAV files as a single pack at the end, even if the script stops early.
