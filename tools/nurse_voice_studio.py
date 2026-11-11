@@ -24,6 +24,10 @@ if cue not in (*CUES, "custom") or mode not in ("preview", "generate"):
 transcript = os.environ.get("WARD_CUSTOM_LINE", "").strip() if cue == "custom" else CUES[cue]
 if not 1 <= len(transcript) <= 700:
     raise SystemExit("Transcript must be between 1 and 700 characters.")
+style_override = os.environ.get("WARD_TAVI_STYLE", "").strip()
+if style_override and (cue != "custom" or style_override not in ("welcome", "security", "fracture")):
+    raise SystemExit("WARD_TAVI_STYLE must be welcome, security, or fracture for custom cues.")
+selected_style = STYLES[style_override] if style_override else STYLES[cue]
 out = Path("voice-output")
 out.mkdir(exist_ok=True)
 (out / "transcript.txt").write_text(transcript, encoding="utf-8")
@@ -32,7 +36,7 @@ out.mkdir(exist_ok=True)
     "model": "gemini-3.8-flash-tts",
     "voice": "Tavi",
     "cue": cue,
-    "style": STYLES[cue],
+    "style": selected_style,
 }, indent=2), encoding="utf-8")
 print("WARD 13 voice studio | model: gemini-3.8-flash-tts | voice: Tavi | cue:", cue)
 print("Transcript length:", len(transcript))
