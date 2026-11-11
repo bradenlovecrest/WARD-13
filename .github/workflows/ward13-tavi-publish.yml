@@ -1,0 +1,73 @@
+name: WARD 13 — Publish Tavi dialogue
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Preview list, install audio support (no credits), or generate recordings
+        required: true
+        type: choice
+        default: preview
+        options:
+          - preview
+          - install
+          - generate
+      start_index:
+        description: Starting dialogue number from the preview (1–17)
+        required: true
+        type: number
+        default: 1
+      count:
+        description: Number of lines to record (small batches protect quota)
+        required: true
+        type: choice
+        default: "3"
+        options:
+          - "1"
+          - "2"
+          - "3"
+      confirm_rights:
+        description: I may publish these AI-generated recordings in the public WARD 13 game
+        required: true
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  publish-voice:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Preview, install, or generate Tavi dialogue
+        env:
+          WARD_PUBLISH_MODE: ${{ inputs.mode }}
+          WARD_START_INDEX: ${{ inputs.start_index }}
+          WARD_BATCH_COUNT: ${{ inputs.count }}
+          WARD_RIGHTS: ${{ inputs.confirm_rights }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python3 tools/publish_tavi.py
+      - name: Save WAV files as a backup artifact
+        if: ${{ inputs.mode == 'generate' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: ward13-published-tavi-${{ github.run_number }}
+          path: playtest/treatment-room/audio/tavi/*.wav
+          if-no-files-found: warn
+          retention-days: 7
+      - name: Publish changes to this branch
+        if: ${{ inputs.mode != 'preview' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add playtest/treatment-room/index.html playtest/treatment-room/audio/tavi/
+          if git diff --cached --quiet; then
+            echo "Nothing new to publish."
+          else
+            git commit -m "Add Tavi recorded dialogue and playback"
+            git push
+          fi
