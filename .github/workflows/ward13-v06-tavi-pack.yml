@@ -1,0 +1,28 @@
+name: WARD 13 v0.6 Tavi Pack (one-shot)
+
+on:
+  push:
+    branches:
+      - dev/puzzle-laboratory
+    paths:
+      - voice-production/v06-trigger.txt
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Generate three N.U.R.S.E. lines (single controlled run)
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python3 voice-production/generate_v06_pack.py
+      - name: Save Tavi recordings for audition
+        uses: actions/upload-artifact@v4
+        with:
+          name: ward13-v06-tavi-voice-pack
+          path: voice-output/
+          retention-days: 1
