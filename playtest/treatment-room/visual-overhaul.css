@@ -1,0 +1,31 @@
+/* WARD 13 visual prototype v1 — assets are external so art can be swapped independently. */
+/* Existing clinical puzzles, hotspots and embedded room photos remain preserved. */
+.nurse{position:relative;min-height:157px}
+.nurse::before{content:"";float:right;width:92px;height:120px;margin:0 0 8px 12px;border:1px solid #729489;border-radius:5px;background:#0c1a20 url("./assets/visual/nurse-welcome.svg") center 16%/cover no-repeat;box-shadow:0 0 17px #64877c21,inset 0 0 20px #000;filter:saturate(.8)}
+.nurse[data-phase="1"]::before{background-image:url("./assets/visual/nurse-directive.svg");filter:saturate(.75) contrast(1.15)}
+.nurse[data-phase="2"]::before{background-image:url("./assets/visual/nurse-fractured.svg");border-color:#ad4d58;box-shadow:0 0 20px #d14c573b;filter:contrast(1.3) saturate(.9)}
+.nurse[data-phase="2"]{background:linear-gradient(115deg,#200e16e8,#07151ddd)}
+.inv{min-height:93px;background:linear-gradient(160deg,#14252a,#081217);transition:border-color .2s,transform .2s}
+.inv:not(.empty):active{transform:scale(.97)}
+.inv strong{display:block;font-size:0;line-height:0;width:52px;height:52px;margin:0 auto 5px;background-repeat:no-repeat;background-position:center;background-size:contain;filter:drop-shadow(0 2px 4px #0009)}
+.inv[data-item="fuse"] strong{background-image:url("./assets/items/fuse.svg")}
+.inv[data-item="wristband"] strong{background-image:url("./assets/items/wristband.svg")}
+.inv[data-item="key"] strong{background-image:url("./assets/items/key.svg")}
+.inv[data-item="file"] strong{background-image:url("./assets/items/file.svg")}
+.inv[data-item="treatmentMAR"] strong{background-image:url("./assets/items/treatmentMAR.svg")}
+.inv[data-item="treatmentTray"] strong{background-image:url("./assets/items/treatmentTray.svg")}
+#stage:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,#01050983,transparent 16%,transparent 74%,#01050973),repeating-linear-gradient(180deg,#0000 0px,#0000 4px,#040b0e19 5px);opacity:.72;z-index:1}
+#stage .room-sign,#stage .bottom-caption{z-index:5}
+.ward-art-mode .scene-photo.treatment{background-image:url("./assets/scenes/treatment.svg")}
+.ward-art-mode .scene-photo.records{background-image:url("./assets/scenes/records.svg")}
+.ward-art-mode .scene-photo{filter:brightness(.79) saturate(.9) contrast(1.12)}
+.ward-art-mode #stage.powered .scene-photo{filter:brightness(.90) saturate(.94)}
+#scare .apparition{clip-path:none!important;background:transparent url("./assets/visual/nurse-fractured.svg") center 39%/135% auto no-repeat!important;width:min(78vw,570px);height:min(85vh,720px);border:none;box-shadow:none!important;filter:contrast(2) saturate(.45) drop-shadow(0 0 35px #bb334d)!important}
+#scare .apparition:before,#scare .apparition:after{display:none!important}
+#scare.active{background:radial-gradient(ellipse at 50% 37%,#6b142c,#09070d 67%)!important}
+#scare.active .apparition{animation:ward-shock .36s steps(4,end)}
+@keyframes ward-shock{0%{transform:translate(10px,-8px) scale(1.25)}35%{transform:translate(-13px,8px) scale(1.42)}70%{transform:translate(5px,1px) scale(1.32)}100%{transform:scale(1.26)}}
+#ward-art-toggle{border-color:#517f77;color:#d9ecdf}
+#ward-art-toggle[aria-pressed="true"]{background:#24453f;border-color:#9fc8b0}
+@media(max-width:520px){.nurse::before{width:73px;height:95px}.inv strong{width:45px;height:45px}.inv{min-height:83px}}
+@media(prefers-reduced-motion:reduce){.inv,.scene-photo,#scare.active .apparition{transition:none!important;animation:none!important}}
