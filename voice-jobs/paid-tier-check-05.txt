@@ -1,0 +1,3 @@
+WARD 13 voice canary — Tavi dialogue #05
+This file intentionally triggers exactly one Gemini TTS request via .github/workflows/ward13-tavi-paid-check.yml.
+No automatic retries; future pushes do not match this file unless it is changed.
