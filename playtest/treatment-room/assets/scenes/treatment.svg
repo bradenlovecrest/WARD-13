@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-label="Treatment Room original environment concept"><defs>
+<linearGradient id="walls" x2="0" y2="1"><stop stop-color="#34484b"/><stop offset="1" stop-color="#121c20"/></linearGradient>
+<linearGradient id="floor" x2=".4" y2="1"><stop stop-color="#253437"/><stop offset="1" stop-color="#030a0e"/></linearGradient>
+<radialGradient id="mist"><stop stop-color="#aed2bc" stop-opacity=".30"/><stop offset="1" stop-color="#031014" stop-opacity="0"/></radialGradient>
+<linearGradient id="steel" x2="1" y2="1"><stop stop-color="#a6b9b3"/><stop offset=".48" stop-color="#40595b"/><stop offset="1" stop-color="#17262b"/></linearGradient>
+<linearGradient id="white" x2="1" y2="1"><stop stop-color="#c3c7bb"/><stop offset="1" stop-color="#515f61"/></linearGradient>
+<filter id="glow"><feGaussianBlur stdDeviation="15"/></filter>
+<filter id="gr"><feTurbulence baseFrequency=".22" numOctaves="2" seed="13"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope=".15"/></feComponentTransfer></filter></defs>
+<rect width="1280" height="720" fill="#04090d"/><path d="M0 0H1280L1090 495H192Z" fill="#111f22"/><path d="M170 120H1100L1090 500H192Z" fill="url(#walls)"/><path d="M0 720L192 500H1090L1280 720Z" fill="url(#floor)"/>
+<path d="M0 0L170 120L192 500L0 720Z" fill="#1b292b"/><path d="M1280 0L1100 120L1090 500L1280 720Z" fill="#0b161a"/>
+<path d="M0 0L170 120H1100L1280 0" fill="#233337" stroke="#395054" stroke-width="4"/>
+<path d="M180 130L1100 130M185 495H1090M440 0L450 120M844 0L836 120" stroke="#77918a" stroke-width="5" opacity=".24" fill="none"/>
+<path d="M530 55H770L745 117H560Z" fill="#d7e6d9" opacity=".72" filter="url(#glow)"/><path d="M540 70H758L734 96H566Z" fill="#d3e7da" stroke="#f2f6df" stroke-width="2"/>
+<ellipse cx="630" cy="520" rx="480" ry="310" fill="url(#mist)" opacity=".28"/>
+
+<rect x="225" y="167" width="168" height="220" fill="#28373a" stroke="#718481" stroke-width="8"/><rect x="239" y="185" width="140" height="105" fill="#081b20" stroke="#a2a9a1" stroke-width="5"/><path d="M247 242H269L281 210L294 268L306 234L316 241H372" stroke="#8adea9" stroke-width="4" fill="none"/><text x="248" y="280" font-size="12" font-family="monospace" fill="#79b0a2">HR 00 / SIGNAL ERROR</text>
+<path d="M305 389L298 575" stroke="url(#steel)" stroke-width="12"/><path d="M291 570L260 582M295 568L332 582" stroke="#88938d" stroke-width="10"/>
+<rect x="860" y="110" width="236" height="393" fill="#89928a" opacity=".27"/><path d="M875 139Q887 183 875 488M903 137Q923 223 905 494M941 135Q924 220 944 489M979 132Q1003 220 982 490M1025 134Q1010 257 1031 493M1069 133Q1090 261 1071 491" stroke="#d5d3c4" stroke-width="14" opacity=".61" fill="none"/><path d="M854 124H1110" stroke="#b1b8b1" stroke-width="12"/>
+<path d="M365 470L760 445L876 503L452 556Z" fill="#4a6f70" stroke="#9eb3ae" stroke-width="7"/><path d="M391 461L732 443L816 487L463 508Z" fill="#c3c1b3"/><path d="M422 496L820 491L841 522L464 544Z" fill="#707777"/><path d="M453 548L433 642M811 522L841 630" stroke="#647577" stroke-width="20"/>
+<rect x="94" y="465" width="198" height="180" rx="8" fill="#46595b" stroke="#9fb0a7" stroke-width="5"/><path d="M100 511H289M100 562H289" stroke="#1f3136" stroke-width="8"/><rect x="119" y="486" width="65" height="10" rx="3" fill="#b8c5b2"/><rect x="120" y="540" width="65" height="10" rx="3" fill="#b8c5b2"/><rect x="120" y="587" width="65" height="10" rx="3" fill="#b8c5b2"/><rect x="132" y="445" width="31" height="20" fill="#a5b8aa"/><rect x="175" y="432" width="30" height="30" fill="#85453d"/><rect x="220" y="440" width="27" height="25" fill="#829e91"/>
+<circle cx="611" cy="242" r="56" fill="#d4d5c4" stroke="#8fa59c" stroke-width="9"/><path d="M611 240L610 202M610 240L641 257" stroke="#344447" stroke-width="6"/><text x="586" y="293" font-size="12" fill="#d4dfd2" font-family="monospace">00:13</text>
+<path d="M762 193V434" stroke="#95a29c" stroke-width="8"/><path d="M754 188H802" stroke="#95a29c" stroke-width="8"/><path d="M776 189V277" stroke="#c3cfc0" stroke-width="3"/><path d="M761 248H789V307H761Z" fill="#b6c7c6" opacity=".43" stroke="#d7ddd5" stroke-width="3"/>
+<path d="M750 478L810 487" stroke="#602f34" stroke-width="8" opacity=".7"/><path d="M15 416H170" stroke="#b3c3b5" opacity=".2" stroke-width="4"/>
+
+<rect width="1280" height="720" fill="#b0bda8" filter="url(#gr)" opacity=".22"/>
+<rect x="11" y="11" width="1258" height="698" fill="none" stroke="#86a09b" stroke-opacity=".14" stroke-width="3"/>
+<rect x="0" y="0" width="1280" height="720" fill="#000" opacity=".09"/><path d="M10 665H330" stroke="#b2cbb9" opacity=".42"/><text x="24" y="696" font-family="monospace" font-size="15" letter-spacing="2" fill="#b0c6b9">RIVERMERE / WARD 13 / 00:13</text>
+</svg>
