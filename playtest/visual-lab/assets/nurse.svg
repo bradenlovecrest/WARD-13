@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 960" role="img" aria-label="Uncannily still nurse in faded teal scrubs, caught by a dim hospital surveillance camera">
+<defs>
+ <linearGradient id="wall" x2=".12" y2="1"><stop stop-color="#1d3238"/><stop offset=".65" stop-color="#102229"/><stop offset="1" stop-color="#071319"/></linearGradient>
+ <radialGradient id="halo"><stop stop-color="#b5dbcf" stop-opacity=".46"/><stop offset="1" stop-color="#162d35" stop-opacity="0"/></radialGradient>
+ <linearGradient id="skin" x1=".2" y1=".2" x2=".82" y2="1"><stop stop-color="#b5c7bc"/><stop offset=".5" stop-color="#92ada7"/><stop offset="1" stop-color="#637f79"/></linearGradient>
+ <linearGradient id="scrub" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#326269"/><stop offset=".6" stop-color="#25494e"/><stop offset="1" stop-color="#172f36"/></linearGradient>
+ <linearGradient id="hair" x2=".9" y2="1"><stop stop-color="#19232a"/><stop offset="1" stop-color="#080f14"/></linearGradient>
+ <linearGradient id="shade" x2="0" y2="1"><stop stop-opacity="0"/><stop offset="1" stop-opacity=".76"/></linearGradient>
+ <pattern id="lines" width="6" height="6" patternUnits="userSpaceOnUse"><path d="M0 0H6" stroke="#d5f4e3" stroke-opacity=".10" stroke-width=".7"/></pattern>
+ <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".36" numOctaves="2" seed="9" result="n"/><feColorMatrix in="n" type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope=".075"/></feComponentTransfer></filter>
+ <filter id="soft"><feGaussianBlur stdDeviation="13"/></filter>
+</defs>
+<rect width="720" height="960" fill="url(#wall)"/>
+<rect x="115" y="40" width="490" height="850" rx="7" fill="#233b40" stroke="#77918a" stroke-opacity=".3" stroke-width="6"/>
+<rect x="135" y="58" width="450" height="816" fill="#102127"/>
+<circle cx="360" cy="410" r="370" fill="url(#halo)"/>
+<path d="M115 140H605M115 750H605" stroke="#607e7a" stroke-opacity=".3" stroke-width="9"/>
+<rect x="133" y="65" width="450" height="806" fill="url(#lines)" opacity=".4"/>
+<ellipse cx="358" cy="859" rx="310" ry="125" fill="#030a0f" opacity=".7" filter="url(#soft)"/>
+<!-- still, severe silhouette -->
+<path d="M121 961L153 680Q191 598 274 580L310 547H418L450 581Q534 597 564 670L624 961Z" fill="url(#scrub)" stroke="#75918a" stroke-opacity=".5" stroke-width="3"/>
+<path d="M289 559L352 675L429 557L406 552H311Z" fill="#183039"/>
+<path d="M293 557L349 662L317 706L259 594Z" fill="#4d7c78" stroke="#80aaa1" stroke-opacity=".5"/>
+<path d="M421 558L350 662L385 703L454 593Z" fill="#416d6e" stroke="#82aaa2" stroke-opacity=".5"/>
+<path d="M281 589L326 960M430 587L393 960" stroke="#11242c" stroke-opacity=".5" stroke-width="7"/>
+<path d="M334 553V605Q362 640 393 605V551Z" fill="#7c9a91"/>
+<path d="M288 469Q264 384 283 299Q297 214 356 189Q426 210 443 301Q464 391 428 470Q424 531 356 566Q291 541 288 469Z" fill="url(#skin)" stroke="#405b59" stroke-width="3"/>
+<path d="M276 350Q252 192 335 157Q398 125 441 204Q467 248 446 357L437 315Q426 240 406 228Q355 255 291 235Q286 304 276 350Z" fill="url(#hair)"/>
+<path d="M428 214Q508 295 461 520Q437 574 423 587Q456 480 437 347Z" fill="#101b23"/>
+<path d="M294 244Q268 303 277 427L287 530Q244 483 243 373Q246 275 294 244Z" fill="#162128"/>
+<path d="M305 356Q330 339 352 355M370 353Q395 338 417 353" fill="none" stroke="#344d4b" stroke-width="6"/>
+<path d="M307 365Q329 377 350 365M370 365Q395 377 416 365" fill="none" stroke="#304e4b" stroke-width="3"/>
+<ellipse cx="330" cy="370" rx="7" ry="6" fill="#14252c"/><ellipse cx="394" cy="370" rx="7" ry="6" fill="#14252c"/>
+<circle cx="329" cy="368" r="2.5" fill="#e3efe5"/><circle cx="393" cy="368" r="2.5" fill="#e3efe5"/>
+<path d="M359 366L349 432Q357 440 371 432" fill="none" stroke="#57756e" stroke-width="4"/>
+<path d="M327 476Q358 488 393 477" fill="none" stroke="#475f5c" stroke-width="3"/>
+<path d="M335 482Q360 484 385 481" fill="none" stroke="#9eada4" stroke-opacity=".65" stroke-width="2"/>
+<path d="M309 503Q355 541 406 505" fill="none" stroke="#526d67" stroke-opacity=".25" stroke-width="3"/>
+<path d="M302 324L354 325M371 325L417 324" stroke="#1b2e2d" stroke-width="7" stroke-linecap="round" opacity=".8"/>
+<path d="M321 597Q341 629 353 659L316 709" fill="none" stroke="#96b5aa" stroke-opacity=".4" stroke-width="2"/>
+<rect x="428" y="680" width="108" height="150" rx="9" fill="#a1c2b9" stroke="#14282e" stroke-width="7"/>
+<rect x="442" y="696" width="81" height="103" rx="4" fill="#d4ded1"/>
+<rect x="460" y="676" width="43" height="17" rx="5" fill="#708f8a"/>
+<rect x="451" y="718" width="64" height="6" fill="#35535a"/><rect x="451" y="732" width="53" height="4" fill="#6c8e8b"/>
+<rect x="451" y="756" width="64" height="29" fill="#1a343b"/><text x="483" y="775" font-family="monospace" font-size="13" text-anchor="middle" fill="#d9e9e2">N.U.R.S.E.</text>
+<path d="M-2 0H722V960H-2Z" fill="url(#shade)" opacity=".47"/>
+<rect width="720" height="960" fill="#fff" filter="url(#grain)"/>
+<path d="M30 30H94M30 30V94M690 30H626M690 30V94M30 930H94M30 930V866M690 930H626M690 930V866" stroke="#9bc3b4" opacity=".44" stroke-width="3"/>
+<text x="36" y="64" fill="#b9dfd4" font-size="16" font-family="monospace" letter-spacing="3">WARD 13 / STAFF FEED</text>
+<circle cx="650" cy="60" r="8" fill="#c04f4c"/><text x="638" y="93" fill="#b1beb7" font-family="monospace" font-size="15">LIVE</text>
+<text x="35" y="910" fill="#b3d2c6" font-size="14" letter-spacing="2" font-family="monospace">SYSTEM PRECEPTOR  /  ID UNVERIFIED</text>
+</svg>
