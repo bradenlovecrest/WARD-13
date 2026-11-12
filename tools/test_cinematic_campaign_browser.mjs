@@ -21,6 +21,7 @@ async function assertVisibleScare(page, selector, description){
      covering,ownsCenter:center===el||el.contains(center),
      img:el.querySelector('img')?{complete:el.querySelector('img').complete,naturalWidth:el.querySelector('img').naturalWidth}:null};
  });
+ console.log('SCARE LAYOUT',description,JSON.stringify(info));
  assert.equal(info.position,'fixed',description+' must be fixed to viewport');
  assert.equal(info.covering,true,description+' should cover the phone viewport');
  if(info.pointerEvents!=='none')assert.equal(info.ownsCenter,true,description+' must be frontmost, not behind the game');
