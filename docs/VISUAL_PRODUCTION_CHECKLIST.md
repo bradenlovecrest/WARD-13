@@ -1,6 +1,6 @@
 # WARD 13 — Visual Asset Production Checklist
 
-Status: **10/20 complete (50%)** in the isolated Visual Lab.
+Status: **12/20 complete (60%)** in the isolated Visual Lab.
 
 This checklist tracks playable visual-lab components, **not** finished campaign integration. The main game is untouched.
 
@@ -14,8 +14,8 @@ This checklist tracks playable visual-lab components, **not** finished campaign 
 - [x] **NEW distinct real horror scream + previous mixes** — New default is the 3.6-second human recording “Woman Screaming” by DanJFilms (CC0), embedded directly in the game. Previous NIGHTMARE, human short/long, synthesized fallback remain selectable, with mute/volume/reduced-motion controls.
 - [x] **Accessibility basics** — Reduced-motion, mute, volume, dialogue captions, close/escape controls
 - [x] **Room navigation and scene state** — Three playable room tabs with hotspots in the lab
-- [ ] **Dedicated Records Room photo plate** — Temporary illustrated concept; photorealistic scene pending
-- [ ] **Dedicated Observation Four photo plate** — Temporary illustrated concept; photorealistic scene pending
+- [x] **Dedicated Records Room photo-derived plate** — New cinematic chart archive and audit terminal on CAM 05, interactive with Tavi and audit sequence; master high-resolution cleanup still pending
+- [x] **Dedicated Observation Four photo-derived plate** — New cinematic restrained bed, observation glass, evidence cart and monitor on CAM 07, with an earned second-glass-tap scare; final clean art still pending
 - [ ] **Clean Treatment Room plate without UI labels** — Current concept has embedded investigative labels
 - [ ] **N.U.R.S.E. phase III production portrait** — Current corrupted phase is a filtered existing portrait
 - [ ] **More scare events and unique overlays** — Plan 3–5 earned scares across the story
@@ -28,7 +28,7 @@ This checklist tracks playable visual-lab components, **not** finished campaign 
 ## Accepted production constraints
 
 - Realistic Treatment Room image currently contains a few baked-in UI labels; recreate a clean art plate before final game installation.
-- Records and Observation Four are concept SVG placeholders, not photographic game-ready backgrounds.
+- Records and Observation Four now use locally hosted WebP plates derived from our original cinematic concept artwork instead of SVG placeholders. **These are playable preview-quality art, not final clean master backgrounds**: Records needs higher native-resolution detail, and Observation Four still has some investigative callouts baked into the image. Their click targets remain interactive HTML elements.
 - N.U.R.S.E. Phase III currently reuses an existing portrait with CSS distortion, not a new portrait asset.
 - Tavi recordings are requested through relative paths from GitHub Pages. Unavailable files produce captions instead of device text-to-speech.
 - Original jump-scare scream is a locally synthesized PCM WAV embedded in the Visual Lab (no externally licensed samples); the Web Audio impact is layered beneath it. Playback is user-triggered, never automatic on page load.
@@ -55,3 +55,9 @@ This checklist tracks playable visual-lab components, **not** finished campaign 
 - Embedded in Visual Lab HTML as data URI (avoids relying on the previous provider's CDN). Default selector: `new-real`. This uses a **different recorded performance**, not the previous sample with effects.
 - On iPhone 26, Ogg Vorbis support is available on current Safari; if playback fails, the original synthesized fallback remains. The full 3.6 s recording gets a 4.2 s scare duration.
 - At low physical speaker volume, test `NEW · Real bloodcurdling scream`; the physical device test has not yet been performed.
+
+## Visual Lab v1.1 — Two remaining rooms wired
+
+- `playtest/visual-lab-realistic/assets/records-v11.webp`: archive shelving and altered patient chart investigation; `FILES`, `ARCHIVE DRAWERS`, and `AUDIT TERMINAL` hotspots. Inspect the terminal before the archive drawers to uncover a cross-reference discrepancy and change N.U.R.S.E.'s phase.
+- `playtest/visual-lab-realistic/assets/observation-four-v11.webp`: restrained bed, patient monitor, observation glass, and evidence cart; four touch hotspots, each accessible with keyboard/VoiceOver naming. Two examinations of the glass trigger the recorded human scream and N.U.R.S.E. scare (never autoplay on room entry).
+- Main campaign and player saves remain untouched. V1.1 upgrades the **Visual Lab**; remaining campaign and art tasks are separately tracked.
