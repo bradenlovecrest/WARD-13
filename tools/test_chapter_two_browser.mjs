@@ -44,7 +44,7 @@ try{
    }
    assert.match(await page.locator('#answer-feedback').innerText(),/ASSESSMENT VERIFIED/);
    await page.locator('#btn-submit').click();
-   await page.locator('#question-overlay[hidden]').waitFor();
+   await page.locator('#question-overlay').waitFor({state:'hidden'});
   }
   await page.locator('#btn-gate:not([hidden])').click();
   await page.locator('#question-overlay:not([hidden])').waitFor();
