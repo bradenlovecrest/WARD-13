@@ -29,7 +29,7 @@ try{
    else await page.locator('#accessible-charts button').nth(qi).click();
    await page.locator('#question-overlay:not([hidden])').waitFor();
    assert.ok((await page.locator('#question-title').textContent()).includes(q.title),'wrong clinical record '+q.id);
-   if(ri===0&&qi===0){
+   if((ri===0&&qi===0)||(ri===1&&qi===1)){
     await page.locator('#options button').nth((q.correct+1)%4).click();
     await page.locator('#btn-submit').click();
     assert.match(await page.locator('#answer-feedback').innerText(),/NOT VERIFIED/);
@@ -67,8 +67,14 @@ try{
  await page.locator('#options button').nth(rooms[0].questions[0].correct).click();
  await page.locator('#btn-submit').click();
  await page.locator('#btn-submit').click();
+ await page.locator('#question-overlay:not([hidden])').waitFor();
+ assert.ok((await page.locator('#question-title').textContent()).includes(rooms[1].questions[1].title),'Must continue to second missed concept');
+ await page.locator('#options button').nth(rooms[1].questions[1].correct).click();
+ await page.locator('#btn-submit').click();
+ await page.locator('#btn-submit').click();
+ await page.locator('#ending:not([hidden])').waitFor();
  const review=await page.evaluate(()=>JSON.parse(localStorage.getItem('ward13.chapter2.v1')));
- assert.ok(review.reviewed.includes('n1'),'Missed clinical case must be retrievable');
+ assert.ok(review.reviewed.includes('n1')&&review.reviewed.includes('h2'),'All missed concepts must be retrievable');
  await page.reload({waitUntil:'domcontentloaded'});
  await page.locator('#btn-continue:not([hidden])').waitFor();
  await page.locator('#btn-continue').click();

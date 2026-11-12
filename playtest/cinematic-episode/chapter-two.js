@@ -133,8 +133,8 @@ function closeQuestion(quiet){
  if(previousFocus&&previousFocus.isConnected)previousFocus.focus({preventScroll:true});
  previousFocus=null;
  if(quiet)return;
- if(state.finished){showEnding();return;}
  if(wasReview&&wasResolved){reviewQueue=reviewQueue.filter(function(id){return pendingReview().includes(id);});if(reviewQueue.length){var next=cases.get(reviewQueue.shift());if(next){openQuestion(next,false,true);return;}}toast('RETRIEVAL PASS COMPLETE. YOU CAN REPEAT ANY CHART.');}
+ if(state.finished){showEnding();return;}
  render();
 }
 function door(){
