@@ -24,3 +24,21 @@
 @media(max-width:640px){.cinematic-nurse-portrait{height:200px}.hot[data-hot="patient004"],.hot[data-hot="obs-glass"]{min-height:42px;min-width:44px}}
 @media(prefers-reduced-motion:reduce){#patient004-reveal img{animation:none!important}}
 body.reduced #patient004-reveal img{animation:none!important}
+
+
+/* Scare reliability v2: visible, full-screen character photography rather than a tiny silhouette. */
+#scare.records-vision{position:fixed;inset:0;z-index:190;background:radial-gradient(ellipse at center,#37141b,#030508 78%);}
+#scare.records-vision .apparition{
+  width:min(96vw,760px);height:100dvh;max-height:none;
+  clip-path:none!important;background-size:cover;background-position:center 34%;
+  border:0;filter:grayscale(.4) contrast(1.7) saturate(.55);
+  transform:scale(1.13);box-shadow:0 0 90px #8a1a24;
+}
+#scare.records-vision .apparition::before,#scare.records-vision .apparition::after{display:none}
+#scare.records-vision .scaretext{
+  bottom:7%;z-index:2;text-align:center;background:#24060cae;padding:9px 12px;
+}
+#patient004-reveal:not([hidden]){position:fixed!important;inset:0!important;display:flex!important;z-index:9999!important;visibility:visible!important;}
+#patient004-reveal img{background:#071719;object-position:center 46%;max-width:none;max-height:none;}
+#patient004-reveal .close-reveal{top:max(12px,env(safe-area-inset-top));right:max(12px,env(safe-area-inset-right));}
+@media (prefers-reduced-motion:reduce){#scare.records-vision .apparition{transform:none!important;animation:none!important}}
