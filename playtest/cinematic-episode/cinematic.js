@@ -5,6 +5,8 @@
  'use strict';
  const overlay=document.getElementById('patient004-reveal');
  if(!overlay)return;
+ document.documentElement.dataset.cinematicScareLoaded='21';
+ const build=document.getElementById('scare-build-id');if(build)build.textContent='SCARE ENGINE v2.1 ✓';
  const close=overlay.querySelector('[data-close-patient]');
  const image=overlay.querySelector('img');
  // Lazy images do not load while the scare overlay is hidden on iOS. Preload now.
