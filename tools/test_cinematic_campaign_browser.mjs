@@ -18,7 +18,7 @@ async function assertVisibleScare(page, selector, description){
    const center=document.elementFromPoint(v.w*.5,v.h*.5);
    return {position:style.position,display:style.display,visibility:style.visibility,
      opacity:Number(style.opacity),zIndex:Number(style.zIndex),pointerEvents:style.pointerEvents,
-     covering,ownsCenter:center===el||el.contains(center),
+     covering,geometry:{x:r.x,y:r.y,width:r.width,height:r.height,viewportWidth:v.w,viewportHeight:v.h},ownsCenter:center===el||el.contains(center),
      img:el.querySelector('img')?{complete:el.querySelector('img').complete,naturalWidth:el.querySelector('img').naturalWidth}:null};
  });
  console.log('SCARE LAYOUT',description,JSON.stringify(info));
