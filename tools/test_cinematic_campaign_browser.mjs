@@ -26,6 +26,8 @@ try{
  await page.locator('#enter-button').click();
  await page.locator('#game:not([hidden])').waitFor();
  assert.ok(await page.locator('.cinematic-nurse-portrait').count());
+ assert.match(await page.locator('.nursehead').innerText(),/AI/);
+ assert.ok(await page.locator('#evidence-strip button').count()>0,'Evidence chips missing');
  const hasPortrait=await page.locator('.cinematic-nurse-portrait').evaluate(x=>getComputedStyle(x).backgroundImage.startsWith('url("data:image/webp'));
  assert.ok(hasPortrait,'Real cinematic N.U.R.S.E. portrait should render');
  const logo=await page.evaluate(()=>document.title);
@@ -37,6 +39,9 @@ try{
   api.advance('records');
  });
  await page.locator('.scene-photo.records').waitFor();
+ await page.locator('#scare-preview').click();
+ await page.locator('#scare.active').waitFor();
+ assert.ok(await page.locator('#scare.active').count(),'Records scare should appear immediately');
  const records=await page.locator('#scene-photo').evaluate(x=>getComputedStyle(x).backgroundImage);
  assert.match(records,/records-v13.webp/);
  await page.locator('[data-hot="files"]').click();
@@ -44,6 +49,9 @@ try{
  await page.locator('#close-modal').click();
  await page.evaluate(()=>window.WARD13E0.advance('treatment'));
  await page.locator('.scene-photo.treatment').waitFor();
+ await page.locator('#scare-preview').click();
+ await page.locator('#scare.active').waitFor();
+ assert.ok(await page.locator('#scare.active').count(),'Treatment scare should appear immediately');
  const treat=await page.locator('#scene-photo').evaluate(x=>getComputedStyle(x).backgroundImage);
  assert.match(treat,/data:image\/webp;base64/);
  await page.locator('[data-hot="treat-drawer"]').click();
@@ -60,6 +68,10 @@ try{
  await page.locator('#patient004-reveal:not([hidden])').waitFor();
  await page.locator('[data-close-patient]').click();
  assert.ok(await page.locator('#patient004-reveal[hidden]').count());
+ await page.locator('[data-hot="patient004"]').click();
+ await page.locator('#replay-patient-scare').click();
+ await page.locator('#patient004-reveal:not([hidden])').waitFor();
+ await page.locator('[data-close-patient]').click();
  await page.locator('[data-hot="patient"]').click();
  await page.locator('#modal-layer:not([hidden])').waitFor();
  const clinical=await page.locator('#modal-body').innerText();
