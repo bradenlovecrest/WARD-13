@@ -8,6 +8,9 @@ const server=spawn('python3',['-m','http.server','8765','--bind','127.0.0.1'],{s
 let browser;
 
 async function assertVisibleScare(page, selector, description){
+ await page.waitForFunction(sel=>{
+   const el=document.querySelector(sel);return el&&Number(getComputedStyle(el).opacity)>.8;
+ },selector,{timeout:1800});
  const info=await page.locator(selector).evaluate(el=>{
    const style=getComputedStyle(el),r=el.getBoundingClientRect();
    const v={w:innerWidth,h:innerHeight};
