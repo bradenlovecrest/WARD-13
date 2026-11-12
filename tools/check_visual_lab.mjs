@@ -31,8 +31,14 @@ for(const marker of [
 ]){
   if(!code.includes(marker))throw new Error('Missing event initialization: '+marker);
 }
-const nightmareOption='<option value="nightmare">NIGHTMARE · real + rumble</option>';
-if(!html.includes(nightmareOption))throw new Error('Missing default Nightmare scream option');
+const nightmareOption='<option value="nightmare">Previous NIGHTMARE mix</option>';
+if(!html.includes(nightmareOption))throw new Error('Missing previous Nightmare scream option');
+if(!html.includes('<option value="new-real">NEW · Real bloodcurdling scream</option>'))throw new Error('Missing the new real scream default');
+if(!code.includes("const newHumanScream = new Audio('data:audio/ogg;base64,"))throw new Error('New human scream embedded audio missing');
+const embeddedOgg=code.match(/const newHumanScream = new Audio\('data:audio\/ogg;base64,([A-Za-z0-9+/=]+)'\)/);
+if(!embeddedOgg||embeddedOgg[1].length<30000)throw new Error('New human scream asset truncated');
+const raw=Buffer.from(embeddedOgg[1],'base64');
+if(raw.toString('ascii',0,4)!=='OggS')throw new Error('New human scream is not Ogg audio');
 if(!code.includes("clip.volume=Math.min(.95,chosenVolume()*2)"))throw new Error('Human scream level regressed');
 if(!code.includes("stopNightmareLayer()"))throw new Error('Scare cleanup missing');
 if(!code.includes("playNightmareLayer()"))throw new Error('Nightmare layer not connected');
