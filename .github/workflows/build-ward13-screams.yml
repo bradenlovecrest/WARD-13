@@ -1,0 +1,42 @@
+name: Build Ward 13 recorded scream audio for Safari
+on:
+  push:
+    branches: [fix/scream-recording-v22]
+    paths:
+      - 'playtest/cinematic-episode/assets/recorded-scream-original.ogg'
+      - '.github/workflows/build-ward13-screams.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  recorded-screams:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Convert embedded human scream to local iPhone-compatible MP3 files
+        run: |
+          set -euo pipefail
+          if ! command -v ffmpeg >/dev/null 2>&1; then
+            sudo apt-get update -qq
+            sudo DEBIAN_FRONTEND=noninteractive apt-get install -y ffmpeg
+          fi
+          ffmpeg -hide_banner -loglevel error -y -i playtest/cinematic-episode/assets/recorded-scream-original.ogg -af "highpass=f=90,lowpass=f=7200,acompressor=threshold=0.12:ratio=2.4:attack=5:release=120,volume=1.25" -codec:a libmp3lame -b:a 160k playtest/cinematic-episode/assets/real-human-scream-v22.mp3
+          ffmpeg -hide_banner -loglevel error -y -i playtest/cinematic-episode/assets/recorded-scream-original.ogg -af "atempo=0.86,highpass=f=120,lowpass=f=4200,acompressor=threshold=0.1:ratio=2.2:attack=10:release=220,volume=1.0" -codec:a libmp3lame -b:a 160k playtest/cinematic-episode/assets/patient-plaintive-scream-v22.mp3
+          for f in playtest/cinematic-episode/assets/*v22.mp3; do
+            test -s "$f"
+            ffprobe -v error -show_entries format=duration -of default=nokey=1:noprint_wrappers=1 "$f"
+          done
+      - name: Verify recorded sound references in campaign
+        run: node tools/check_cinematic_campaign.mjs
+      - name: Commit actual MP3s to repair branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add playtest/cinematic-episode/assets/*v22.mp3
+          if ! git diff --cached --quiet; then
+            git commit -m "Add iPhone-compatible recorded human scream audio"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi

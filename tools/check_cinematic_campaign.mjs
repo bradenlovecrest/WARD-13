@@ -18,8 +18,8 @@ new vm.Script(companion,{filename:'Cinematic patient effects'});
 const must=(what,term)=>{if(!what.includes(term))throw Error('Missing '+term.slice(0,95))};
 must(html,'ward13-cinematic-campaign-v1');
 must(html,"LEGACY_SAVE='ward13-treatment-v06'");
-must(html,'<link rel="stylesheet" href="cinematic.css?v=21-scare-visible">');
-must(html,'<script src="cinematic.js?v=21-scare-visible" defer></script>');
+must(html,'<link rel="stylesheet" href="cinematic.css?v=22-recorded-scream">');
+must(html,'<script src="cinematic.js?v=22-recorded-scream" defer></script>');
 must(html,'id="scare-direct-test"');
 must(html,'#scare.active{position:fixed!important');
 must(html,'patient004:cinematicPatient004');
@@ -55,7 +55,11 @@ for(const asset of [
 const taviRefs=(html.match(/\.\.\/treatment-room\/audio\/tavi\/[0-9a-f]{12}\.wav/g)||[]);
 if(taviRefs.length!==18)throw Error('Expected 18 Tavi WAV paths, got '+taviRefs.length);
 for(const item of taviRefs)if(!fs.existsSync(path.resolve(root,'playtest/cinematic-episode',item)))throw Error('Missing Tavi voice '+item);
-if(!/const cc0Fallback=new Audio\('data:audio\/ogg;base64,[A-Za-z0-9+/=]{30000,}'\)/.test(companion))throw Error('Missing independently licensed sound fallback');
+for(const asset of ['real-human-scream-v22.mp3','patient-plaintive-scream-v22.mp3'])if(!fs.existsSync(path.join(root,'playtest/cinematic-episode/assets',asset)))throw Error('Missing recorded scream MP3 '+asset);
+if(!html.includes("new Audio('./assets/real-human-scream-v22.mp3')"))throw Error('Main scare must use recorded MP3');
+if(!companion.includes("new Audio('./assets/patient-plaintive-scream-v22.mp3')"))throw Error('Patient 004 must use local recorded MP3');
+if(html.includes("soundCue('scare_sting_v2'"))throw Error('Synthetic sting still plays for scares');
+if(companion.includes('emergencySting('))throw Error('Patient synthetic sound still active');
 
 // New regression tests for the playtest feedback.
 for(const marker of ['function balancedChoices(','const ARCHIVE_BREADCRUMBS=','id="evidence-strip"','id="scare-preview"','pH 7.51 / CO₂ 29 / HCO₃⁻ 23','DIRECTORATE OVERRIDE ACTIVE'])if(!html.includes(marker))throw Error('Campaign improvement missing: '+marker);

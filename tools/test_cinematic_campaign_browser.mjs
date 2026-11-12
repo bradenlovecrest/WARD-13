@@ -52,7 +52,7 @@ try{
  });
  const response=await page.goto('http://127.0.0.1:8765/playtest/cinematic-episode/',{waitUntil:'domcontentloaded'});
  assert.equal(response.status(),200);
- assert.match(await page.locator('#scare-build-id').innerText(),/v2\.1 ✓/,'Companion scare engine must load, not a stale cached script');
+ assert.match(await page.locator('#scare-build-id').innerText(),/v2\.2/,'Companion scare engine must load, not a stale cached script');
  await page.locator('#scare-direct-test').click();
  await page.locator('#scare.active').waitFor();
  await assertVisibleScare(page,'#scare.active','One-click scare diagnostic on title screen');
@@ -90,7 +90,7 @@ try{
  await page.locator('#scare.active').waitFor();
  assert.ok(await page.locator('#scare.active').count(),'Treatment scare should appear immediately');
  await assertVisibleScare(page,'#scare.active','Treatment scare');
- assert.ok((await page.evaluate(()=>window.__scarePlayCalls.length))>0,'Treatment audio should be requested');
+ assert.ok((await page.evaluate(()=>window.__scarePlayCalls.some(x=>x.url.includes('real-human-scream-v22.mp3')))),'Treatment must play recorded MP3, not whoosh');
  const treat=await page.locator('#scene-photo').evaluate(x=>getComputedStyle(x).backgroundImage);
  assert.match(treat,/data:image\/webp;base64/);
  await page.locator('[data-hot="treat-drawer"]').click();
@@ -107,6 +107,7 @@ try{
  await page.locator('#patient004-reveal:not([hidden])').waitFor();
  await page.locator('#patient004-reveal img').evaluate(img=>img.decode().catch(()=>{}));
  await assertVisibleScare(page,'#patient004-reveal:not([hidden])','Patient 004 scare');
+ assert.ok((await page.evaluate(()=>window.__scarePlayCalls.some(x=>x.url.includes('patient-plaintive-scream-v22.mp3')))),'Patient 004 must play local MP3');
  const patientImage=await page.locator('#patient004-reveal img').evaluate(x=>({w:x.naturalWidth,h:x.naturalHeight}));
  assert.ok(patientImage.w>500&&patientImage.h>250,'Patient image should be full resolution');
  await page.locator('[data-close-patient]').click();
