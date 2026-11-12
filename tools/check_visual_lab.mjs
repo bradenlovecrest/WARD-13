@@ -42,13 +42,16 @@ if(raw.toString('ascii',0,4)!=='OggS')throw new Error('New human scream is not O
 if(!code.includes("clip.volume=Math.min(.95,chosenVolume()*2)"))throw new Error('Human scream level regressed');
 if(!code.includes("stopNightmareLayer()"))throw new Error('Scare cleanup missing');
 if(!code.includes("playNightmareLayer()"))throw new Error('Nightmare layer not connected');
-for(const name of ['records-v11.webp','observation-four-v11.webp','observation-patient-004.webp']){
+for(const name of ['records-v11.webp','observation-four-v11.webp','observation-patient-004.webp','records-v13.webp','observation-patient-integrated-v13.webp']){
   const path='playtest/visual-lab-realistic/assets/'+name;
   const bytes=fs.readFileSync(path);
   if(bytes.length<20000||bytes.toString('ascii',0,4)!=='RIFF'||bytes.toString('ascii',8,12)!=='WEBP')throw new Error('Invalid room scene WebP: '+name);
-  if(name!=='observation-four-v11.webp' && !code.includes("'assets/"+name+"'"))throw new Error('Scene art not wired: '+name);
+  if(['records-v13.webp','observation-patient-integrated-v13.webp'].includes(name) && !code.includes("'assets/"+name+"'"))throw new Error('New scene art not wired: '+name);
 }
 if(!code.includes("special:'patient'"))throw new Error('Patient 004 hotspot missing');
+if(!code.includes("left:42,top:46,width:13,height:50,special:'patient'"))throw new Error('Seated Patient 004 hotspot not remapped');
+if(!code.includes("special:'chart'"))throw new Error('Patient chart hotspot missing from Records');
+if(!code.includes("PATIENT 004 CHART / SIGNED DISCHARGE"))throw new Error('Patient chart audit narrative missing');
 if(!code.includes('PATIENT 004 / NO MATCHING ADMISSION RECORD'))throw new Error('Patient 004 clue missing');
 if(!code.includes("observationGlassTaps===2"))throw new Error('Earned Observation Four scare missing');
 if(!code.includes("recordsTerminalSeen"))throw new Error('Records evidence sequence missing');
