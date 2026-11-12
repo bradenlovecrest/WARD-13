@@ -14,7 +14,7 @@ async function assertVisibleScare(page, selector, description){
  const info=await page.locator(selector).evaluate(el=>{
    const style=getComputedStyle(el),r=el.getBoundingClientRect();
    const v={w:innerWidth,h:innerHeight};
-   const covering=r.width>=v.w*.95&&r.height>=v.h*.90&&r.top<=4&&r.left<=4;
+   const covering=r.width>=v.w*.95&&r.height>=v.h*.95&&r.top<=24&&r.left<=24&&r.right>=v.w-24&&r.bottom>=v.h-24; // animation jitters up to 10px
    const center=document.elementFromPoint(v.w*.5,v.h*.5);
    return {position:style.position,display:style.display,visibility:style.visibility,
      opacity:Number(style.opacity),zIndex:Number(style.zIndex),pointerEvents:style.pointerEvents,
