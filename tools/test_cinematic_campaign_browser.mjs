@@ -52,6 +52,10 @@ try{
  });
  const response=await page.goto('http://127.0.0.1:8765/playtest/cinematic-episode/',{waitUntil:'domcontentloaded'});
  assert.equal(response.status(),200);
+ assert.match(await page.locator('#scare-build-id').innerText(),/v2\.1 ✓/,'Companion scare engine must load, not a stale cached script');
+ await page.locator('#scare-direct-test').click();
+ await page.locator('#scare.active').waitFor();
+ await assertVisibleScare(page,'#scare.active','One-click scare diagnostic on title screen');
  await page.locator('#enter-button').click();
  await page.locator('#game:not([hidden])').waitFor();
  await page.locator('#sound-toggle').click();
@@ -69,7 +73,7 @@ try{
   api.advance('records');
  });
  await page.locator('.scene-photo.records').waitFor();
- await page.locator('#scare-preview').click();
+ await page.locator('#scare-direct-test').click();
  await page.locator('#scare.active').waitFor();
  assert.ok(await page.locator('#scare.active').count(),'Records scare should appear immediately');
  await assertVisibleScare(page,'#scare.active','Records scare');
@@ -82,7 +86,7 @@ try{
  await page.locator('#close-modal').click();
  await page.evaluate(()=>window.WARD13E0.advance('treatment'));
  await page.locator('.scene-photo.treatment').waitFor();
- await page.locator('#scare-preview').click();
+ await page.locator('#scare-direct-test').click();
  await page.locator('#scare.active').waitFor();
  assert.ok(await page.locator('#scare.active').count(),'Treatment scare should appear immediately');
  await assertVisibleScare(page,'#scare.active','Treatment scare');
