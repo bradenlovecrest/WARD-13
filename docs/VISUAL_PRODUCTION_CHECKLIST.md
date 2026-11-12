@@ -11,7 +11,7 @@ This checklist tracks playable visual-lab components, **not** finished campaign 
 - [x] **Real Tavi voice clips** — 18 WAV recordings in the connected game repository; 3 legacy scenes retained
 - [x] **Tavi playback in Visual Lab** — Uses recorded WAVs from game assets; captions if playback unavailable
 - [x] **Scare image and reveal choreography** — Distorted N.U.R.S.E. image, curtain-triggered scare, manual test
-- [x] **Original jump-scare audio sting** — Browser-synthesized impact; sound can be muted or adjusted
+- [x] **Original scream + jump-scare impact** — Embedded 2.17-second layered horror scream with tiled-room echo and synced impact; scare sound has mute and volume controls, and stops when the scare closes
 - [x] **Accessibility basics** — Reduced-motion, mute, volume, dialogue captions, close/escape controls
 - [x] **Room navigation and scene state** — Three playable room tabs with hotspots in the lab
 - [ ] **Dedicated Records Room photo plate** — Temporary illustrated concept; photorealistic scene pending
@@ -31,5 +31,5 @@ This checklist tracks playable visual-lab components, **not** finished campaign 
 - Records and Observation Four are concept SVG placeholders, not photographic game-ready backgrounds.
 - N.U.R.S.E. Phase III currently reuses an existing portrait with CSS distortion, not a new portrait asset.
 - Tavi recordings are requested through relative paths from GitHub Pages. Unavailable files produce captions instead of device text-to-speech.
-- Original Web Audio jump-scare sound uses no externally licensed samples.
+- Original jump-scare scream is a locally synthesized PCM WAV embedded in the Visual Lab (no externally licensed samples); the Web Audio impact is layered beneath it. Playback is user-triggered, never automatic on page load.
 - The Visual Lab has no ability to change player progress or save-state in the actual WARD 13 campaign.
