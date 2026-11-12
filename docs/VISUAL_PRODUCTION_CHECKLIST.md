@@ -11,7 +11,7 @@ This checklist tracks playable visual-lab components, **not** finished campaign 
 - [x] **Real Tavi voice clips** — 18 WAV recordings in the connected game repository; 3 legacy scenes retained
 - [x] **Tavi playback in Visual Lab** — Uses recorded WAVs from game assets; captions if playback unavailable
 - [x] **Scare image and reveal choreography** — Distorted N.U.R.S.E. image, curtain-triggered scare, manual test
-- [x] **Nightmare scream mix + recorded screams + impact** — New default uses a real human performance with substantially stronger voice level, slight pitch-drop, low resonant room rumble and a short rasp. Original short/long recorded takes and synthesized fallback remain selectable, with mute/volume/reduced-motion controls.
+- [x] **NEW distinct real horror scream + previous mixes** — New default is the 3.6-second human recording “Woman Screaming” by DanJFilms (CC0), embedded directly in the game. Previous NIGHTMARE, human short/long, synthesized fallback remain selectable, with mute/volume/reduced-motion controls.
 - [x] **Accessibility basics** — Reduced-motion, mute, volume, dialogue captions, close/escape controls
 - [x] **Room navigation and scene state** — Three playable room tabs with hotspots in the lab
 - [ ] **Dedicated Records Room photo plate** — Temporary illustrated concept; photorealistic scene pending
@@ -47,3 +47,11 @@ This checklist tracks playable visual-lab components, **not** finished campaign 
 - Recorded voice channel changed from a maximum volume of `min(0.65, volume*0.75)` to `min(0.95, volume*2)`. With the default 38% slider, the human sample's browser volume rises from ~0.285 to ~0.76. This is a significant increase; user should start at a low device volume before testing.
 - Sound is still strictly opt-in behind a click/clue, no autoplay on page load. Scare Sound checkbox and volume slider continue to control the mix. Close, Escape and hiding tab stop the rumble and clip.
 - This is **Visual Lab only**, and playback level and CDN behavior still require an actual iPhone listening check.
+
+## New scream take v1.0.3 (actual different recording)
+
+- DanJFilms, *Woman Screaming*, recorded for a short film, duration 3.604 s, license CC0: https://freesound.org/people/DanJFilms/sounds/845164/
+- Readily redistributable Ogg Vorbis transcode sourced from [sued-rs assets/scream.ogg](https://github.com/Danilo-Guedes/sued-rs/blob/main/assets/scream.ogg) with CC0 provenance documented in that repository's NOTICE file.
+- Embedded in Visual Lab HTML as data URI (avoids relying on the previous provider's CDN). Default selector: `new-real`. This uses a **different recorded performance**, not the previous sample with effects.
+- On iPhone 26, Ogg Vorbis support is available on current Safari; if playback fails, the original synthesized fallback remains. The full 3.6 s recording gets a 4.2 s scare duration.
+- At low physical speaker volume, test `NEW · Real bloodcurdling scream`; the physical device test has not yet been performed.
