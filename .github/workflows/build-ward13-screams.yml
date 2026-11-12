@@ -19,6 +19,10 @@ jobs:
       - name: Convert embedded human scream to local iPhone-compatible MP3 files
         run: |
           set -euo pipefail
+          if ! command -v ffmpeg >/dev/null 2>&1; then
+            sudo apt-get update -qq
+            sudo DEBIAN_FRONTEND=noninteractive apt-get install -y ffmpeg
+          fi
           ffmpeg -hide_banner -loglevel error -y -i playtest/cinematic-episode/assets/recorded-scream-original.ogg -af "highpass=f=90,lowpass=f=7200,acompressor=threshold=0.12:ratio=2.4:attack=5:release=120,volume=1.25" -codec:a libmp3lame -b:a 160k playtest/cinematic-episode/assets/real-human-scream-v22.mp3
           ffmpeg -hide_banner -loglevel error -y -i playtest/cinematic-episode/assets/recorded-scream-original.ogg -af "atempo=0.86,highpass=f=120,lowpass=f=4200,acompressor=threshold=0.1:ratio=2.2:attack=10:release=220,volume=1.0" -codec:a libmp3lame -b:a 160k playtest/cinematic-episode/assets/patient-plaintive-scream-v22.mp3
           for f in playtest/cinematic-episode/assets/*v22.mp3; do
