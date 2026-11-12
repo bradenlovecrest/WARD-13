@@ -16,7 +16,7 @@ This checklist tracks playable visual-lab components, **not** finished campaign 
 - [x] **Room navigation and scene state** — Three playable room tabs with hotspots in the lab
 - [x] **Dedicated Records Room high-resolution plate** — Replaced stretched thumbnail with a 1672×941 standalone photograph of the archive, terminal, paper files, full shelves and Patient 004 chart; new mapped hotspots and audit sequence
 - [x] **Dedicated Observation Four photo-derived plate** — New cinematic restrained bed, observation glass, evidence cart and monitor on CAM 07, with an earned second-glass-tap scare; final clean art still pending
-- [x] **Patient 004 physically integrated into the room** — New 1600×900 full-scene artwork with the girl seated on the bed (not a transparent overlay), interactive patient hotspot, missing admission and camera-position discrepancy
+- [x] **Patient 004 integrated and assessable** — Seated in the room's full-scene artwork, enlarged visible tap target, two-stage symptom assessment, unique camera/face reveal and plaintive recorded human cry. The differential and final diagnosis remain intentionally undisclosed in the game.
 - [ ] **Clean Treatment Room plate without UI labels** — Current concept has embedded investigative labels
 - [ ] **N.U.R.S.E. phase III production portrait** — Current corrupted phase is a filtered existing portrait
 - [ ] **More scare events and unique overlays** — Plan 3–5 earned scares across the story
@@ -76,3 +76,11 @@ This checklist tracks playable visual-lab components, **not** finished campaign 
 - Replaced the old `assets/observation-patient-004.webp` composition with `assets/observation-patient-integrated-v13.webp` (1600×900), a continuous environment image of Patient 004 seated on the bed, with consistent room lighting, body placement and bed geometry. No separate floating character sprite in the game. Observation image still includes legacy concept-art hotspot callouts and will need clean-plate retouch at final art pass.
 - Remapped all Observation Four touch targets to the new scene (patient seated near center of the bed, glass above, restraints to left, monitor and tray to right). Existing glass-triggered scream and Tavi WAV dialogue preserved.
 - This is Visual Lab-only; no saved progress or main game changed.
+
+## Patient 004 clinical mystery encounter (Visual Lab v1.4)
+
+- First touch: objective findings only (upward eye deviation, jaw and limb tension, increased oral secretions, unresponsiveness to voice). This is a fictional nursing-assessment puzzle; no diagnosis name is displayed.
+- Second touch: evolving findings (rhythmic movements, HR 142/min, SpO₂ 88%, gurgling breaths), new close-up jump scare, and the original earlier plaintive/whiny human performance (`human-short`) independent of the selected scream type. User-triggered playback, same master volume and mute controls; external CDN failure still falls back to synth.
+- Third and subsequent touches: reiterate the priority-action challenge without repeating the scare.
+- New locally hosted photo asset `assets/patient004-face-reveal-v14.webp`, separately from the existing N.U.R.S.E. scare art.
+- Original game and save data remain unchanged; actual mobile audio should be re-tested before campaign installation.

@@ -49,10 +49,17 @@ for(const name of ['records-v11.webp','observation-four-v11.webp','observation-p
   if(['records-v13.webp','observation-patient-integrated-v13.webp'].includes(name) && !code.includes("'assets/"+name+"'"))throw new Error('New scene art not wired: '+name);
 }
 if(!code.includes("special:'patient'"))throw new Error('Patient 004 hotspot missing');
-if(!code.includes("left:42,top:46,width:13,height:50,special:'patient'"))throw new Error('Seated Patient 004 hotspot not remapped');
+if(!code.includes("left:39,top:42,width:18,height:55,special:'patient'"))throw new Error('Seated Patient 004 hotspot not remapped');
 if(!code.includes("special:'chart'"))throw new Error('Patient chart hotspot missing from Records');
 if(!code.includes("PATIENT 004 CHART / SIGNED DISCHARGE"))throw new Error('Patient chart audit narrative missing');
-if(!code.includes('PATIENT 004 / NO MATCHING ADMISSION RECORD'))throw new Error('Patient 004 clue missing');
+if(!code.includes('EYES DEVIATE UPWARD'))throw new Error('Patient 004 clinical symptom clue missing');
+if(!code.includes("patientInspectCount===2"))throw new Error('Patient 004 repeat-assessment trigger missing');
+if(!code.includes("showScare(false,'patient')"))throw new Error('Patient 004 unique scare trigger missing');
+if(!code.includes("playScareSound(isPatient?'human-short':undefined)"))throw new Error('Patient-specific plaintive voice override missing');
+if(!code.includes("patient004-face-reveal-v14.webp"))throw new Error('Patient 004 face reveal image not linked');
+const patientImage=fs.readFileSync('playtest/visual-lab-realistic/assets/patient004-face-reveal-v14.webp');
+if(patientImage.length<50000||patientImage.toString('ascii',0,4)!=='RIFF'||patientImage.toString('ascii',8,12)!=='WEBP')throw new Error('Patient 004 face reveal WebP malformed');
+if(code.includes('DIAGNOSIS:')||code.includes('DIAGNOSIS REVEALED'))throw new Error('Patient mystery unintentionally spoiled');
 if(!code.includes("observationGlassTaps===2"))throw new Error('Earned Observation Four scare missing');
 if(!code.includes("recordsTerminalSeen"))throw new Error('Records evidence sequence missing');
 if(!html.includes('13 complete · 8 upcoming'))throw new Error('Visual Lab checklist count not updated');
