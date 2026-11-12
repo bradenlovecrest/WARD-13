@@ -1,6 +1,6 @@
 # WARD 13 — Visual Asset Production Checklist
 
-Status: **12/20 complete (60%)** in the isolated Visual Lab.
+Status: **13/21 complete (62%)** in the isolated Visual Lab.
 
 This checklist tracks playable visual-lab components, **not** finished campaign integration. The main game is untouched.
 
@@ -16,6 +16,7 @@ This checklist tracks playable visual-lab components, **not** finished campaign 
 - [x] **Room navigation and scene state** — Three playable room tabs with hotspots in the lab
 - [x] **Dedicated Records Room photo-derived plate** — New cinematic chart archive and audit terminal on CAM 05, interactive with Tavi and audit sequence; master high-resolution cleanup still pending
 - [x] **Dedicated Observation Four photo-derived plate** — New cinematic restrained bed, observation glass, evidence cart and monitor on CAM 07, with an earned second-glass-tap scare; final clean art still pending
+- [x] **Original Patient 004 character and encounter** — Ghostly long-haired child behind Observation Four glass, separately tappable patient hotspot, inconsistent admission record and repeat-inspection clues
 - [ ] **Clean Treatment Room plate without UI labels** — Current concept has embedded investigative labels
 - [ ] **N.U.R.S.E. phase III production portrait** — Current corrupted phase is a filtered existing portrait
 - [ ] **More scare events and unique overlays** — Plan 3–5 earned scares across the story
@@ -61,3 +62,10 @@ This checklist tracks playable visual-lab components, **not** finished campaign 
 - `playtest/visual-lab-realistic/assets/records-v11.webp`: archive shelving and altered patient chart investigation; `FILES`, `ARCHIVE DRAWERS`, and `AUDIT TERMINAL` hotspots. Inspect the terminal before the archive drawers to uncover a cross-reference discrepancy and change N.U.R.S.E.'s phase.
 - `playtest/visual-lab-realistic/assets/observation-four-v11.webp`: restrained bed, patient monitor, observation glass, and evidence cart; four touch hotspots, each accessible with keyboard/VoiceOver naming. Two examinations of the glass trigger the recorded human scream and N.U.R.S.E. scare (never autoplay on room entry).
 - Main campaign and player saves remain untouched. V1.1 upgrades the **Visual Lab**; remaining campaign and art tasks are separately tracked.
+
+## Visual Lab v1.2 — Patient 004
+
+- Original supernatural horror patient, **Patient 004**, a ghostly little girl with wet dark hair veiling her face and hospital gown, inspired by classic ghost stories but not copied from a movie character.
+- Art file: `playtest/visual-lab-realistic/assets/observation-patient-004.webp` (custom composited original scene art, preview quality). Patient appears behind observation glass.
+- Touch/keyboard hotspot: **PATIENT 004**. First and repeat inspections reveal a missing admission record and inconsistent camera position. The existing Observation Four Tavi WAV is reused without pretending new dialogue was recorded.
+- Existing two-examination glass scare remains available; this is an isolated Visual Lab update, not a change to campaign saves.
