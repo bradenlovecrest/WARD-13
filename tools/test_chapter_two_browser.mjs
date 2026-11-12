@@ -28,7 +28,7 @@ try{
    if(qi===0)await page.locator('.hotspot').nth(qi).click();
    else await page.locator('#accessible-charts button').nth(qi).click();
    await page.locator('#question-overlay:not([hidden])').waitFor();
-   assert.ok((await page.locator('#question-title').innerText()).includes(q.title),'wrong clinical record '+q.id);
+   assert.ok((await page.locator('#question-title').textContent()).includes(q.title),'wrong clinical record '+q.id);
    if(ri===0&&qi===0){
     await page.locator('#options button').nth((q.correct+1)%4).click();
     await page.locator('#btn-submit').click();
