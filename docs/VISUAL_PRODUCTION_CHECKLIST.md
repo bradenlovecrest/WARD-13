@@ -14,9 +14,9 @@ This checklist tracks playable visual-lab components, **not** finished campaign 
 - [x] **NEW distinct real horror scream + previous mixes** — New default is the 3.6-second human recording “Woman Screaming” by DanJFilms (CC0), embedded directly in the game. Previous NIGHTMARE, human short/long, synthesized fallback remain selectable, with mute/volume/reduced-motion controls.
 - [x] **Accessibility basics** — Reduced-motion, mute, volume, dialogue captions, close/escape controls
 - [x] **Room navigation and scene state** — Three playable room tabs with hotspots in the lab
-- [x] **Dedicated Records Room photo-derived plate** — New cinematic chart archive and audit terminal on CAM 05, interactive with Tavi and audit sequence; master high-resolution cleanup still pending
+- [x] **Dedicated Records Room high-resolution plate** — Replaced stretched thumbnail with a 1672×941 standalone photograph of the archive, terminal, paper files, full shelves and Patient 004 chart; new mapped hotspots and audit sequence
 - [x] **Dedicated Observation Four photo-derived plate** — New cinematic restrained bed, observation glass, evidence cart and monitor on CAM 07, with an earned second-glass-tap scare; final clean art still pending
-- [x] **Original Patient 004 character and encounter** — Ghostly long-haired child behind Observation Four glass, separately tappable patient hotspot, inconsistent admission record and repeat-inspection clues
+- [x] **Patient 004 physically integrated into the room** — New 1600×900 full-scene artwork with the girl seated on the bed (not a transparent overlay), interactive patient hotspot, missing admission and camera-position discrepancy
 - [ ] **Clean Treatment Room plate without UI labels** — Current concept has embedded investigative labels
 - [ ] **N.U.R.S.E. phase III production portrait** — Current corrupted phase is a filtered existing portrait
 - [ ] **More scare events and unique overlays** — Plan 3–5 earned scares across the story
@@ -29,7 +29,7 @@ This checklist tracks playable visual-lab components, **not** finished campaign 
 ## Accepted production constraints
 
 - Realistic Treatment Room image currently contains a few baked-in UI labels; recreate a clean art plate before final game installation.
-- Records and Observation Four now use locally hosted WebP plates derived from our original cinematic concept artwork instead of SVG placeholders. **These are playable preview-quality art, not final clean master backgrounds**: Records needs higher native-resolution detail, and Observation Four still has some investigative callouts baked into the image. Their click targets remain interactive HTML elements.
+- Records and Observation Four now use locally hosted WebP plates derived from our original cinematic concept artwork instead of SVG placeholders. **These are playable preview-quality art, not final clean master backgrounds**: Records now uses a 1672×941 standalone photo-quality master. Observation Four still has some investigative callouts baked into the new continuous scene; final clean-art retouch remains a polish task. Their click targets remain interactive HTML elements.
 - N.U.R.S.E. Phase III currently reuses an existing portrait with CSS distortion, not a new portrait asset.
 - Tavi recordings are requested through relative paths from GitHub Pages. Unavailable files produce captions instead of device text-to-speech.
 - Original jump-scare scream is a locally synthesized PCM WAV embedded in the Visual Lab (no externally licensed samples); the Web Audio impact is layered beneath it. Playback is user-triggered, never automatic on page load.
@@ -69,3 +69,10 @@ This checklist tracks playable visual-lab components, **not** finished campaign 
 - Art file: `playtest/visual-lab-realistic/assets/observation-patient-004.webp` (custom composited original scene art, preview quality). Patient appears behind observation glass.
 - Touch/keyboard hotspot: **PATIENT 004**. First and repeat inspections reveal a missing admission record and inconsistent camera position. The existing Observation Four Tavi WAV is reused without pretending new dialogue was recorded.
 - Existing two-examination glass scare remains available; this is an isolated Visual Lab update, not a change to campaign saves.
+
+## Visual Lab v1.3 — Revised Records and physically integrated Patient 004
+
+- Replaced `assets/records-v11.webp` (small cropped screenshot) with `assets/records-v13.webp` (1672×941 standalone full Records environment). Clues now align with the visible filing shelves, audit terminal, drawers, and Patient 004's physical chart in the foreground. The new chart clue distinguishes a missing admission from a post-discharge audit anomaly.
+- Replaced the old `assets/observation-patient-004.webp` composition with `assets/observation-patient-integrated-v13.webp` (1600×900), a continuous environment image of Patient 004 seated on the bed, with consistent room lighting, body placement and bed geometry. No separate floating character sprite in the game. Observation image still includes legacy concept-art hotspot callouts and will need clean-plate retouch at final art pass.
+- Remapped all Observation Four touch targets to the new scene (patient seated near center of the bed, glass above, restraints to left, monitor and tray to right). Existing glass-triggered scream and Tavi WAV dialogue preserved.
+- This is Visual Lab-only; no saved progress or main game changed.
