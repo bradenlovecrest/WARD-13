@@ -11,7 +11,7 @@ This checklist tracks playable visual-lab components, **not** finished campaign 
 - [x] **Real Tavi voice clips** — 18 WAV recordings in the connected game repository; 3 legacy scenes retained
 - [x] **Tavi playback in Visual Lab** — Uses recorded WAVs from game assets; captions if playback unavailable
 - [x] **Scare image and reveal choreography** — Distorted N.U.R.S.E. image, curtain-triggered scare, manual test
-- [x] **Original scream + jump-scare impact** — Embedded 2.17-second layered horror scream with tiled-room echo and synced impact; scare sound has mute and volume controls, and stops when the scare closes
+- [x] **Human-recorded scream option + original jump-scare impact** — Two licensed performances by Alesia-Davina (short and long), original synthesized scream retained as an offline fallback; selectable in Visual Lab, with mute and volume controls
 - [x] **Accessibility basics** — Reduced-motion, mute, volume, dialogue captions, close/escape controls
 - [x] **Room navigation and scene state** — Three playable room tabs with hotspots in the lab
 - [ ] **Dedicated Records Room photo plate** — Temporary illustrated concept; photorealistic scene pending
@@ -33,3 +33,10 @@ This checklist tracks playable visual-lab components, **not** finished campaign 
 - Tavi recordings are requested through relative paths from GitHub Pages. Unavailable files produce captions instead of device text-to-speech.
 - Original jump-scare scream is a locally synthesized PCM WAV embedded in the Visual Lab (no externally licensed samples); the Web Audio impact is layered beneath it. Playback is user-triggered, never automatic on page load.
 - The Visual Lab has no ability to change player progress or save-state in the actual WARD 13 campaign.
+
+## Licensed human scream option (Visual Lab v1.0)
+
+- Short: Alesia-Davina, *Sharp Plaintive Suffering Cry Female Horror Sound Effect*: https://alesiadavina.com/sound/sharp-plaintive-suffering-cry-female-horror-sfx/
+- Long: Alesia-Davina, *Female Agony Scream - Horror Suffering Sound*: https://alesiadavina.com/sound/female-agony-scream-horror-suffering-sound/
+- Both are human-performed, under the creator's game-use license (no attribution required). Creator expressly prohibits redistributing the underlying standalone WAV files; the Visual Lab streams directly from the creator's published CDN rather than copying assets to the public GitHub repository. Do not treat these sounds as CC0. Original embedded synthesized sound is the fallback if the CDN cannot load.
+- The curtain scare now starts audio synchronously with the second user tap to improve mobile Safari playback. Please test on a real iPhone before replacing the production scare.
