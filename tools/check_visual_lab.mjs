@@ -42,4 +42,13 @@ if(raw.toString('ascii',0,4)!=='OggS')throw new Error('New human scream is not O
 if(!code.includes("clip.volume=Math.min(.95,chosenVolume()*2)"))throw new Error('Human scream level regressed');
 if(!code.includes("stopNightmareLayer()"))throw new Error('Scare cleanup missing');
 if(!code.includes("playNightmareLayer()"))throw new Error('Nightmare layer not connected');
-console.log('PASS: Inline JavaScript parses, essential DOM controls exist, and event handlers initialize.');
+for(const name of ['records-v11.webp','observation-four-v11.webp']){
+  const path='playtest/visual-lab-realistic/assets/'+name;
+  const raw=fs.readFileSync(path);
+  if(raw.length<20000||raw.toString('ascii',0,4)!=='RIFF'||raw.toString('ascii',8,12)!=='WEBP')throw new Error('Invalid room scene WebP: '+name);
+  if(!code.includes("'assets/"+name+"'"))throw new Error('Scene art not wired: '+name);
+}
+if(!code.includes("observationGlassTaps===2"))throw new Error('Earned Observation Four scare missing');
+if(!code.includes("recordsTerminalSeen"))throw new Error('Records evidence sequence missing');
+if(!html.includes('12 complete · 8 upcoming'))throw new Error('Visual Lab checklist count not updated');
+console.log('PASS: All three cinematic rooms, image files, WebP headers, hotspot handlers, earned scares and JavaScript syntax verified.');
