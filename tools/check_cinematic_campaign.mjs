@@ -55,4 +55,21 @@ if(taviRefs.length!==18)throw Error('Expected 18 Tavi WAV paths, got '+taviRefs.
 for(const item of taviRefs)if(!fs.existsSync(path.resolve(root,'playtest/cinematic-episode',item)))throw Error('Missing Tavi voice '+item);
 if(!/const cc0Fallback=new Audio\('data:audio\/ogg;base64,[A-Za-z0-9+/=]{30000,}'\)/.test(companion))throw Error('Missing independently licensed sound fallback');
 
+// New regression tests for the playtest feedback.
+for(const marker of ['function balancedChoices(','const ARCHIVE_BREADCRUMBS=','id="evidence-strip"','id="scare-preview"','pH 7.51 / CO₂ 29 / HCO₃⁻ 23','DIRECTORATE OVERRIDE ACTIVE'])if(!html.includes(marker))throw Error('Campaign improvement missing: '+marker);
+const optionHelper=html.slice(html.indexOf('function balancedChoices('),html.indexOf('const ARCHIVE_BREADCRUMBS='));
+const archiveBank=html.slice(html.indexOf('const ARCHIVE_CASES='),html.indexOf('function archiveCase()'));
+const treatBank=html.slice(html.indexOf('const TREAT_CASES='),html.indexOf('const TREAT_CODE='));
+const banks=vm.runInNewContext(optionHelper+'\n'+archiveBank+'\n'+treatBank+'\n({balancedChoices,ARCHIVE_CASES,TREAT_CASES})');
+const slotCounts=[0,0,0];
+for(const [bank,offset] of [[banks.ARCHIVE_CASES,0],[banks.TREAT_CASES,3]]){
+  for(const [ci,c] of bank.entries())for(const [fi,field] of c.fields.entries()){
+    const result=banks.balancedChoices(field[2],field[3],ci+offset,fi).filter(([v])=>v);
+    const slot=result.findIndex(([v])=>v===field[3]);
+    if(slot<0)throw Error('Missing correct answer in '+c.id+' '+field[0]);
+    slotCounts[slot]++;
+  }
+}
+if(slotCounts.some(n=>n<6))throw Error('Answer positions are predictable: '+slotCounts);
+console.log('PASS: Clinical answer positions',slotCounts);
 console.log('PASS: Cinematic campaign JS parses; four-room puzzle mechanics, original clinical case, Tavi paths, images, isolated save, and extra patient encounter verified.');
