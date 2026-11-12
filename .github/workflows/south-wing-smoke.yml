@@ -1,0 +1,34 @@
+name: WARD 13 South Wing QA
+on:
+  push:
+    branches: [main]
+    paths:
+      - "playtest/cinematic-episode/chapter-two*"
+      - "tools/check_chapter_two.mjs"
+      - "tools/test_chapter_two_browser.mjs"
+      - ".github/workflows/south-wing-smoke.yml"
+  pull_request:
+    paths:
+      - "playtest/cinematic-episode/chapter-two*"
+      - "tools/check_chapter_two.mjs"
+      - "tools/test_chapter_two_browser.mjs"
+      - ".github/workflows/south-wing-smoke.yml"
+permissions:
+  contents: read
+jobs:
+  south-wing:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Validate clinical question bank and all assets
+        run: node tools/check_chapter_two.mjs
+      - name: Install Chromium for mobile gameplay test
+        run: |
+          npm install --no-save --no-package-lock playwright@1.56.1
+          npx playwright install chromium
+      - name: Play 3 new rooms, scares, and remediation on iPhone viewport
+        run: node tools/test_chapter_two_browser.mjs

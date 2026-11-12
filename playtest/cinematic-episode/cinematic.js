@@ -17,7 +17,7 @@
  patientClip.addEventListener('error',()=>{if(build)build.textContent='SCREAM ENGINE v2.2 / PATIENT AUDIO MISSING'});
  let dismissTimer=0;
  function playPatientScream(info){
-   if(!info.enabled)return;
+   if(info.enabled===false)return; // Undefined/missing audioInfo must not silently suppress the recorded scream.
    patientClip.volume=Math.max(.12,Math.min(.82,(info.mix??.72)*.85));
    try{
      patientClip.pause();patientClip.currentTime=0;
@@ -64,5 +64,14 @@
  overlay.addEventListener('click',e=>{if(e.target===overlay)hide()});
  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!overlay.hidden)hide()});
  document.addEventListener('visibilitychange',()=>{if(document.hidden)hide()});
+ // Chapter II access is a separate file. Preserve every original four-room handler and save.
+ const southWingLink=document.createElement('a');
+ southWingLink.href='./chapter-two.html';
+ southWingLink.textContent='✚ SOUTH WING / +3 ROOMS';
+ southWingLink.setAttribute('aria-label','Continue Ward 13 to three new clinical rooms');
+ southWingLink.style.cssText='position:fixed;left:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:95;display:inline-flex;align-items:center;justify-content:center;min-height:42px;max-width:210px;padding:9px 12px;border:1px solid #9fe1bc;background:#091b1bee;color:#d6f4e3;border-radius:3px;text-decoration:none;font:700 10px/1.2 monospace;letter-spacing:.7px;box-shadow:0 4px 25px #000b;';
+ southWingLink.addEventListener('pointerenter',()=>{southWingLink.style.background='#264637'});
+ southWingLink.addEventListener('pointerleave',()=>{southWingLink.style.background='#091b1bee'});
+ document.body.appendChild(southWingLink);
  window.WARD13Cinematic={showPatientScare,hidePatientScare:hide};
 })();
