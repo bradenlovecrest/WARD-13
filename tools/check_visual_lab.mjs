@@ -31,4 +31,9 @@ for(const marker of [
 ]){
   if(!code.includes(marker))throw new Error('Missing event initialization: '+marker);
 }
+const nightmareOption='<option value="nightmare">NIGHTMARE · real + rumble</option>';
+if(!html.includes(nightmareOption))throw new Error('Missing default Nightmare scream option');
+if(!code.includes("clip.volume=Math.min(.95,chosenVolume()*2)"))throw new Error('Human scream level regressed');
+if(!code.includes("stopNightmareLayer()"))throw new Error('Scare cleanup missing');
+if(!code.includes("playNightmareLayer()"))throw new Error('Nightmare layer not connected');
 console.log('PASS: Inline JavaScript parses, essential DOM controls exist, and event handlers initialize.');
