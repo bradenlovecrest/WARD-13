@@ -50,7 +50,7 @@ function renderRoom(which,autoplay=true){room=which;const info=roomArt[which];$(
  document.querySelectorAll('.tab').forEach(b=>b.setAttribute('aria-pressed',String(b.id==='tab-'+which)));
  const layer=$('hotspots');layer.replaceChildren();
  zones[which].forEach(h=>{const b=document.createElement('button');b.type='button';b.className='hot';b.setAttribute('aria-label','Inspect '+h.name);b.title=h.name;b.style.cssText=`left:${h.left}%;top:${h.top}%;width:${h.width}%;height:${h.height}%;`;b.textContent=h.name;
- b.addEventListener('click',()=>{if(h.special){curtainTaps++;if($('sfx-on').checked)prepareScream();playCue(h.cue);if(curtainTaps===2){setPhase(3);if(document.getElementById('sfx-on').checked)prepareScream();showScare(false); // Play within the original user gesture for iOS audio permission.}}else{playCue(h.cue);if(which!=='treatment'&&phase<2)setPhase(2);}});layer.appendChild(b);});
+ b.addEventListener('click',()=>{if(h.special){curtainTaps++;if($('sfx-on').checked)prepareScream();playCue(h.cue);if(curtainTaps===2){setPhase(3);if(document.getElementById('sfx-on').checked)prepareScream();showScare(false); /* Play within the original user gesture for iOS audio permission. */}}else{playCue(h.cue);if(which!=='treatment'&&phase<2)setPhase(2);}});layer.appendChild(b);});
  $('viewport').scrollLeft=0;
  if(which==='records')setPhase(Math.max(phase,2));
  const entry=which==='treatment'?'intro':which==='records'?'records':'observation';if(autoplay)playCue(entry);else{lastCue=entry;document.getElementById('caption').textContent=clips[entry][1];setAudioStatus('Tavi ready. Tap Play Tavi or a room clue.');}}

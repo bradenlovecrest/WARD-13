@@ -1,0 +1,23 @@
+name: WARD 13 Visual Lab JS smoke check
+on:
+  pull_request:
+    paths:
+      - 'playtest/visual-lab-realistic/index.html'
+      - 'tools/check_visual_lab.mjs'
+      - '.github/workflows/visual-lab-smoke.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'playtest/visual-lab-realistic/index.html'
+      - 'tools/check_visual_lab.mjs'
+      - '.github/workflows/visual-lab-smoke.yml'
+permissions:
+  contents: read
+jobs:
+  js-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate Visual Lab interaction JavaScript
+        run: node tools/check_visual_lab.mjs
