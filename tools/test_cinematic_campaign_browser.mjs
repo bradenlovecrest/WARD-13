@@ -6,6 +6,27 @@ import { chromium } from 'playwright';
 
 const server=spawn('python3',['-m','http.server','8765','--bind','127.0.0.1'],{stdio:'ignore'});
 let browser;
+
+async function assertVisibleScare(page, selector, description){
+ const info=await page.locator(selector).evaluate(el=>{
+   const style=getComputedStyle(el),r=el.getBoundingClientRect();
+   const v={w:innerWidth,h:innerHeight};
+   const covering=r.width>=v.w*.95&&r.height>=v.h*.90&&r.top<=4&&r.left<=4;
+   const center=document.elementFromPoint(v.w*.5,v.h*.5);
+   return {position:style.position,display:style.display,visibility:style.visibility,
+     opacity:Number(style.opacity),zIndex:Number(style.zIndex),
+     covering,ownsCenter:center===el||el.contains(center),
+     img:el.querySelector('img')?{complete:el.querySelector('img').complete,naturalWidth:el.querySelector('img').naturalWidth}:null};
+ });
+ assert.equal(info.position,'fixed',description+' must be fixed to viewport');
+ assert.equal(info.covering,true,description+' should cover the phone viewport');
+ assert.equal(info.ownsCenter,true,description+' must be frontmost, not behind the game');
+ assert.notEqual(info.display,'none',description+' cannot be display:none');
+ assert.notEqual(info.visibility,'hidden',description+' cannot be visually hidden');
+ assert.ok(info.opacity>.8,description+' must be visible');
+ if(info.img){assert.equal(info.img.complete,true,description+' image must load');assert.ok(info.img.naturalWidth>0,description+' image is missing');}
+}
+
 async function waitServer(){
  for(let i=0;i<30;i++){
   try{const r=await fetch('http://127.0.0.1:8765/playtest/cinematic-episode/');
@@ -21,10 +42,15 @@ try{
  const page=await browser.newPage({viewport:{width:390,height:844},deviceScaleFactor:2,isMobile:true,hasTouch:true});
  const errors=[];
  page.on('pageerror',e=>errors.push(e.message));
+ await page.addInitScript(()=>{
+   window.__scarePlayCalls=[];
+   HTMLMediaElement.prototype.play=function(){window.__scarePlayCalls.push({url:String(this.src).slice(0,90)});return Promise.resolve()};
+ });
  const response=await page.goto('http://127.0.0.1:8765/playtest/cinematic-episode/',{waitUntil:'domcontentloaded'});
  assert.equal(response.status(),200);
  await page.locator('#enter-button').click();
  await page.locator('#game:not([hidden])').waitFor();
+ await page.locator('#sound-toggle').click();
  assert.ok(await page.locator('.cinematic-nurse-portrait').count());
  assert.match(await page.locator('.nursehead').innerText(),/AI/);
  assert.ok(await page.locator('#evidence-strip button').count()>0,'Evidence chips missing');
@@ -42,6 +68,9 @@ try{
  await page.locator('#scare-preview').click();
  await page.locator('#scare.active').waitFor();
  assert.ok(await page.locator('#scare.active').count(),'Records scare should appear immediately');
+ await assertVisibleScare(page,'#scare.active','Records scare');
+ const recordsPortrait=await page.locator('#scare .apparition').evaluate(x=>getComputedStyle(x).backgroundImage);
+ assert.match(recordsPortrait,/data:image\/webp;base64/,'Records scare must display N.U.R.S.E. portrait');
  const records=await page.locator('#scene-photo').evaluate(x=>getComputedStyle(x).backgroundImage);
  assert.match(records,/records-v13.webp/);
  await page.locator('[data-hot="files"]').click();
@@ -52,6 +81,8 @@ try{
  await page.locator('#scare-preview').click();
  await page.locator('#scare.active').waitFor();
  assert.ok(await page.locator('#scare.active').count(),'Treatment scare should appear immediately');
+ await assertVisibleScare(page,'#scare.active','Treatment scare');
+ assert.ok((await page.evaluate(()=>window.__scarePlayCalls.length))>0,'Treatment audio should be requested');
  const treat=await page.locator('#scene-photo').evaluate(x=>getComputedStyle(x).backgroundImage);
  assert.match(treat,/data:image\/webp;base64/);
  await page.locator('[data-hot="treat-drawer"]').click();
@@ -66,6 +97,10 @@ try{
  await page.locator('#close-modal').click();
  await page.locator('[data-hot="patient004"]').click();
  await page.locator('#patient004-reveal:not([hidden])').waitFor();
+ await page.locator('#patient004-reveal img').evaluate(img=>img.decode().catch(()=>{}));
+ await assertVisibleScare(page,'#patient004-reveal:not([hidden])','Patient 004 scare');
+ const patientImage=await page.locator('#patient004-reveal img').evaluate(x=>({w:x.naturalWidth,h:x.naturalHeight}));
+ assert.ok(patientImage.w>500&&patientImage.h>250,'Patient image should be full resolution');
  await page.locator('[data-close-patient]').click();
  assert.ok(await page.locator('#patient004-reveal[hidden]').count());
  await page.locator('[data-hot="patient004"]').click();
