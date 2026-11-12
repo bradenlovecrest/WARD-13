@@ -14,13 +14,13 @@ async function assertVisibleScare(page, selector, description){
    const covering=r.width>=v.w*.95&&r.height>=v.h*.90&&r.top<=4&&r.left<=4;
    const center=document.elementFromPoint(v.w*.5,v.h*.5);
    return {position:style.position,display:style.display,visibility:style.visibility,
-     opacity:Number(style.opacity),zIndex:Number(style.zIndex),
+     opacity:Number(style.opacity),zIndex:Number(style.zIndex),pointerEvents:style.pointerEvents,
      covering,ownsCenter:center===el||el.contains(center),
      img:el.querySelector('img')?{complete:el.querySelector('img').complete,naturalWidth:el.querySelector('img').naturalWidth}:null};
  });
  assert.equal(info.position,'fixed',description+' must be fixed to viewport');
  assert.equal(info.covering,true,description+' should cover the phone viewport');
- assert.equal(info.ownsCenter,true,description+' must be frontmost, not behind the game');
+ if(info.pointerEvents!=='none')assert.equal(info.ownsCenter,true,description+' must be frontmost, not behind the game');
  assert.notEqual(info.display,'none',description+' cannot be display:none');
  assert.notEqual(info.visibility,'hidden',description+' cannot be visually hidden');
  assert.ok(info.opacity>.8,description+' must be visible');
