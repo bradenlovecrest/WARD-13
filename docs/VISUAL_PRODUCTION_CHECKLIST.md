@@ -11,7 +11,7 @@ This checklist tracks playable visual-lab components, **not** finished campaign 
 - [x] **Real Tavi voice clips** — 18 WAV recordings in the connected game repository; 3 legacy scenes retained
 - [x] **Tavi playback in Visual Lab** — Uses recorded WAVs from game assets; captions if playback unavailable
 - [x] **Scare image and reveal choreography** — Distorted N.U.R.S.E. image, curtain-triggered scare, manual test
-- [x] **Human-recorded scream option + original jump-scare impact** — Two licensed performances by Alesia-Davina (short and long), original synthesized scream retained as an offline fallback; selectable in Visual Lab, with mute and volume controls
+- [x] **Nightmare scream mix + recorded screams + impact** — New default uses a real human performance with substantially stronger voice level, slight pitch-drop, low resonant room rumble and a short rasp. Original short/long recorded takes and synthesized fallback remain selectable, with mute/volume/reduced-motion controls.
 - [x] **Accessibility basics** — Reduced-motion, mute, volume, dialogue captions, close/escape controls
 - [x] **Room navigation and scene state** — Three playable room tabs with hotspots in the lab
 - [ ] **Dedicated Records Room photo plate** — Temporary illustrated concept; photorealistic scene pending
@@ -40,3 +40,10 @@ This checklist tracks playable visual-lab components, **not** finished campaign 
 - Long: Alesia-Davina, *Female Agony Scream - Horror Suffering Sound*: https://alesiadavina.com/sound/female-agony-scream-horror-suffering-sound/
 - Both are human-performed, under the creator's game-use license (no attribution required). Creator expressly prohibits redistributing the underlying standalone WAV files; the Visual Lab streams directly from the creator's published CDN rather than copying assets to the public GitHub repository. Do not treat these sounds as CC0. Original embedded synthesized sound is the fallback if the CDN cannot load.
 - The curtain scare now starts audio synchronously with the second user tap to improve mobile Safari playback. Please test on a real iPhone before replacing the production scare.
+
+## Nightmare mix v1.0.2
+
+- New default: **NIGHTMARE · real + rumble**. Uses the shorter human-performed licensed scream with a slight 0.92x rate/pitch shift and a new low-frequency sound layer synthesized in the browser (not stored as external audio).
+- Recorded voice channel changed from a maximum volume of `min(0.65, volume*0.75)` to `min(0.95, volume*2)`. With the default 38% slider, the human sample's browser volume rises from ~0.285 to ~0.76. This is a significant increase; user should start at a low device volume before testing.
+- Sound is still strictly opt-in behind a click/clue, no autoplay on page load. Scare Sound checkbox and volume slider continue to control the mix. Close, Escape and hiding tab stop the rumble and clip.
+- This is **Visual Lab only**, and playback level and CDN behavior still require an actual iPhone listening check.
