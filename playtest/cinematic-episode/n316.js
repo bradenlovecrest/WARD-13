@@ -46,7 +46,7 @@ function render(){
  var completed=r.questions.filter(function(q){return isDone(q.id);}).length;
  $('room-status').textContent=gateDone(r.id)?'SECURITY SEAL ACCEPTED • EXIT OPEN':completed===r.questions.length?'ALL CHARTS VERIFIED • SEAL READY':completed+' OF '+r.questions.length+' CLINICAL CHARTS VERIFIED';
  var gate=$('btn-gate');gate.hidden=completed<r.questions.length;gate.textContent=gateDone(r.id)?(state.room===2?'VIEW FINAL TRANSMISSION →':'CONTINUE TO NEXT ROOM →'):'UNSEAL NEXT DOOR →';
- $('stats-line').textContent='Completed: '+progress()+'/27. Incorrect attempts: '+Object.values(state.misses).reduce(function(a,b){return a+b;},0)+'. Concepts to revisit: '+pendingReview().length+'.';
+ $('stats-line').textContent='Completed: '+progress()+'/'+allCount+'. Incorrect attempts: '+Object.values(state.misses).reduce(function(a,b){return a+b;},0)+'. Concepts to revisit: '+pendingReview().length+'.';
  $('btn-review').textContent='REVIEW MISSED CONCEPTS'+(pendingReview().length?' ('+pendingReview().length+')':'');
 }
 function renderNav(){
@@ -172,13 +172,22 @@ function hint(){
 }
 function closeScare(){clearTimeout(scareTimer);$('scare').hidden=true;$('scare').setAttribute('aria-hidden','true');$('btn-replay-scream').hidden=true;try{patientClip.pause();humanClip.pause();}catch(e){}activeScare=null;}
 function playScream(which){
- if(state.muted)return;var clip=which==='patient'?patientClip:humanClip;
- try{clip.pause();clip.currentTime=0;clip.volume=which==='patient'?.95:1;var promise=clip.play();if(promise&&promise.catch)promise.catch(function(){$('btn-replay-scream').hidden=false;});}
- catch(e){$('btn-replay-scream').hidden=false;}
+ if(state.muted){toast('SOUND IS MUTED — TURN SOUND ON TO HEAR THE RECORDING.');return;}
+ var clip=which==='patient'?patientClip:humanClip;
+ var fallback=function(message){
+  if(activeScare!==which||$('scare').hidden)return;
+  $('btn-replay-scream').hidden=false;
+  $('btn-replay-scream').textContent='🔊 TAP TO RETRY RECORDED SCREAM';
+  $('btn-replay-scream').setAttribute('aria-label','Tap to retry recorded scream; '+message);
+ };
+ if(clip.error){fallback('audio file did not load');return;}
+ try{clip.pause();clip.currentTime=0;clip.volume=1;var p=clip.play();
+  if(p&&p.catch)p.catch(function(){fallback('playback was blocked');});
+ }catch(e){fallback('playback failed');}
 }
 function showScare(which){
  activeScare=which;$('scare').hidden=false;$('scare').setAttribute('aria-hidden','false');
- $('btn-replay-scream').hidden=true;
+ $('btn-replay-scream').hidden=true;$('btn-replay-scream').textContent='TAP TO HEAR THE RECORDING';
  var msg=$('scare').querySelector('.scare-message');
  msg.textContent=which==='patient'?'PATIENT 004 // NEVER DISCHARGED':'DIRECTORATE 13 // RECORD DESTROYED';
  playScream(which);
@@ -193,6 +202,10 @@ function boot(){
  if(state.room<0||state.room>2)state.room=0;
  if(!roomAccessible(state.room))state.room=0;
  $('btn-start').addEventListener('click',begin);
+ $('btn-test-scream').addEventListener('click',function(){
+  if(state.muted){state.muted=false;save();soundUI();}
+  showScare('human');
+ });
  $('btn-continue').addEventListener('click',begin);
  $('btn-sound').addEventListener('click',function(){state.muted=!state.muted;if(state.muted){try{patientClip.pause();humanClip.pause();}catch(e){}}save();soundUI();toast(state.muted?'RECORDED SCREAMS MUTED.':'SOUND ON: RECORDED HUMAN SCREAMS ENABLED.');});
  $('btn-hint').addEventListener('click',hint);
@@ -209,6 +222,12 @@ function boot(){
  $('btn-reset').addEventListener('click',function(){if(!window.confirm('Reset your NURS 316 South Wing exam progress? This does not affect other Ward 13 editions.'))return;closeScare();if(modal)closeQuestion(true);state=fresh();save();showIntro();toast('NURS 316 EXAM PROGRESS RESET.');});
  document.addEventListener('keydown',function(e){if(e.key==='Escape'){if(!$('scare').hidden)closeScare();else if(!$('question-overlay').hidden)closeQuestion();}});
  document.addEventListener('visibilitychange',function(){if(document.hidden&&activeScare)closeScare();});
+ [patientClip,humanClip].forEach(function(clip){
+  clip.addEventListener('error',function(){
+    $('save-indicator').textContent='AUDIO FILE ERROR';
+    if(activeScare&&!$('scare').hidden)$('btn-replay-scream').hidden=false;
+  });
+ });
  patientClip.load();humanClip.load();showIntro();
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});else boot();

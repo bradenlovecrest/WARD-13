@@ -18,7 +18,7 @@
 .scene-number{position:absolute;left:12px;bottom:8px;right:auto;top:auto;color:#f0ead5d6;font:600 9px 'IBM Plex Mono',monospace;letter-spacing:1.3px;text-shadow:0 2px 5px #000;z-index:4}
 .scene .hotspots{inset:0!important;position:absolute!important;z-index:5;display:block!important}
 .scene .hotspot,.scene.heent .hotspot,.scene.audit .hotspot{
- position:absolute!important;left:var(--x)!important;top:var(--y)!important;transform:translate(-50%,-50%)!important;
+ position:absolute!important;left:clamp(22px,var(--x),calc(100% - 22px))!important;top:clamp(22px,var(--y),calc(100% - 22px))!important;transform:translate(-50%,-50%)!important;
  width:49px;height:49px;max-width:none;max-height:none;min-width:0;min-height:0;
  border-radius:50%;border:1px solid #b6e2c3;background:radial-gradient(circle at 45% 32%,#234f43dd,#071917e8);
  box-shadow:0 0 0 4px #010a0aac,0 0 21px #62f7b44b,inset 0 0 12px #cceccb1b;
@@ -58,3 +58,19 @@ body[data-room="audit"] .panel-top{border-left:3px solid #e79784}
  .hotspots{display:block!important;position:absolute!important;inset:0!important;grid-template-columns:none!important;grid-template-rows:none!important}
 }
 @media(prefers-reduced-motion:reduce){.scene .hotspot.locked-marker{animation:none!important}}
+
+/* N316 forensic exhibit: conceal obsolete abdominal/ABG teaching panels
+   retained in the original Directorate room art. Art overlay is decorative;
+   correct source information always lives in the interactive clinical chart. */
+.scene-clues{display:none;pointer-events:none}
+.scene.audit .scene-clues{position:absolute;inset:0;z-index:1;display:block;pointer-events:none}
+.forensic-wall{position:absolute;left:9.1%;top:15.8%;width:75.9%;height:43.2%;display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.6%;padding:1.8%;background:linear-gradient(120deg,#171818f5,#1d201bef);border:3px solid #35423c;box-shadow:2px 9px 25px #000b,inset 0 0 22px #0009;transform:perspective(950px) rotateY(-.5deg)}
+.forensic-paper{position:relative;min-width:0;background:linear-gradient(140deg,#c2b69a,#8b8170);border:1px solid #7a6453;color:#241b16;box-shadow:1px 2px 7px #000b;overflow:hidden;padding:4% 6%;font:600 clamp(6px,1.3vw,13px)/1.5 'IBM Plex Mono',monospace}
+.forensic-paper:nth-child(2){background:linear-gradient(140deg,#b4b9aa,#798577)}
+.forensic-paper:nth-child(3){background:linear-gradient(140deg,#bbb3a0,#817566)}
+.forensic-paper strong{display:block;font:800 clamp(7px,1.7vw,17px)/1.2 'Barlow Condensed',sans-serif;border-bottom:1px solid #5f5547;padding-bottom:4px;margin-bottom:6px;letter-spacing:1px}
+.forensic-paper span{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.forensic-red{font-weight:800;color:#851e1b!important}
+.forensic-folder{position:absolute;right:7%;bottom:5%;width:23%;height:18%;padding:1.6%;transform:rotate(-2deg);color:#f3dbc8;font:800 clamp(8px,1.25vw,13px) 'Barlow Condensed',sans-serif;letter-spacing:.8px;background:linear-gradient(120deg,#3f2d23,#21180f);border:2px solid #80624c;box-shadow:2px 5px 10px #000e}
+.forensic-folder::before{content:'DIRECTORATE 13';display:block;color:#c89e76;font:600 clamp(6px,.9vw,10px) monospace;margin-bottom:8px}
+@media(max-width:600px){.forensic-wall{border-width:1px;box-shadow:0 2px 8px #0009}.forensic-paper{padding:3% 4%;font-size:5px}.forensic-paper strong{font-size:7px;margin-bottom:2px;padding-bottom:1px}.forensic-folder{border-width:1px;padding:2%;font-size:7px}.forensic-folder::before{font-size:6px;margin-bottom:2px}}

@@ -41,6 +41,9 @@ assert.ok(multi>=3&&highlight>=2,'Exam mix should include multiple response and 
 for(const [topic,count] of Object.entries({Mobility:6,Tissue:6,Sensory:8,Pain:8,Cognition:6,Neurocognition:6}))assert.equal(countByTag[topic],count);
 assert.match(engine,/ward13\.n316\.exam3\.v1/);
 assert.match(engine,/allCount=rooms\.reduce/);
+assert.ok(!engine.includes("'Completed: '+progress()+'/27"),'Outdated /27 progress counter persists');
+assert.match(html,/btn-test-scream/);
+assert.match(html,/scene-clues/);
 assert.match(engine,/modal\.selected\.includes/);
 for(const id of ['n316-room05.js','n316-room06.js','n316-room07.js','n316.js','n316.css'])assert.ok(html.includes(id),'Missing linked file '+id);
 for(const name of ['n316-reflex.webp','n316-silent.webp','n316-directorate.webp']){

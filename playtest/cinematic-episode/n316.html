@@ -6,7 +6,7 @@
 <div class="grain" aria-hidden="true"></div>
 <header class="hud">
  <div class="brand"><span class="cross">✚</span><div><strong>WARD <em>13</em></strong><small>NURS 316 // EXAM 3</small></div></div>
- <div class="hud-right"><span id="save-indicator" class="save-indicator" aria-live="polite">LOCAL SAVE</span><button id="btn-sound" type="button" class="icon-btn" aria-pressed="true">🔊 SOUND ON</button><a href="./index.html" class="icon-btn home-link">↶ FIRST WING</a></div>
+ <div class="hud-right"><span id="save-indicator" class="save-indicator" aria-live="polite">LOCAL SAVE</span><button id="btn-sound" type="button" class="icon-btn" aria-pressed="true">🔊 SOUND ON</button><button id="btn-test-scream" type="button" class="icon-btn" title="Preview the recorded scream using your device volume">▶ TEST SCREAM</button><a href="./index.html" class="icon-btn home-link">↶ FIRST WING</a></div>
 </header>
 <main>
  <section id="intro" class="intro">
@@ -36,7 +36,7 @@
       <div class="patient-shape"></div>
       <div class="back-door"><span>RESTRICTED</span></div>
       <div class="scene-number" id="scene-number">NEUROLOGY // 05</div>
-      <div id="hotspots" class="hotspots" role="group" aria-label="Clickable clinical chart locations"></div>
+      <div class="scene-clues" aria-hidden="true"><div class="forensic-wall"><div class="forensic-paper"><strong>PAIN ASSESSMENT</strong><span>ORIGINAL: 8 / 10</span><span class="forensic-red">ALTERED: 3 / 10</span><span>Reassessment disputed</span><span>Signed: [REDACTED]</span></div><div class="forensic-paper"><strong>COGNITIVE BASELINE</strong><span>Attention: altered</span><span>Onset: sudden</span><span>Delirium or dementia?</span><span class="forensic-red">History overwritten</span></div><div class="forensic-paper"><strong>OPIOID SAFETY</strong><span>Monitor breathing</span><span>Assess sedation</span><span>Verify consent</span><span class="forensic-red">ALERT SUPPRESSED</span></div></div><div class="forensic-folder">CAREGIVER RECORD<br/>ACCESS RESTRICTED</div></div><div id="hotspots" class="hotspots" role="group" aria-label="Clickable clinical chart locations"></div>
       <div class="scanlines"></div>
      </div>
      <div class="stage-bottom"><div><span class="indicator"></span> <span id="room-status">SELECT A CHART TO EXAMINE</span></div><button id="btn-gate" class="gate-btn" type="button" hidden>UNSEAL NEXT DOOR →</button></div>
