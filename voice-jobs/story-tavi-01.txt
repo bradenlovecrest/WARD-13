@@ -1,0 +1,4 @@
+WARD 13 — one-time recorded Tavi story cue pack.
+N.U.R.S.E. = Nursing Utility for Records, Safety, and Evaluation.
+8 lines from playtest/cinematic-episode/nurse-tavi.js, beginning with exact AI introduction.
+No browser speech substitute. Stop on quota failures, preserving completed recordings.

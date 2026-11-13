@@ -26,10 +26,10 @@ function pendingReview(){return Object.keys(state.misses).filter(function(id){re
 function progress(){return state.done.length+state.gates.length;}
 function soundUI(){$('btn-sound').textContent=state.muted?'🔇 SOUND OFF':'🔊 SOUND ON';$('btn-sound').setAttribute('aria-pressed',String(!state.muted));}
 function showSection(name){$('intro').hidden=name!=='intro';$('game').hidden=name!=='game';$('ending').hidden=name!=='ending';}
-function begin(){state.started=true;save();goGame();}
+function begin(){var wasNew=!state.started;state.started=true;save();goGame();var t=window.WARD13Tavi;if(t)t.play(wasNew?'opening':currentRoom().id,{captionElement:$('nurse-line')});}
 function goGame(){showSection('game');render();window.scrollTo({top:0,behavior:'instant'});}
 function showIntro(){$('btn-continue').hidden=!state.started;showSection('intro');soundUI();}
-function navTo(index){if(!roomAccessible(index)){toast('ACCESS DENIED: VERIFY THE PREVIOUS ROOM SEAL.');return;}state.room=index;save();goGame();}
+function navTo(index){if(!roomAccessible(index)){toast('ACCESS DENIED: VERIFY THE PREVIOUS ROOM SEAL.');return;}state.room=index;save();goGame();window.WARD13Tavi?.play(currentRoom().id,{captionElement:$('nurse-line')});}
 function render(){
  var r=currentRoom();soundUI();
  document.body.dataset.room=r.id;
@@ -41,7 +41,7 @@ function render(){
  $('room-description').textContent=r.description;
  $('scene').className='scene '+r.id;
  $('scene-number').textContent=r.short+' // '+r.number;
- $('nurse-line').textContent=gateDone(r.id)?r.gateVoice:r.voice;
+ $('nurse-line').textContent=gateDone(r.id)?r.gateVoice:(window.WARD13Tavi?.cues?.[r.id]||r.voice);
  renderNav();renderHotspots(r);renderEvidence();
  var completed=r.questions.filter(function(q){return isDone(q.id);}).length;
  $('room-status').textContent=gateDone(r.id)?'SECURITY SEAL ACCEPTED • EXIT OPEN':completed===r.questions.length?'ALL CHARTS VERIFIED • SEAL READY':completed+' OF '+r.questions.length+' CLINICAL CHARTS VERIFIED';
@@ -139,7 +139,7 @@ function submit(){
  }
 }
 function closeQuestion(quiet){
- if(!modal)return;var wasReview=modal.isReview,wasResolved=modal.resolved;modal=null;
+ if(!modal)return;var wasReview=modal.isReview,wasResolved=modal.resolved,wasGate=modal.isGate;modal=null;
  $('question-overlay').hidden=true;document.body.style.overflow='';
  if(previousFocus&&previousFocus.isConnected)previousFocus.focus({preventScroll:true});
  previousFocus=null;
@@ -147,6 +147,7 @@ function closeQuestion(quiet){
  if(wasReview&&wasResolved){reviewQueue=reviewQueue.filter(function(id){return pendingReview().includes(id);});if(reviewQueue.length){var next=cases.get(reviewQueue.shift());if(next){openQuestion(next,false,true);return;}}toast('RETRIEVAL PASS COMPLETE. YOU CAN REPEAT ANY CHART.');}
  if(state.finished){showEnding();return;}
  render();
+ if(wasGate&&wasResolved)window.WARD13Tavi?.play(currentRoom().id,{captionElement:$('nurse-line')});
 }
 function door(){
  var r=currentRoom();if(!r.questions.every(function(q){return isDone(q.id);})){toast('ACCESS DENIED: VERIFY ALL PATIENT RECORDS.');return;}
@@ -154,6 +155,7 @@ function door(){
 }
 function showEnding(){
  showSection('ending');
+ window.WARD13Tavi?.play('ending');
  $('ending-narrative').textContent='The false assessment was never only a typo. The Directorate altered fall-risk scores, sensory findings, pain reassessments and consent records to justify isolation. N.U.R.S.E. refuses its own clearance prompt: "A chart cannot prove its own truth." The South Wing doors unlock. Patient 004 remains unidentified. Somewhere below, an elevator marked DIRECTORATE 13 has begun moving.';
  var wrong=Object.values(state.misses).reduce(function(a,b){return a+b;},0);
  $('ending-stats').innerHTML='<div><strong>'+progress()+'/'+allCount+'</strong><small>LOCKS VERIFIED</small></div><div><strong>'+wrong+'</strong><small>WRONG ATTEMPTS</small></div><div><strong>'+pendingReview().length+'</strong><small>TO REVISIT</small></div>';
@@ -202,6 +204,8 @@ function boot(){
  if(state.room<0||state.room>2)state.room=0;
  if(!roomAccessible(state.room))state.room=0;
  $('btn-start').addEventListener('click',begin);
+ $('btn-hear-intro').addEventListener('click',function(){window.WARD13Tavi?.play('opening');});
+ $('btn-tavi').addEventListener('click',function(){var t=window.WARD13Tavi;if(!t)return;t.setMuted(!t.muted);if(!t.muted&&state.started)t.play(currentRoom().id,{captionElement:$('nurse-line')});});
  $('btn-test-scream').addEventListener('click',function(){
   if(state.muted){state.muted=false;save();soundUI();}
   showScare('human');

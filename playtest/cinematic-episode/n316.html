@@ -6,7 +6,7 @@
 <div class="grain" aria-hidden="true"></div>
 <header class="hud">
  <div class="brand"><span class="cross">✚</span><div><strong>WARD <em>13</em></strong><small>NURS 316 // EXAM 3</small></div></div>
- <div class="hud-right"><span id="save-indicator" class="save-indicator" aria-live="polite">LOCAL SAVE</span><button id="btn-sound" type="button" class="icon-btn" aria-pressed="true">🔊 SOUND ON</button><button id="btn-test-scream" type="button" class="icon-btn" title="Preview the recorded scream using your device volume">▶ TEST SCREAM</button><a href="./index.html" class="icon-btn home-link">↶ FIRST WING</a></div>
+ <div class="hud-right"><span id="save-indicator" class="save-indicator" aria-live="polite">LOCAL SAVE</span><button id="btn-tavi" type="button" class="icon-btn" aria-pressed="true">🎙 TAVI ON</button><button id="btn-sound" type="button" class="icon-btn" aria-pressed="true">🔊 SOUND ON</button><button id="btn-test-scream" type="button" class="icon-btn" title="Preview the recorded scream using your device volume">▶ TEST SCREAM</button><a href="./index.html" class="icon-btn home-link">↶ FIRST WING</a></div>
 </header>
 <main>
  <section id="intro" class="intro">
@@ -14,7 +14,7 @@
    <div class="classification">WARD 13 — UNAUTHORIZED ACCESS // 02:17 AM</div>
    <h1>THE <span>SOUTH WING</span></h1>
    <p class="lead">Observation Four was never the end of the corridor. The Directorate has hidden the nursing assessments that explain why Patient 004 is still here. N.U.R.S.E. wants you to reconstruct them.</p>
-   <div class="intro-packet"><span>TRANSFER NOTE / OBSERVATION FOUR</span><p>“Patient 004: discharged.”<br>“Bed pressure sensor: occupied.”<br>“Clinical domains: <b>MOBILITY / TISSUE / SENSORY / PAIN / COGNITION</b>.”</p></div>
+   <div class="intro-packet" id="nurse-ai-introduction"><span>N.U.R.S.E. / AI CLINICAL SUPERVISION</span><p><strong>Nursing Utility for Records, Safety, and Evaluation</strong><br>Your artificial-intelligence clinical supervisor. Tavi is her recorded voice; captions remain if a recording cannot load.</p><button id="btn-hear-intro" type="button" class="secondary">▶ HEAR N.U.R.S.E. IN TAVI'S VOICE</button><p id="tavi-voice-status" class="micro" aria-live="polite">Recorded Tavi dialogue only. No device-generated speech.</p></div><div class="intro-packet"><span>TRANSFER NOTE / OBSERVATION FOUR</span><p>“Patient 004: discharged.”<br>“Bed pressure sensor: occupied.”<br>“Clinical domains: <b>MOBILITY / TISSUE / SENSORY / PAIN / COGNITION</b>.”</p></div>
    <p class="intro-note">40 exam-weighted clinical challenges • Mobility 6 • Tissue Integrity 6 • Sensory 8 • Pain 8 • Cognition 6 • Neurocognitive Disorders 6 • includes SATA and highlight choices • auto-save and missed-concept review.</p>
    <div class="intro-actions"><button id="btn-start" class="primary" type="button">ENTER THE SOUTH WING <span>→</span></button><button id="btn-continue" class="secondary" type="button" hidden>CONTINUE SAVED SHIFT</button></div>
    <p class="micro">NURS 316 Exam 3 practice based on Fall 2026 instructor slides and review topics; these are original questions, not faculty exam items or clinical orders. Headphones optional; jump scares can be muted.</p>
@@ -67,4 +67,5 @@
 <script src="./n316-room05.js?v=1" defer></script>
 <script src="./n316-room06.js?v=1" defer></script>
 <script src="./n316-room07.js?v=1" defer></script>
-<script src="./n316.js?v=1" defer></script></body></html>
+<script src="./nurse-tavi.js?v=1" defer></script>
+<script src="./n316.js?v=2" defer></script></body></html>

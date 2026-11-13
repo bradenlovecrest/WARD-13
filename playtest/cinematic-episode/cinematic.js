@@ -73,5 +73,32 @@
  southWingLink.addEventListener('pointerenter',()=>{southWingLink.style.background='#264637'});
  southWingLink.addEventListener('pointerleave',()=>{southWingLink.style.background='#091b1bee'});
  document.body.appendChild(southWingLink);
+ // The original four-room campaign keeps its existing recorded Tavi performances.
+ // New introduction uses the SAME Tavi voice pack as South Wing; never device TTS.
+ const taviScript=document.createElement('script');
+ taviScript.src='./nurse-tavi.js?v=1';
+ taviScript.defer=true;
+ document.head.appendChild(taviScript);
+ const enter=document.getElementById('enter-button');
+ if(enter){
+   const info=document.createElement('div');
+   info.id='nurse-ai-intro';
+   info.style.cssText='max-width:680px;margin:12px auto 14px;padding:11px 16px;border-left:3px solid #a2e1ca;background:#071c1dd9;color:#d8efde;box-shadow:0 3px 18px #0007;text-align:left;';
+   const line=document.createElement('p');
+   line.textContent='N.U.R.S.E. — Nursing Utility for Records, Safety, and Evaluation. Your artificial-intelligence clinical supervisor.';
+   line.style.cssText='font:600 13px/1.6 system-ui,sans-serif;margin:0 0 8px;';
+   const hear=document.createElement('button');
+   hear.type='button';hear.id='btn-tavi-opening';hear.textContent='▶ HEAR N.U.R.S.E. INTRODUCE HERSELF (TAVI)';
+   hear.style.cssText='background:#133a33;border:1px solid #b4edd4;color:#e3ffe8;padding:10px;font:600 11px/1.4 monospace;cursor:pointer;max-width:100%;white-space:normal;';
+   const subtitle=document.createElement('p');
+   subtitle.style.cssText='font:400 11px/1.6 system-ui,sans-serif;color:#b7d5c6;margin:8px 0 0;';
+   subtitle.textContent='Recorded Tavi voice only. If the clip is unavailable, subtitles play silently—never robotic speech.';
+   hear.addEventListener('click',()=>{
+     if(window.WARD13Tavi)window.WARD13Tavi.play('opening',{captionElement:subtitle});
+     else subtitle.textContent='Tavi audio is loading. The opening line is captioned; no synthetic voice will play.';
+   });
+   info.append(line,hear,subtitle);
+   enter.parentElement.insertBefore(info,enter);
+ }
  window.WARD13Cinematic={showPatientScare,hidePatientScare:hide};
 })();

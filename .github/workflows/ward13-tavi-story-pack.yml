@@ -1,0 +1,46 @@
+name: WARD 13 — Tavi story dialogue (one-time)
+on:
+  push:
+    branches: [main]
+    paths:
+      - "voice-jobs/story-tavi-01.txt"
+permissions:
+  contents: write
+concurrency:
+  group: ward13-tavi-story-pack
+  cancel-in-progress: false
+jobs:
+  generate-story-recordings:
+    runs-on: ubuntu-latest
+    timeout-minutes: 28
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Record new N.U.R.S.E. scenes with existing Tavi voice
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          WARD_TAVI_MAX: "8"
+        run: python3 tools/generate_nurse_story_voice.py
+        continue-on-error: true
+      - name: Preserve completed Tavi voice clips
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: ward13-new-tavi-dialogue
+          path: playtest/cinematic-episode/assets/tavi-story/*.wav
+          if-no-files-found: warn
+          retention-days: 7
+      - name: Publish completed recordings without rerunning on their push
+        if: ${{ always() }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A playtest/cinematic-episode/assets/tavi-story/
+          if ! git diff --cached --quiet; then
+            git commit -m "Record Ward 13 N.U.R.S.E. new dialogue in Tavi voice"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          else
+            echo "No new Tavi recordings; game retains captions."
+          fi
