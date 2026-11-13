@@ -34,6 +34,10 @@ for(const id of ['jigsaw','memory','logic','maze'])assert.ok(mini.includes('func
 for(const name of ['n316-firstwing-station.webp','n316-firstwing-records.webp','n316-firstwing-treatment.webp','n316-firstwing-observation.webp','n316-firstwing-photo.webp']){
  const b=fs.readFileSync(path.join(dir,'assets',name));assert.ok(b.length>22000&&b.toString('ascii',0,4)==='RIFF'&&b.toString('ascii',8,12)==='WEBP','Missing original high-res art '+name);
 }
+for(const name of ['room05-sharp-evidence.svg','room06-sharp-evidence.svg','room07-sharp-evidence.svg']){
+ const vector=fs.readFileSync(path.join(dir,'assets',name),'utf8');
+ assert.ok(vector.startsWith('<svg')&&vector.includes('</svg>')&&vector.length>4500,'Sharp scene artwork missing '+name);
+}
 for(const name of ['n316-reflex.webp','n316-silent.webp','n316-directorate.webp']){
  assert.ok(fs.statSync(path.join(dir,'assets',name)).size>1000,'Missing south scene '+name);
 }

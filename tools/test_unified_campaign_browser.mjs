@@ -73,6 +73,10 @@ try{
   const room=rooms[ri];assert.equal(await page.locator('#room-number').textContent(),room.number);
   const scene=await page.locator('#scene').evaluate(el=>getComputedStyle(el).backgroundImage);
   assert.match(scene,/url\(/);
+  if(ri>=4){
+    const overlay=await page.locator('#scene').evaluate(el=>getComputedStyle(el,'::after').backgroundImage);
+    assert.match(overlay,/room0[567]-sharp-evidence\.svg/,'Crisp clinical overlays missing in '+room.id);
+  }
   // Guarantee every physical hotspot marker actually lands in the scene rectangle.
   const bounds=await page.locator('.hotspot').evaluateAll(els=>els.map(el=>{let s=document.querySelector('#scene').getBoundingClientRect(),r=el.getBoundingClientRect();return r.left>=s.left-5&&r.right<=s.right+5&&r.top>=s.top-5&&r.bottom<=s.bottom+5;}));
   assert.ok(bounds.every(Boolean),'Clue marker out of scene bounds in '+room.id);

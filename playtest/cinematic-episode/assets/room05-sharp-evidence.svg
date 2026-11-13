@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1672" height="941" viewBox="0 0 1672 941" preserveAspectRatio="none"><!-- High-fidelity sharp clue props, intentionally mapped to the room's x/y interaction coordinates. --><rect width="1672" height="941" fill="none"/><defs>
+ <linearGradient id="paper" x1="0" x2=".9" y1="0" y2="1"><stop stop-color="#e3dcc9"/><stop offset=".62" stop-color="#c2b69b"/><stop offset="1" stop-color="#7c745e"/></linearGradient>
+ <linearGradient id="metal" x1="0" x2="1" y1="0" y2=".7"><stop stop-color="#465c5c"/><stop offset=".3" stop-color="#101d22"/><stop offset=".7" stop-color="#354647"/><stop offset="1" stop-color="#090f12"/></linearGradient>
+ <linearGradient id="glass" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#31575d" stop-opacity=".45"/><stop offset=".55" stop-color="#051720" stop-opacity=".1"/><stop offset="1" stop-color="#132a32" stop-opacity=".60"/></linearGradient>
+ <linearGradient id="redlight" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#fd7a62" stop-opacity=".40"/><stop offset="1" stop-color="#080c0c" stop-opacity="0"/></linearGradient>
+ <filter id="shadow" x="-35%" y="-35%" width="175%" height="180%"><feGaussianBlur in="SourceAlpha" stdDeviation="9"/><feOffset dy="8" dx="5"/><feComponentTransfer><feFuncA type="linear" slope=".68"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ <filter id="glow"><feGaussianBlur stdDeviation="6" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ </defs>
+<g opacity=".32" stroke="#b8f6dc" fill="none" stroke-width=".9"><path d="M90 0L45 940" opacity=".15"/><path d="M280 0L235 940" opacity=".15"/><path d="M470 0L425 940" opacity=".15"/><path d="M660 0L615 940" opacity=".15"/><path d="M850 0L805 940" opacity=".15"/><path d="M1040 0L995 940" opacity=".15"/><path d="M1230 0L1185 940" opacity=".15"/><path d="M1420 0L1375 940" opacity=".15"/><path d="M1610 0L1565 940" opacity=".15"/></g>
+
+<g><rect x="690" y="56" width="500" height="59" rx="2" fill="#071114" opacity=".83" stroke="#a9d4ba" stroke-width="2"/><text x="940" y="95" fill="#a9d4ba" text-anchor="middle" font-family="monospace" font-size="22" font-weight="bold" letter-spacing="4">REFLEX THEATRE</text></g>
+<g transform="rotate(-3 334 309)" filter="url(#shadow)">
+<rect x="209" y="198" width="250" height="224" rx="3" fill="#0b1011" stroke="#56625f" stroke-width="5" opacity=".9"/>
+<rect x="214" y="202" width="240" height="214" rx="2" fill="url(#paper)" stroke="#181a17" stroke-width="2"/>
+<path d="M234 218H434" stroke="#b1cdb7" stroke-width="4"/>
+<text x="231" y="239" fill="#2a201a" font-family="monospace" font-weight="700" font-size="16">PRESSURE ASSESS</text>
+<text x="231" y="267" fill="#4a4039" font-family="monospace" font-size="13">STAGE 1: intact skin</text><text x="231" y="293" fill="#4a4039" font-family="monospace" font-size="13">STAGE 2: dermis</text><text x="231" y="319" fill="#4a4039" font-family="monospace" font-size="13">STAGE 3: adipose</text><text x="231" y="345" fill="#4a4039" font-family="monospace" font-size="13">STAGE 4: deep tissue</text>
+<path d="M233 356h196" stroke="#53483f" stroke-width="1" opacity=".3"/><path d="M233 372h196" stroke="#53483f" stroke-width="1" opacity=".3"/><path d="M233 388h196" stroke="#53483f" stroke-width="1" opacity=".3"/>
+<circle cx="434" cy="220" r="7" fill="#b1cdb7" opacity=".65"/></g>
+<g transform="rotate(2 736 291)" filter="url(#shadow)">
+<rect x="629" y="193.5" width="214" height="197" rx="3" fill="#0b1011" stroke="#56625f" stroke-width="5" opacity=".9"/>
+<rect x="634" y="197.5" width="204" height="187" rx="2" fill="url(#paper)" stroke="#181a17" stroke-width="2"/>
+<path d="M654 213.5H818" stroke="#e6a898" stroke-width="4"/>
+<text x="651" y="234.5" fill="#2a201a" font-family="monospace" font-weight="700" font-size="16">SKIN MAP</text>
+<text x="651" y="262.5" fill="#4a4039" font-family="monospace" font-size="13">SACRUM  [x]</text><text x="651" y="288.5" fill="#4a4039" font-family="monospace" font-size="13">HEELS    [x]</text><text x="651" y="314.5" fill="#4a4039" font-family="monospace" font-size="13">ELBOWS   [ ]</text><text x="651" y="340.5" fill="#4a4039" font-family="monospace" font-size="13">PRESSURE / SHEAR</text>
+<path d="M653 324.5h160" stroke="#53483f" stroke-width="1" opacity=".3"/><path d="M653 340.5h160" stroke="#53483f" stroke-width="1" opacity=".3"/><path d="M653 356.5h160" stroke="#53483f" stroke-width="1" opacity=".3"/>
+<circle cx="818" cy="215.5" r="7" fill="#e6a898" opacity=".65"/></g>
+<g transform="rotate(-7 384 772)" filter="url(#shadow)">
+<rect x="258.5" y="676.5" width="251" height="193" rx="3" fill="#0b1011" stroke="#56625f" stroke-width="5" opacity=".9"/>
+<rect x="263.5" y="680.5" width="241" height="183" rx="2" fill="url(#paper)" stroke="#181a17" stroke-width="2"/>
+<path d="M283.5 696.5H484.5" stroke="#e0b08a" stroke-width="4"/>
+<text x="280.5" y="717.5" fill="#2a201a" font-family="monospace" font-weight="700" font-size="16">TRANSFER NOTE</text>
+<text x="280.5" y="745.5" fill="#4a4039" font-family="monospace" font-size="13">LIFT REQUEST:  DENIED</text><text x="280.5" y="771.5" fill="#4a4039" font-family="monospace" font-size="13">NO MANUAL LIFT</text><text x="280.5" y="797.5" fill="#4a4039" font-family="monospace" font-size="13">SAFE HANDLING HOLD</text>
+<path d="M282.5 803.5h197" stroke="#53483f" stroke-width="1" opacity=".3"/><path d="M282.5 819.5h197" stroke="#53483f" stroke-width="1" opacity=".3"/><path d="M282.5 835.5h197" stroke="#53483f" stroke-width="1" opacity=".3"/>
+<circle cx="484.5" cy="698.5" r="7" fill="#e0b08a" opacity=".65"/></g>
+<g transform="translate(1085 725)" filter="url(#shadow)"><path d="M10 30L250 9L285 74L50 94Z" fill="url(#metal)" stroke="#bbcdc3" stroke-width="4"/><path d="M46 50L218 30M65 74L238 49" stroke="#b8f2c5" opacity=".5" stroke-width="3"/><g fill="#a8c6c3" stroke="#24413f" stroke-width="3"><rect x="58" y="52" width="110" height="7" rx="3" transform="rotate(-7 58 52)"/><rect x="93" y="70" width="82" height="6" rx="3" transform="rotate(-8 93 70)"/></g></g>
+<g filter="url(#shadow)"><rect x="752.5" y="417" width="303" height="198" rx="5" fill="url(#metal)" stroke="#7e8987" stroke-width="3"/>
+<rect x="761.5" y="425" width="285" height="182" rx="3" fill="#04151a" stroke="#b8ebbc" stroke-width="1" opacity=".93"/>
+<path d="M767.5 445H1040.5" stroke="#b8ebbc" opacity=".10"/><path d="M767.5 473H1040.5" stroke="#b8ebbc" opacity=".10"/><path d="M767.5 501H1040.5" stroke="#b8ebbc" opacity=".10"/><path d="M767.5 529H1040.5" stroke="#b8ebbc" opacity=".10"/><path d="M767.5 557H1040.5" stroke="#b8ebbc" opacity=".10"/>
+<text x="772.5" y="447" fill="#b8ebbc" font-family="monospace" font-size="15" font-weight="bold">MOBILITY TEST</text>
+<path d="M771.5 531l31 0 12 -31 13 61 11 -31 24 0 14 -15 12 15 23 0 19 -24 11 24 21 0" fill="none" stroke="#b8ebbc" stroke-width="3" opacity=".86" filter="url(#glow)"/>
+<text x="772.5" y="591" fill="#b8ebbc" font-family="monospace" font-size="12">GAIT / ENDURANCE</text></g>
+<g transform="rotate(5 1502 699)" filter="url(#shadow)">
+<rect x="1403" y="595.5" width="198" height="209" rx="3" fill="#0b1011" stroke="#56625f" stroke-width="5" opacity=".9"/>
+<rect x="1408" y="599.5" width="188" height="199" rx="2" fill="url(#paper)" stroke="#181a17" stroke-width="2"/>
+<path d="M1428 615.5H1576" stroke="#d39779" stroke-width="4"/>
+<text x="1425" y="636.5" fill="#2a201a" font-family="monospace" font-weight="700" font-size="16">FALL SAFETY</text>
+<text x="1425" y="664.5" fill="#4a4039" font-family="monospace" font-size="13">ORIENTATION:   [ ]</text><text x="1425" y="690.5" fill="#4a4039" font-family="monospace" font-size="13">DEVICE:        [ ]</text><text x="1425" y="716.5" fill="#4a4039" font-family="monospace" font-size="13">REVIEW:   PENDING</text>
+<path d="M1427 738.5h144" stroke="#53483f" stroke-width="1" opacity=".3"/><path d="M1427 754.5h144" stroke="#53483f" stroke-width="1" opacity=".3"/><path d="M1427 770.5h144" stroke="#53483f" stroke-width="1" opacity=".3"/>
+<circle cx="1576" cy="617.5" r="7" fill="#d39779" opacity=".65"/></g>
+<g filter="url(#shadow)"><rect x="1515" y="162" width="146" height="283" rx="3" fill="#0a171a" stroke="#364344" stroke-width="11"/><rect x="1528" y="176" width="120" height="252" fill="url(#metal)" stroke="#e5a79c" stroke-width="2" opacity=".9"/><rect x="1532" y="202" width="112" height="32" fill="#050c0c" stroke="#e5a79c" stroke-width="1"/><text x="1588" y="223" text-anchor="middle" fill="#e5a79c" font-family="monospace" font-size="13" font-weight="bold">EXIT 05</text><circle cx="1633" cy="335" r="7" fill="#e5a79c" filter="url(#glow)"/></g>
+<g transform="translate(1060 454)" opacity=".73" stroke="#b0c8bd" stroke-width="7" fill="none"><circle cx="24" cy="95" r="56"/><circle cx="24" cy="95" r="46" stroke-width="3"/><circle cx="173" cy="119" r="22"/><path d="M78 95h80l24-64-67 0-27 40M93 70L65-9h-50M101 73L143 119"/></g>
+</svg>

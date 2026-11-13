@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1672" height="941" viewBox="0 0 1672 941" preserveAspectRatio="none"><!-- High-fidelity sharp clue props, intentionally mapped to the room's x/y interaction coordinates. --><rect width="1672" height="941" fill="none"/><defs>
+ <linearGradient id="paper" x1="0" x2=".9" y1="0" y2="1"><stop stop-color="#e3dcc9"/><stop offset=".62" stop-color="#c2b69b"/><stop offset="1" stop-color="#7c745e"/></linearGradient>
+ <linearGradient id="metal" x1="0" x2="1" y1="0" y2=".7"><stop stop-color="#465c5c"/><stop offset=".3" stop-color="#101d22"/><stop offset=".7" stop-color="#354647"/><stop offset="1" stop-color="#090f12"/></linearGradient>
+ <linearGradient id="glass" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#31575d" stop-opacity=".45"/><stop offset=".55" stop-color="#051720" stop-opacity=".1"/><stop offset="1" stop-color="#132a32" stop-opacity=".60"/></linearGradient>
+ <linearGradient id="redlight" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#fd7a62" stop-opacity=".40"/><stop offset="1" stop-color="#080c0c" stop-opacity="0"/></linearGradient>
+ <filter id="shadow" x="-35%" y="-35%" width="175%" height="180%"><feGaussianBlur in="SourceAlpha" stdDeviation="9"/><feOffset dy="8" dx="5"/><feComponentTransfer><feFuncA type="linear" slope=".68"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ <filter id="glow"><feGaussianBlur stdDeviation="6" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ </defs>
+<g opacity=".32" stroke="#ff9c8c" fill="none" stroke-width=".9"><path d="M90 0L45 940" opacity=".15"/><path d="M280 0L235 940" opacity=".15"/><path d="M470 0L425 940" opacity=".15"/><path d="M660 0L615 940" opacity=".15"/><path d="M850 0L805 940" opacity=".15"/><path d="M1040 0L995 940" opacity=".15"/><path d="M1230 0L1185 940" opacity=".15"/><path d="M1420 0L1375 940" opacity=".15"/><path d="M1610 0L1565 940" opacity=".15"/></g>
+
+<g><rect x="532" y="58" width="600" height="59" rx="2" fill="#071114" opacity=".83" stroke="#f3a498" stroke-width="2"/><text x="832" y="97" fill="#f3a498" text-anchor="middle" font-family="monospace" font-size="22" font-weight="bold" letter-spacing="4">DIRECTORATE SUBLEVEL</text></g>
+<g transform="rotate(-3 500 291)" filter="url(#shadow)">
+<rect x="367" y="184.5" width="266" height="215" rx="3" fill="#0b1011" stroke="#56625f" stroke-width="5" opacity=".9"/>
+<rect x="372" y="188.5" width="256" height="205" rx="2" fill="url(#paper)" stroke="#181a17" stroke-width="2"/>
+<path d="M392 204.5H608" stroke="#e9aa8f" stroke-width="4"/>
+<text x="389" y="225.5" fill="#2a201a" font-family="monospace" font-weight="700" font-size="16">COMFORT PLAN</text>
+<text x="389" y="253.5" fill="#4a4039" font-family="monospace" font-size="13">SLEEP: INTERRUPTED</text><text x="389" y="279.5" fill="#4a4039" font-family="monospace" font-size="13">PAIN: UNCONTROLLED</text><text x="389" y="305.5" fill="#4a4039" font-family="monospace" font-size="13">PATIENT GOALS: ...</text>
+<path d="M391 333.5h212" stroke="#53483f" stroke-width="1" opacity=".3"/><path d="M391 349.5h212" stroke="#53483f" stroke-width="1" opacity=".3"/><path d="M391 365.5h212" stroke="#53483f" stroke-width="1" opacity=".3"/>
+<circle cx="608" cy="206.5" r="7" fill="#e9aa8f" opacity=".65"/></g>
+<g transform="rotate(4 770 263)" filter="url(#shadow)">
+<rect x="648.5" y="171" width="243" height="186" rx="3" fill="#0b1011" stroke="#56625f" stroke-width="5" opacity=".9"/>
+<rect x="653.5" y="175" width="233" height="176" rx="2" fill="url(#paper)" stroke="#181a17" stroke-width="2"/>
+<path d="M673.5 191H866.5" stroke="#c7b599" stroke-width="4"/>
+<text x="670.5" y="212" fill="#2a201a" font-family="monospace" font-weight="700" font-size="16">COGNITION AUDIT</text>
+<text x="670.5" y="240" fill="#4a4039" font-family="monospace" font-size="13">DELIRIUM: ACUTE</text><text x="670.5" y="266" fill="#4a4039" font-family="monospace" font-size="13">ATTENTION: ALTERED</text><text x="670.5" y="292" fill="#4a4039" font-family="monospace" font-size="13">ONSET: 00:13</text>
+<path d="M672.5 291h189" stroke="#53483f" stroke-width="1" opacity=".3"/><path d="M672.5 307h189" stroke="#53483f" stroke-width="1" opacity=".3"/><path d="M672.5 323h189" stroke="#53483f" stroke-width="1" opacity=".3"/>
+<circle cx="866.5" cy="193" r="7" fill="#c7b599" opacity=".65"/></g>
+<g filter="url(#shadow)"><rect x="1048" y="238" width="278" height="196" rx="5" fill="url(#metal)" stroke="#7e8987" stroke-width="3"/>
+<rect x="1057" y="246" width="260" height="180" rx="3" fill="#04151a" stroke="#f2a599" stroke-width="1" opacity=".93"/>
+<path d="M1063 266H1311" stroke="#f2a599" opacity=".10"/><path d="M1063 294H1311" stroke="#f2a599" opacity=".10"/><path d="M1063 322H1311" stroke="#f2a599" opacity=".10"/><path d="M1063 350H1311" stroke="#f2a599" opacity=".10"/><path d="M1063 378H1311" stroke="#f2a599" opacity=".10"/>
+<text x="1068" y="268" fill="#f2a599" font-family="monospace" font-size="15" font-weight="bold">OPIOID MONITOR</text>
+<path d="M1067 351l31 0 12 -31 13 61 11 -31 24 0 14 -15 12 15 23 0 19 -24 11 24 21 0" fill="none" stroke="#f2a599" stroke-width="3" opacity=".86" filter="url(#glow)"/>
+<text x="1068" y="410" fill="#f2a599" font-family="monospace" font-size="12">RR 8/min  /  ALERT</text></g>
+<g transform="rotate(-7 436 763)" filter="url(#shadow)">
+<rect x="303.5" y="651.5" width="265" height="225" rx="3" fill="#0b1011" stroke="#56625f" stroke-width="5" opacity=".9"/>
+<rect x="308.5" y="655.5" width="255" height="215" rx="2" fill="url(#paper)" stroke="#181a17" stroke-width="2"/>
+<path d="M328.5 671.5H543.5" stroke="#f29c76" stroke-width="4"/>
+<text x="325.5" y="692.5" fill="#2a201a" font-family="monospace" font-weight="700" font-size="16">PAIN / ORIGINAL</text>
+<text x="325.5" y="720.5" fill="#4a4039" font-family="monospace" font-size="13">PATIENT 004</text><text x="325.5" y="746.5" fill="#4a4039" font-family="monospace" font-size="13">SELF-REPORT 8/10</text><text x="325.5" y="772.5" fill="#4a4039" font-family="monospace" font-size="13">COPIED RECORD 3/10</text><text x="325.5" y="798.5" fill="#4a4039" font-family="monospace" font-size="13">REASSESS REQUIRED</text>
+<path d="M327.5 810.5h211" stroke="#53483f" stroke-width="1" opacity=".3"/><path d="M327.5 826.5h211" stroke="#53483f" stroke-width="1" opacity=".3"/><path d="M327.5 842.5h211" stroke="#53483f" stroke-width="1" opacity=".3"/>
+<circle cx="543.5" cy="673.5" r="7" fill="#f29c76" opacity=".65"/></g>
+<g transform="rotate(5 949 777)" filter="url(#shadow)">
+<rect x="827" y="669" width="244" height="218" rx="3" fill="#0b1011" stroke="#56625f" stroke-width="5" opacity=".9"/>
+<rect x="832" y="673" width="234" height="208" rx="2" fill="url(#paper)" stroke="#181a17" stroke-width="2"/>
+<path d="M852 689H1046" stroke="#d2bd8c" stroke-width="4"/>
+<text x="849" y="710" fill="#2a201a" font-family="monospace" font-weight="700" font-size="16">PATIENT LETTER</text>
+<text x="849" y="738" fill="#4a4039" font-family="monospace" font-size="13">PLEASE LISTEN</text><text x="849" y="764" fill="#4a4039" font-family="monospace" font-size="13">I DID NOT DECLINE</text><text x="849" y="790" fill="#4a4039" font-family="monospace" font-size="13">CARE ORDER ALTERED</text>
+<path d="M851 821h190" stroke="#53483f" stroke-width="1" opacity=".3"/><path d="M851 837h190" stroke="#53483f" stroke-width="1" opacity=".3"/><path d="M851 853h190" stroke="#53483f" stroke-width="1" opacity=".3"/>
+<circle cx="1046" cy="691" r="7" fill="#d2bd8c" opacity=".65"/></g>
+<g transform="rotate(3 1405 412)" filter="url(#shadow)">
+<rect x="1287" y="309" width="236" height="208" rx="3" fill="#0b1011" stroke="#56625f" stroke-width="5" opacity=".9"/>
+<rect x="1292" y="313" width="226" height="198" rx="2" fill="url(#paper)" stroke="#181a17" stroke-width="2"/>
+<path d="M1312 329H1498" stroke="#d76c65" stroke-width="4"/>
+<text x="1309" y="350" fill="#2a201a" font-family="monospace" font-weight="700" font-size="16">DIRECTORATE</text>
+<text x="1309" y="378" fill="#4a4039" font-family="monospace" font-size="13">AUTH TOKEN: N.U.R.S.E.</text><text x="1309" y="404" fill="#4a4039" font-family="monospace" font-size="13">VERIFIED WITHOUT VISIT</text><text x="1309" y="430" fill="#4a4039" font-family="monospace" font-size="13">OVERRIDE SIGNED</text>
+<path d="M1311 451h182" stroke="#53483f" stroke-width="1" opacity=".3"/><path d="M1311 467h182" stroke="#53483f" stroke-width="1" opacity=".3"/><path d="M1311 483h182" stroke="#53483f" stroke-width="1" opacity=".3"/>
+<circle cx="1498" cy="331" r="7" fill="#d76c65" opacity=".65"/></g>
+<g transform="rotate(-4 1438 733)" filter="url(#shadow)">
+<rect x="1310" y="636" width="256" height="196" rx="3" fill="#0b1011" stroke="#56625f" stroke-width="5" opacity=".9"/>
+<rect x="1315" y="640" width="246" height="186" rx="2" fill="url(#paper)" stroke="#181a17" stroke-width="2"/>
+<path d="M1335 656H1541" stroke="#cd9893" stroke-width="4"/>
+<text x="1332" y="677" fill="#2a201a" font-family="monospace" font-weight="700" font-size="16">CAREGIVER FILE</text>
+<text x="1332" y="705" fill="#4a4039" font-family="monospace" font-size="13">VISIT: DENIED</text><text x="1332" y="731" fill="#4a4039" font-family="monospace" font-size="13">FAMILY CALLS: 47</text><text x="1332" y="757" fill="#4a4039" font-family="monospace" font-size="13">CONTACT REMOVED</text>
+<path d="M1334 766h202" stroke="#53483f" stroke-width="1" opacity=".3"/><path d="M1334 782h202" stroke="#53483f" stroke-width="1" opacity=".3"/><path d="M1334 798h202" stroke="#53483f" stroke-width="1" opacity=".3"/>
+<circle cx="1541" cy="658" r="7" fill="#cd9893" opacity=".65"/></g>
+<g filter="url(#shadow)"><rect x="1469" y="90" width="146" height="283" rx="3" fill="#0a171a" stroke="#364344" stroke-width="11"/><rect x="1482" y="104" width="120" height="252" fill="url(#metal)" stroke="#ff6d5f" stroke-width="2" opacity=".9"/><rect x="1486" y="130" width="112" height="32" fill="#050c0c" stroke="#ff6d5f" stroke-width="1"/><text x="1542" y="151" text-anchor="middle" fill="#ff6d5f" font-family="monospace" font-size="13" font-weight="bold">AUTH ONLY</text><circle cx="1587" cy="263" r="7" fill="#ff6d5f" filter="url(#glow)"/></g>
+<g opacity=".4" stroke="#f0a39b" fill="none" stroke-width="7"><path d="M70 160h260v320H70zM100 220h200M100 280h200M100 340h200"/><path d="M129 235h135M129 296h135"/></g>
+</svg>

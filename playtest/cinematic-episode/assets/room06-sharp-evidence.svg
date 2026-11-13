@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1672" height="941" viewBox="0 0 1672 941" preserveAspectRatio="none"><!-- High-fidelity sharp clue props, intentionally mapped to the room's x/y interaction coordinates. --><rect width="1672" height="941" fill="none"/><defs>
+ <linearGradient id="paper" x1="0" x2=".9" y1="0" y2="1"><stop stop-color="#e3dcc9"/><stop offset=".62" stop-color="#c2b69b"/><stop offset="1" stop-color="#7c745e"/></linearGradient>
+ <linearGradient id="metal" x1="0" x2="1" y1="0" y2=".7"><stop stop-color="#465c5c"/><stop offset=".3" stop-color="#101d22"/><stop offset=".7" stop-color="#354647"/><stop offset="1" stop-color="#090f12"/></linearGradient>
+ <linearGradient id="glass" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#31575d" stop-opacity=".45"/><stop offset=".55" stop-color="#051720" stop-opacity=".1"/><stop offset="1" stop-color="#132a32" stop-opacity=".60"/></linearGradient>
+ <linearGradient id="redlight" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#fd7a62" stop-opacity=".40"/><stop offset="1" stop-color="#080c0c" stop-opacity="0"/></linearGradient>
+ <filter id="shadow" x="-35%" y="-35%" width="175%" height="180%"><feGaussianBlur in="SourceAlpha" stdDeviation="9"/><feOffset dy="8" dx="5"/><feComponentTransfer><feFuncA type="linear" slope=".68"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ <filter id="glow"><feGaussianBlur stdDeviation="6" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ </defs>
+<g opacity=".32" stroke="#adbaff" fill="none" stroke-width=".9"><path d="M90 0L45 940" opacity=".15"/><path d="M280 0L235 940" opacity=".15"/><path d="M470 0L425 940" opacity=".15"/><path d="M660 0L615 940" opacity=".15"/><path d="M850 0L805 940" opacity=".15"/><path d="M1040 0L995 940" opacity=".15"/><path d="M1230 0L1185 940" opacity=".15"/><path d="M1420 0L1375 940" opacity=".15"/><path d="M1610 0L1565 940" opacity=".15"/></g>
+
+<g><rect x="616" y="57" width="470" height="59" rx="2" fill="#071114" opacity=".83" stroke="#c3a9eb" stroke-width="2"/><text x="851" y="96" fill="#c3a9eb" text-anchor="middle" font-family="monospace" font-size="22" font-weight="bold" letter-spacing="4">SILENT GALLERY</text></g>
+<g filter="url(#shadow)"><rect x="172" y="219" width="258" height="198" rx="5" fill="url(#metal)" stroke="#7e8987" stroke-width="3"/>
+<rect x="181" y="227" width="240" height="182" rx="3" fill="#04151a" stroke="#a6a7fb" stroke-width="1" opacity=".93"/>
+<path d="M187 247H415" stroke="#a6a7fb" opacity=".10"/><path d="M187 275H415" stroke="#a6a7fb" opacity=".10"/><path d="M187 303H415" stroke="#a6a7fb" opacity=".10"/><path d="M187 331H415" stroke="#a6a7fb" opacity=".10"/><path d="M187 359H415" stroke="#a6a7fb" opacity=".10"/>
+<text x="192" y="249" fill="#a6a7fb" font-family="monospace" font-size="15" font-weight="bold">AUDIO RECORD 004</text>
+<path d="M191 333l31 0 12 -31 13 61 11 -31 24 0 14 -15 12 15 23 0 19 -24 11 24 21 0" fill="none" stroke="#a6a7fb" stroke-width="3" opacity=".86" filter="url(#glow)"/>
+<text x="192" y="393" fill="#a6a7fb" font-family="monospace" font-size="12">WAVEFORM / MUTED</text></g>
+<g filter="url(#shadow)"><rect x="432" y="193" width="178" height="237" fill="#e7e4d2" stroke="#5d5e60" stroke-width="13"/><text x="519" y="259" text-anchor="middle" fill="#171721" font-family="serif" font-size="63">E</text><text x="519" y="296" text-anchor="middle" fill="#171721" font-family="monospace" font-size="38">F P</text><text x="519" y="327" text-anchor="middle" fill="#171721" font-family="monospace" font-size="26">T O Z</text><text x="519" y="355" text-anchor="middle" fill="#171721" font-family="monospace" font-size="19">L P E D</text><text x="519" y="382" text-anchor="middle" fill="#171721" font-family="monospace" font-size="14">P E C F D</text></g>
+<g transform="translate(635 405)" filter="url(#shadow)"><path d="M10 30L250 9L285 74L50 94Z" fill="url(#metal)" stroke="#bbcdc3" stroke-width="4"/><path d="M46 50L218 30M65 74L238 49" stroke="#bbb5fa" opacity=".5" stroke-width="3"/><g fill="#a8c6c3" stroke="#24413f" stroke-width="3"><rect x="58" y="52" width="110" height="7" rx="3" transform="rotate(-7 58 52)"/><rect x="93" y="70" width="82" height="6" rx="3" transform="rotate(-8 93 70)"/></g></g>
+<g filter="url(#shadow)"><rect x="947" y="201" width="275" height="349" fill="url(#glass)" stroke="#a49ee7" stroke-width="13" opacity=".78"/><path d="M1035 206v340M1144 206v340M948 290h274M948 440h274" stroke="#c8c5f8" stroke-width="4" opacity=".4"/><text x="1085" y="255" text-anchor="middle" fill="#e6e0ff" font-family="monospace" font-size="15">SENSORY ISOLATION</text><circle cx="1101" cy="391" r="40" fill="none" stroke="#727ed9" stroke-width="3" opacity=".58"/></g>
+<g transform="rotate(3 1419 437)" filter="url(#shadow)">
+<rect x="1301" y="317.5" width="236" height="241" rx="3" fill="#0b1011" stroke="#56625f" stroke-width="5" opacity=".9"/>
+<rect x="1306" y="321.5" width="226" height="231" rx="2" fill="url(#paper)" stroke="#181a17" stroke-width="2"/>
+<path d="M1326 337.5H1512" stroke="#ba9fd8" stroke-width="4"/>
+<text x="1323" y="358.5" fill="#2a201a" font-family="monospace" font-weight="700" font-size="16">CRANIAL N. FILES</text>
+<text x="1323" y="386.5" fill="#4a4039" font-family="monospace" font-size="13">CN I    SMELL</text><text x="1323" y="412.5" fill="#4a4039" font-family="monospace" font-size="13">CN II   VISION</text><text x="1323" y="438.5" fill="#4a4039" font-family="monospace" font-size="13">CN VIII HEARING</text><text x="1323" y="464.5" fill="#4a4039" font-family="monospace" font-size="13">CLOCK / ORIENT</text>
+<path d="M1325 492.5h182" stroke="#53483f" stroke-width="1" opacity=".3"/><path d="M1325 508.5h182" stroke="#53483f" stroke-width="1" opacity=".3"/><path d="M1325 524.5h182" stroke="#53483f" stroke-width="1" opacity=".3"/>
+<circle cx="1512" cy="339.5" r="7" fill="#ba9fd8" opacity=".65"/></g>
+<g transform="rotate(-4 418 775)" filter="url(#shadow)">
+<rect x="300" y="678.5" width="236" height="195" rx="3" fill="#0b1011" stroke="#56625f" stroke-width="5" opacity=".9"/>
+<rect x="305" y="682.5" width="226" height="185" rx="2" fill="url(#paper)" stroke="#181a17" stroke-width="2"/>
+<path d="M325 698.5H511" stroke="#c5b1c7" stroke-width="4"/>
+<text x="322" y="719.5" fill="#2a201a" font-family="monospace" font-weight="700" font-size="16">PATIENT CHART</text>
+<text x="322" y="747.5" fill="#4a4039" font-family="monospace" font-size="13">BASELINE UNKNOWN</text><text x="322" y="773.5" fill="#4a4039" font-family="monospace" font-size="13">VISUAL AIDS: +</text><text x="322" y="799.5" fill="#4a4039" font-family="monospace" font-size="13">INTERVIEW DATE: ?</text>
+<path d="M324 807.5h182" stroke="#53483f" stroke-width="1" opacity=".3"/><path d="M324 823.5h182" stroke="#53483f" stroke-width="1" opacity=".3"/><path d="M324 839.5h182" stroke="#53483f" stroke-width="1" opacity=".3"/>
+<circle cx="511" cy="700.5" r="7" fill="#c5b1c7" opacity=".65"/></g>
+<g transform="rotate(2 853 785)" filter="url(#shadow)">
+<rect x="725.5" y="678.5" width="255" height="215" rx="3" fill="#0b1011" stroke="#56625f" stroke-width="5" opacity=".9"/>
+<rect x="730.5" y="682.5" width="245" height="205" rx="2" fill="url(#paper)" stroke="#181a17" stroke-width="2"/>
+<path d="M750.5 698.5H955.5" stroke="#e3a0b1" stroke-width="4"/>
+<text x="747.5" y="719.5" fill="#2a201a" font-family="monospace" font-weight="700" font-size="16">CONSENT RECORD</text>
+<text x="747.5" y="747.5" fill="#4a4039" font-family="monospace" font-size="13">PATIENT 004</text><text x="747.5" y="773.5" fill="#4a4039" font-family="monospace" font-size="13">AUTHORIZED? [NO]</text><text x="747.5" y="799.5" fill="#4a4039" font-family="monospace" font-size="13">E-SIGNATURE DUP.</text>
+<path d="M749.5 827.5h201" stroke="#53483f" stroke-width="1" opacity=".3"/><path d="M749.5 843.5h201" stroke="#53483f" stroke-width="1" opacity=".3"/><path d="M749.5 859.5h201" stroke="#53483f" stroke-width="1" opacity=".3"/>
+<circle cx="955.5" cy="700.5" r="7" fill="#e3a0b1" opacity=".65"/></g>
+<g filter="url(#shadow)"><rect x="1500" y="115" width="146" height="283" rx="3" fill="#0a171a" stroke="#364344" stroke-width="11"/><rect x="1513" y="129" width="120" height="252" fill="url(#metal)" stroke="#ff828d" stroke-width="2" opacity=".9"/><rect x="1517" y="155" width="112" height="32" fill="#050c0c" stroke="#ff828d" stroke-width="1"/><text x="1573" y="176" text-anchor="middle" fill="#ff828d" font-family="monospace" font-size="13" font-weight="bold">ALARM</text><circle cx="1618" cy="288" r="7" fill="#ff828d" filter="url(#glow)"/></g>
+</svg>

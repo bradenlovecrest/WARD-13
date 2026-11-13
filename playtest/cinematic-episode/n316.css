@@ -74,3 +74,12 @@ body[data-room="audit"] .panel-top{border-left:3px solid #e79784}
 .forensic-folder{position:absolute;right:7%;bottom:5%;width:23%;height:18%;padding:1.6%;transform:rotate(-2deg);color:#f3dbc8;font:800 clamp(8px,1.25vw,13px) 'Barlow Condensed',sans-serif;letter-spacing:.8px;background:linear-gradient(120deg,#3f2d23,#21180f);border:2px solid #80624c;box-shadow:2px 5px 10px #000e}
 .forensic-folder::before{content:'DIRECTORATE 13';display:block;color:#c89e76;font:600 clamp(6px,.9vw,10px) monospace;margin-bottom:8px}
 @media(max-width:600px){.forensic-wall{border-width:1px;box-shadow:0 2px 8px #0009}.forensic-paper{padding:3% 4%;font-size:5px}.forensic-paper strong{font-size:7px;margin-bottom:2px;padding-bottom:1px}.forensic-folder{border-width:1px;padding:2%;font-size:7px}.forensic-folder::before{font-size:6px;margin-bottom:2px}}
+
+/* N316 room art sharp-evidence layer — independent vector tools, files and chart props mapped to actual interactive coordinates. */
+.scene.neuro::after,.scene.heent::after,.scene.audit::after{
+ content:"";display:block;position:absolute;inset:0;width:100%;height:100%;z-index:4;
+ pointer-events:none;background-size:100% 100%;background-repeat:no-repeat;background-position:center;
+}
+.scene.neuro::after{background-image:url('./assets/room05-sharp-evidence.svg')}
+.scene.heent::after{background-image:url('./assets/room06-sharp-evidence.svg')}
+.scene.audit::after{background-image:url('./assets/room07-sharp-evidence.svg')}
