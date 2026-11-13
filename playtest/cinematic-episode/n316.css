@@ -1,0 +1,60 @@
+/* WARD 13 NURS 316 EXAM 3 — art-aligned visual edition.
+   Three distinct photographed rooms; normalized x/y coordinates from in-world clue objects. */
+:root{--lime:#cce9d4;--panel:#071313;--red:#e59b88}
+.brand small{color:#e5b9a4}
+.intro{background:radial-gradient(ellipse at 80% 35%,#1e2c2b50,transparent 55%),linear-gradient(120deg,#05090a,#0b1518 68%,#050a0b)}
+.intro-note{border-left:2px solid #ce9673;padding-left:13px;color:#d0c9b8}
+.scene,.scene.heent,.scene.audit{
+ aspect-ratio:1672/941;
+ width:100%;height:auto!important;min-height:0!important;max-height:none!important;
+ background-position:center center;background-size:100% 100%;background-repeat:no-repeat;
+}
+.scene.neuro{background-image:linear-gradient(0deg,#0004,#0000 28%,#0002),url('./assets/n316-reflex.webp');}
+.scene.heent{background-image:linear-gradient(0deg,#0005,#0000 35%,#02031224),url('./assets/n316-silent.webp');}
+.scene.audit{background-image:linear-gradient(0deg,#0006,#0000 34%,#22070617),url('./assets/n316-directorate.webp');}
+.scene .scene-haze,.scene .scene-perspective,.scene .lamp,.scene .wall-stain,
+.scene .furniture,.scene .scene-screen,.scene .patient-shape,.scene .back-door,
+.scene::before,.scene .scanlines{display:none!important}
+.scene-number{position:absolute;left:12px;bottom:8px;right:auto;top:auto;color:#f0ead5d6;font:600 9px 'IBM Plex Mono',monospace;letter-spacing:1.3px;text-shadow:0 2px 5px #000;z-index:4}
+.scene .hotspots{inset:0!important;position:absolute!important;z-index:5;display:block!important}
+.scene .hotspot,.scene.heent .hotspot,.scene.audit .hotspot{
+ position:absolute!important;left:var(--x)!important;top:var(--y)!important;transform:translate(-50%,-50%)!important;
+ width:49px;height:49px;max-width:none;max-height:none;min-width:0;min-height:0;
+ border-radius:50%;border:1px solid #b6e2c3;background:radial-gradient(circle at 45% 32%,#234f43dd,#071917e8);
+ box-shadow:0 0 0 4px #010a0aac,0 0 21px #62f7b44b,inset 0 0 12px #cceccb1b;
+ padding:5px;text-align:center;color:#ecffe8;display:flex;align-items:center;justify-content:center;z-index:2;
+}
+.scene.heent .hotspot{border-color:#b7b5f9;background:radial-gradient(circle at 40% 30%,#342e66e8,#080a23f5);box-shadow:0 0 0 4px #080917c2,0 0 23px #a4b0ff77}
+.scene.audit .hotspot{border-color:#f9c3aa;background:radial-gradient(circle at 40% 30%,#6e2925e6,#190b0aef);box-shadow:0 0 0 4px #0b0303c2,0 0 23px #ec805e66}
+.scene .hotspot .hotspot-id{font-size:13px;color:#e8f4e5}
+.scene .hotspot .hotspot-name{position:absolute;pointer-events:none;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);min-width:100px;max-width:155px;padding:6px 8px;background:#071816f0;border:1px solid #9cbea3;color:#e3f6e4;text-align:center;font:700 9px/1.3 'IBM Plex Mono',monospace;letter-spacing:0;opacity:.88;white-space:normal}
+.scene .hotspot .hotspot-stack{position:absolute;right:-6px;bottom:-9px;font:600 8px 'IBM Plex Mono',monospace;padding:2px 3px;border-radius:2px;background:#152925;color:#d7f4e7;border:1px solid #a7caba}
+.scene .hotspot:hover,.scene .hotspot:focus-visible{background:#49765c;box-shadow:0 0 0 4px #060f0dbb,0 0 29px #c6ffb9ee;z-index:8}
+.scene .hotspot.completed{background:#0d2020b5;opacity:.7}
+.scene .hotspot.completed::after{content:"✓";right:-6px;top:-7px;bottom:auto}
+.scene .hotspot.locked-marker{background:#541c18e8;border-color:#f6a98e;animation:doorpulse 2.7s ease-in-out infinite}
+@keyframes doorpulse{50%{box-shadow:0 0 0 4px #080100dd,0 0 29px #e45748aa}}
+.hotspot:active{filter:brightness(1.5)}
+.stage-bottom{background:#09100e}.chart-list{background:#090f12}.chart-list button{border-color:#40534f}
+.stage-top{background:linear-gradient(105deg,#0b1b1b,#121713)}
+.stage-top h2{letter-spacing:2px}.stage-top p{max-width:780px}
+.choice.highlight-choice{border-style:dashed}
+.choice.highlight-choice.selected{background:#514132;border-color:#f7cb85}
+.choice.highlight-choice.selected span:last-child{background:#f5d99b;color:#22180c;padding:2px 4px;border-radius:2px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.scare img{object-fit:cover}
+body[data-room="heent"] .panel-top{border-left:3px solid #a6aaf4}
+body[data-room="audit"] .panel-top{border-left:3px solid #e79784}
+@media(max-width:780px){
+ .room-nav .nav-label{line-height:1.25}
+ .stage-top{gap:9px}
+ .scene .hotspot,.scene.heent .hotspot,.scene.audit .hotspot{width:34px;height:34px;padding:2px;min-height:0;max-height:none}
+ .scene .hotspot .hotspot-id{font-size:10px}
+ .scene .hotspot .hotspot-name{display:none}
+ .scene .hotspot .hotspot-stack{font-size:7px;right:-5px;bottom:-7px}
+ .scene-number{font-size:7px}
+ .chart-list button{min-height:34px}
+ .stage-top h2{font-size:29px}
+ .stage-top .quiet-btn{font-size:9px}
+ .hotspots{display:block!important;position:absolute!important;inset:0!important;grid-template-columns:none!important;grid-template-rows:none!important}
+}
+@media(prefers-reduced-motion:reduce){.scene .hotspot.locked-marker{animation:none!important}}
