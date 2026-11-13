@@ -1,0 +1,68 @@
+/* Seven-room unified Ward 13 experience. Original photographic first-wing assets, 4 real puzzles, 40 blueprint + 20 supplemental N316 assessments. */
+.room-nav{display:flex!important;gap:8px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x proximity;padding-bottom:8px;scrollbar-color:#54736a #071514}
+.room-nav button{flex:0 0 clamp(130px,18vw,204px)!important;scroll-snap-align:start;min-height:69px}
+.scene.station,.scene.records,.scene.treatment,.scene.observation{
+ aspect-ratio:1672/941;width:100%;min-height:0!important;height:auto!important;background-repeat:no-repeat;background-position:center;background-size:cover;
+}
+.scene.station{background-image:linear-gradient(0deg,#0008,transparent 43%),url("./assets/n316-firstwing-station.webp")}
+.scene.records{background-image:linear-gradient(0deg,#0008,transparent 43%),url("./assets/n316-firstwing-records.webp")}
+.scene.treatment{background-image:linear-gradient(0deg,#0008,transparent 43%),url("./assets/n316-firstwing-treatment.webp")}
+.scene.observation{background-image:linear-gradient(0deg,#0008,transparent 43%),url("./assets/n316-firstwing-observation.webp")}
+.scene.station .scene-haze,.scene.station .scene-perspective,.scene.station .lamp,.scene.station .wall-stain,.scene.station .furniture,.scene.station .scene-screen,.scene.station .patient-shape,.scene.station .back-door,
+.scene.records .scene-haze,.scene.records .scene-perspective,.scene.records .lamp,.scene.records .wall-stain,.scene.records .furniture,.scene.records .scene-screen,.scene.records .patient-shape,.scene.records .back-door,
+.scene.treatment .scene-haze,.scene.treatment .scene-perspective,.scene.treatment .lamp,.scene.treatment .wall-stain,.scene.treatment .furniture,.scene.treatment .scene-screen,.scene.treatment .patient-shape,.scene.treatment .back-door,
+.scene.observation .scene-haze,.scene.observation .scene-perspective,.scene.observation .lamp,.scene.observation .wall-stain,.scene.observation .furniture,.scene.observation .scene-screen,.scene.observation .patient-shape,.scene.observation .back-door{display:none!important}
+.scene.station::before,.scene.records::before,.scene.treatment::before,.scene.observation::before{display:none!important}
+.scene.station .hotspots,.scene.records .hotspots,.scene.treatment .hotspots,.scene.observation .hotspots{position:absolute!important;inset:0!important;display:block!important;z-index:5!important}
+.scene.station .hotspot,.scene.records .hotspot,.scene.treatment .hotspot,.scene.observation .hotspot{
+ position:absolute!important;left:var(--x)!important;top:var(--y)!important;transform:translate(-50%,-50%)!important;
+ height:45px!important;width:45px!important;max-width:none!important;max-height:none!important;min-width:0!important;min-height:0!important;
+ border-radius:50%;border:2px solid #a5e4ca;background:#0a2723eb;box-shadow:0 0 0 4px #0715109c,0 0 20px #75edab80;z-index:3;
+ padding:5px;text-align:center;color:#edffee;display:flex;align-items:center;justify-content:center;
+}
+.scene.station .hotspot .hotspot-id,.scene.records .hotspot .hotspot-id,.scene.treatment .hotspot .hotspot-id,.scene.observation .hotspot .hotspot-id{font:700 13px 'IBM Plex Mono',monospace}
+.scene.station .hotspot .hotspot-name,.scene.records .hotspot .hotspot-name,.scene.treatment .hotspot .hotspot-name,.scene.observation .hotspot .hotspot-name{position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);background:#071c18ed;border:1px solid #b4dfc0;color:#ecfff1;font:700 9px/1.3 'IBM Plex Mono',monospace;min-width:100px;padding:6px}
+.scene.station .hotspot-stack,.scene.records .hotspot-stack,.scene.treatment .hotspot-stack,.scene.observation .hotspot-stack{position:absolute;right:-6px;bottom:-6px;font:700 8px 'IBM Plex Mono',monospace;background:#122c26;padding:3px}
+body[data-room="station"] .stage-top,body[data-room="records"] .stage-top,body[data-room="treatment"] .stage-top,body[data-room="observation"] .stage-top{background:linear-gradient(100deg,#152622,#071312)}
+.minigame-dialog{position:relative;width:min(96vw,960px);max-height:94dvh;overflow-y:auto;padding:clamp(18px,4vw,38px);background:linear-gradient(135deg,#122b29,#091414 72%);border:1px solid #a4d8bf;box-shadow:0 20px 90px #000;scrollbar-color:#64958a #07100e}
+.minigame-dialog h2{font:800 clamp(29px,5vw,49px) 'Barlow Condensed',sans-serif;margin:11px 40px 8px}
+.minigame-dialog p{font:400 12px/1.65 'IBM Plex Mono',monospace;color:#b7d5c8}
+.mini-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:15px}
+.mini-actions button{min-height:45px}
+.mini-feedback{min-height:38px;padding:10px 11px;border-left:2px solid #c28d68;background:#342a2030;color:#e4c6a8!important}
+.mini-feedback.good{border-color:#a0eac5;background:#15392953;color:#c4f3d9!important}
+.mini-content{padding:14px 4px;min-height:200px}
+.mini-content h3{font:700 11px/1.2 'IBM Plex Mono',monospace;color:#e8ddc1;letter-spacing:1px;margin:3px 0 11px}
+.jigsaw-layout{display:grid;grid-template-columns:minmax(180px,1fr) auto auto;gap:22px;align-items:start}
+.jigsaw-reference img{display:block;width:100%;max-width:290px;aspect-ratio:1/1;object-fit:cover;filter:contrast(1.25) sepia(.22) brightness(.77);border:1px solid #6f7765}
+.jigsaw-reference p{max-width:260px}
+.jigsaw-board{position:relative;background:repeating-linear-gradient(90deg,#2c453d 0 83px,#5a7065 84px),repeating-linear-gradient(0deg,transparent 0 83px,#8dac9a33 84px);outline:1px solid #749583;box-shadow:inset 0 0 20px #000}
+.jigsaw-slot{position:absolute;padding:0;border:1px dashed #66847474;background:#07111133;overflow:visible}
+.jigsaw-slot:focus-visible{z-index:20;outline:2px solid #c3ffe0}
+.jigsaw-piece{display:block;pointer-events:none;position:absolute;z-index:2}
+.jigsaw-tile{position:relative;width:100px;height:100px;padding:0;background:transparent;border:1px solid #426355;border-radius:2px;display:grid;place-items:center}
+.jigsaw-tile canvas{position:relative;width:100px;height:100px}
+.jigsaw-tile.active{outline:3px solid #bcfac5;box-shadow:0 0 22px #76faad8a}
+.jigsaw-tray{width:310px;display:grid;grid-template-columns:repeat(3,100px);gap:4px}
+.jigsaw-tile:hover{border-color:#b4eec8}
+.memory-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}
+.memory-card{min-height:88px;border:1px solid #719b8b;background:radial-gradient(circle,#233b33,#0d211b);color:#d1f4e6;font:650 11px/1.5 'IBM Plex Mono',monospace;padding:10px}
+.memory-card:not(.revealed){font-size:25px;color:#e4b4a4}
+.memory-card.revealed{background:#294c40;border-color:#d9eac8}
+.memory-card.matched{border-color:#a6e6a7;background:#1d4834;opacity:.72}
+.logic-list{list-style:decimal;margin:0;padding-left:23px;display:grid;gap:9px}
+.logic-item{display:flex;align-items:center;gap:8px;min-height:62px;padding:9px 12px;border:1px solid #648575;background:#122d27;color:#e6e7d1;font:550 12px/1.45 'IBM Plex Mono',monospace}
+.logic-item span{flex:1}
+.logic-item button,.maze-pad button{min-width:41px;min-height:43px;border:1px solid #83b29d;background:#26483e;color:#e2ffe9;font-size:21px}
+.logic-item button:disabled{opacity:.25}
+.maze-layout{display:flex;flex-direction:column;align-items:center;gap:14px}
+.maze-grid{display:grid;grid-template-columns:repeat(7,42px);grid-auto-rows:42px;border:2px solid #86bb98;background:#101c19}
+.maze-cell{display:grid;place-items:center;border:1px solid #5c776b49;font:650 9px 'IBM Plex Mono',monospace;color:#c4e6dc;background:#22382f}
+.maze-cell.wall{background:#060a0b;color:#6c766a}
+.maze-cell.visited{background:#355b48}
+.maze-cell.player{background:#b2edc0;color:#0a1b13;font-size:25px;box-shadow:inset 0 0 8px #fff}
+.maze-cell.exit{background:#633e2e;color:#ffe5c5;font-size:8px}
+.maze-pad{display:flex;gap:9px;justify-content:center}
+@media(max-width:980px){.jigsaw-layout{grid-template-columns:1fr auto;gap:14px}.jigsaw-reference{grid-column:1/-1;display:flex;gap:12px;align-items:center}.jigsaw-reference img{max-width:100px}.jigsaw-reference h3{max-width:100px}.jigsaw-reference p{max-width:170px}.jigsaw-tray{width:280px;grid-template-columns:repeat(3,90px);gap:4px}.jigsaw-tile{width:90px;height:90px}.jigsaw-tile canvas{width:90px;height:90px}}
+@media(max-width:650px){.room-nav button{flex:0 0 130px!important}.scene.station .hotspot,.scene.records .hotspot,.scene.treatment .hotspot,.scene.observation .hotspot{width:34px!important;height:34px!important}.scene.station .hotspot .hotspot-id,.scene.records .hotspot .hotspot-id,.scene.treatment .hotspot .hotspot-id,.scene.observation .hotspot .hotspot-id{font-size:10px}.scene.station .hotspot .hotspot-name,.scene.records .hotspot .hotspot-name,.scene.treatment .hotspot .hotspot-name,.scene.observation .hotspot .hotspot-name{display:none}.jigsaw-layout{display:flex;flex-direction:column;align-items:center;gap:22px}.jigsaw-reference{align-self:stretch;justify-content:center}.jigsaw-reference p{font-size:10px;max-width:145px}.jigsaw-tray{width:310px;grid-template-columns:repeat(3,100px)}.jigsaw-tile{height:100px;width:100px}.jigsaw-tile canvas{height:100px;width:100px}.memory-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.memory-card{min-height:76px}.maze-grid{grid-template-columns:repeat(7,min(10.6vw,42px));grid-auto-rows:min(10.6vw,42px)}.minigame-dialog{padding:16px}}
+@media(prefers-reduced-motion:reduce){.mini-content *{animation:none!important;transition:none!important}}

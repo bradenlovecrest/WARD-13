@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#071011"><meta name="description" content="Ward 13 NURS 316: one connected seven-room cinematic mystery, 40 exam-weighted challenges, 20 supplemental challenges, and four physical puzzles.">
+<title>WARD 13 — NURS 316: Seven-Room Mystery</title><link rel="stylesheet" href="./chapter-two.css?v=1"><link rel="stylesheet" href="./n316.css?v=3"><link rel="stylesheet" href="./unified.css?v=1"></head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+<header class="hud">
+ <div class="brand"><span class="cross">✚</span><div><strong>WARD <em>13</em></strong><small>NURS 316 // COMPLETE CAMPAIGN</small></div></div>
+ <div class="hud-right"><span id="save-indicator" class="save-indicator" aria-live="polite">LOCAL SAVE</span><button id="btn-tavi" type="button" class="icon-btn" aria-pressed="true">🎙 TAVI ON</button><button id="btn-sound" type="button" class="icon-btn" aria-pressed="true">🔊 SOUND ON</button><button id="btn-test-scream" type="button" class="icon-btn" title="Preview the recorded scream using your device volume">▶ TEST SCREAM</button><a href="./index.html" class="icon-btn home-link">↶ ORIGINAL EDITION</a></div>
+</header>
+<main>
+ <section id="intro" class="intro">
+  <div class="intro-screen">
+   <div class="classification">WARD 13 — UNAUTHORIZED ACCESS // 02:17 AM</div>
+   <h1>THE <span>MISSING ADMISSION</span></h1>
+   <p class="lead">Your night-shift clinical evaluation begins at the Nurses’ Station. A patient was discharged before admission. The hospital insists the bed is empty. Seven rooms stand between you and the original chart.</p>
+   <div class="intro-packet" id="nurse-ai-introduction"><span>N.U.R.S.E. / ARTIFICIAL-INTELLIGENCE PRECEPTOR</span><p><strong>Nursing Utility for Records, Safety, and Evaluation</strong><br>Your artificial-intelligence clinical supervisor. Tavi is her recorded voice; captions remain if a recording cannot load.</p><button id="btn-hear-intro" type="button" class="secondary">▶ HEAR N.U.R.S.E. IN TAVI'S VOICE</button><p id="tavi-voice-status" class="micro" aria-live="polite">Recorded Tavi dialogue only. No device-generated speech.</p></div><div class="intro-packet"><span>TRANSFER NOTE / OBSERVATION FOUR</span><p>“Patient 004: discharged.”<br>“Bed pressure sensor: occupied.”<br>“Clinical domains: <b>MOBILITY / TISSUE / SENSORY / PAIN / COGNITION</b>.”</p></div>
+   <p class="intro-note">40 exam-blueprint questions + 20 supplemental challenges + 4 interactive puzzles • Mobility 6 • Tissue Integrity 6 • Sensory 8 • Pain 8 • Cognition 6 • Neurocognitive Disorders 6 • includes SATA and highlight choices • auto-save and missed-concept review.</p>
+   <div class="intro-actions"><button id="btn-start" class="primary" type="button">ENTER THE MISSING ADMISSION <span>→</span></button><button id="btn-continue" class="secondary" type="button" hidden>CONTINUE SAVED SHIFT</button></div>
+   <p class="micro">NURS 316 edition: 40 exam-blueprint questions in Rooms 05–07, plus 20 supplemental clinical decisions in Rooms 01–04. All puzzles are fictional practice, not original faculty exam questions or clinical orders. Headphones optional; jump scares can be muted.</p>
+  </div>
+ </section>
+ <section id="game" class="game" hidden>
+  <div class="wing-meta"><p id="chapter-line">SHIFT / UNRECOGNIZED</p><span id="progress-text">0/60 CLINICAL LOCKS</span></div>
+  <div class="progress-track"><div id="progress-fill"></div></div>
+  <nav class="room-nav" id="room-nav" aria-label="South Wing room navigation"></nav>
+  <div class="game-layout">
+   <section class="stage" aria-label="Interactive room scene">
+     <div class="stage-top"><div><span id="room-number" class="room-number">05</span><h2 id="room-name">—</h2><p id="room-description"></p></div><button id="btn-hint" class="quiet-btn" type="button">? ROOM HINT</button></div>
+     <div id="scene" class="scene neuro">
+      <div class="scene-haze"></div><div class="scene-perspective"></div>
+      <div class="lamp lamp-one"></div><div class="lamp lamp-two"></div>
+      <div class="wall-stain"></div>
+      <div class="furniture furniture-left"></div><div class="furniture furniture-right"></div>
+      <div class="scene-screen"><div class="ecg"></div><div class="screen-label">N.U.R.S.E. // LOCAL</div></div>
+      <div class="patient-shape"></div>
+      <div class="back-door"><span>RESTRICTED</span></div>
+      <div class="scene-number" id="scene-number">NEUROLOGY // 05</div>
+      <div class="scene-clues" aria-hidden="true"><div class="forensic-wall"><div class="forensic-paper"><strong>PAIN ASSESSMENT</strong><span>ORIGINAL: 8 / 10</span><span class="forensic-red">ALTERED: 3 / 10</span><span>Reassessment disputed</span><span>Signed: [REDACTED]</span></div><div class="forensic-paper"><strong>COGNITIVE BASELINE</strong><span>Attention: altered</span><span>Onset: sudden</span><span>Delirium or dementia?</span><span class="forensic-red">History overwritten</span></div><div class="forensic-paper"><strong>OPIOID SAFETY</strong><span>Monitor breathing</span><span>Assess sedation</span><span>Verify consent</span><span class="forensic-red">ALERT SUPPRESSED</span></div></div><div class="forensic-folder">CAREGIVER RECORD<br/>ACCESS RESTRICTED</div></div><div id="hotspots" class="hotspots" role="group" aria-label="Clickable clinical chart locations"></div>
+      <div class="scanlines"></div>
+     </div>
+     <div class="stage-bottom"><div><span class="indicator"></span> <span id="room-status">SELECT A CHART TO EXAMINE</span></div><button id="btn-gate" class="gate-btn" type="button" hidden>UNSEAL NEXT DOOR →</button></div>
+     <div id="accessible-charts" class="chart-list" aria-label="Chart access list"></div>
+   </section>
+   <aside class="sidebar">
+    <section class="ai-panel"><div class="panel-top">N.U.R.S.E. <span>CLINICAL SUPERVISION AI</span></div><p id="nurse-line" aria-live="polite">…</p><div class="panel-footer">DIRECTORATE OVERRIDE DETECTED <span class="blink">●</span></div></section>
+    <section class="evidence-panel"><div class="section-head"><h3>EVIDENCE RECEIVED</h3><span id="evidence-count">00</span></div><div id="evidence-log" class="evidence-log" aria-live="polite"><p class="empty">No records retrieved.</p></div></section>
+    <section class="review-panel"><h3>SHIFT MEMORY</h3><p id="stats-line">No charts assessed.</p><button id="btn-review" type="button" class="review-btn">REVIEW MISSED CONCEPTS</button><button id="btn-reset" type="button" class="reset-btn">RESET THIS CHAPTER</button></section>
+   </aside>
+  </div>
+ </section>
+ <section id="ending" class="ending" hidden><div class="ending-inner"><span class="classification">DIRECTORATE SYSTEM EVENT // 03:13 AM</span><h2>THE RECORDS <em>REMEMBER.</em></h2><p id="ending-narrative"></p><div id="ending-stats" class="ending-stats"></div><div class="ending-actions"><button id="btn-ending-review" class="primary" type="button">REVIEW MY MISSES</button><button id="btn-replay" class="secondary" type="button">RETURN TO THE ROOMS</button><a class="secondary" href="./index.html">RETURN TO WARD 13</a></div><p class="micro">Patient 004's diagnosis remains unconfirmed. Keep your evidence; do not trust a discharge stamp.</p></div></section>
+</main>
+<div id="question-overlay" class="overlay" hidden>
+ <div class="dialog-wrap" role="dialog" aria-modal="true" aria-labelledby="question-title">
+  <button id="btn-close-question" class="close" aria-label="Close chart">✕</button>
+  <div class="dialog-heading"><span id="question-room" class="classification"></span><span id="question-counter" class="counter"></span></div>
+  <h2 id="question-title"></h2><div id="question-chart" class="clinical-chart"></div><p id="question-stem" class="question-stem"></p>
+  <div id="options" class="options" role="radiogroup" aria-label="Answer choices"></div>
+  <div id="answer-feedback" class="feedback" aria-live="polite" hidden></div>
+  <div class="dialog-actions"><button id="btn-submit" class="primary" type="button" disabled>COMMIT ASSESSMENT</button><button id="btn-dismiss" class="secondary" type="button">CLOSE CHART</button></div>
+ </div>
+</div>
+<div id="scare" class="scare" hidden aria-hidden="true"><img src="../visual-lab-realistic/assets/patient004-face-reveal-v14.webp" alt="" width="900" height="680"><div class="scare-message">PATIENT 004 // NEVER DISCHARGED</div><button id="btn-dismiss-scare" class="scare-close" type="button">CLOSE / ESC</button><button id="btn-replay-scream" class="scare-replay" type="button" hidden>TAP TO HEAR THE RECORDING</button></div>
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+<noscript>This chapter requires JavaScript for the puzzles and local save.</noscript>
+<div id="mini-overlay" class="overlay" hidden>
+ <section id="mini-dialog" class="minigame-dialog" role="dialog" aria-modal="true" aria-labelledby="mini-heading">
+  <button id="mini-close" class="close" type="button" aria-label="Close puzzle">✕</button>
+  <div class="classification">W.A.R.D. 13 // OBJECT INTERACTION</div><h2 id="mini-heading"></h2>
+  <p id="mini-description"></p><div id="mini-content" class="mini-content"></div>
+  <p id="mini-feedback" class="mini-feedback" aria-live="polite"></p>
+  <div class="mini-actions"><button id="mini-reset" type="button" class="secondary">RESET PUZZLE</button><button id="mini-check" type="button" class="primary">VERIFY EVIDENCE</button></div>
+ </section>
+</div>
+<script src="./unified-first-wing.js?v=1" defer></script>
+<script src="./n316-room05.js?v=1" defer></script>
+<script src="./n316-room06.js?v=1" defer></script>
+<script src="./n316-room07.js?v=1" defer></script>
+<script src="./unified-tavi.js?v=1" defer></script>
+<script src="./unified-minis.js?v=1" defer></script>
+<script src="./unified.js?v=1" defer></script></body></html>

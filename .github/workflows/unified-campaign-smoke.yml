@@ -1,0 +1,36 @@
+name: WARD 13 Unified Seven Room QA
+on:
+  push:
+    branches: [main]
+    paths:
+      - "playtest/cinematic-episode/unified*"
+      - "playtest/cinematic-episode/assets/n316-firstwing-*"
+      - "tools/check_unified_campaign.mjs"
+      - "tools/test_unified_campaign_browser.mjs"
+      - ".github/workflows/unified-campaign-smoke.yml"
+  pull_request:
+    paths:
+      - "playtest/cinematic-episode/unified*"
+      - "playtest/cinematic-episode/assets/n316-firstwing-*"
+      - "tools/check_unified_campaign.mjs"
+      - "tools/test_unified_campaign_browser.mjs"
+      - ".github/workflows/unified-campaign-smoke.yml"
+permissions:
+  contents: read
+jobs:
+  unified:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Verify study scope, original art, narrative scene map, and four mini-games
+        run: node tools/check_unified_campaign.mjs
+      - name: Install mobile Chromium
+        run: |
+          npm install --no-save --no-package-lock playwright@1.56.1
+          npx playwright install chromium
+      - name: Play full seven-room campaign with mini-games on iPhone viewport
+        run: node tools/test_unified_campaign_browser.mjs
