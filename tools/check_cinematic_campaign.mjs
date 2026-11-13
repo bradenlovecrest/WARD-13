@@ -5,7 +5,7 @@ import vm from 'node:vm';
 import path from 'node:path';
 
 const root=process.cwd();
-const htmlPath=path.join(root,'playtest/cinematic-episode/index.html');
+const htmlPath=path.join(root,'playtest/cinematic-episode/classic.html');
 const html=fs.readFileSync(htmlPath,'utf8');
 const css=fs.readFileSync(path.join(root,'playtest/cinematic-episode/cinematic.css'),'utf8');
 const companion=fs.readFileSync(path.join(root,'playtest/cinematic-episode/cinematic.js'),'utf8');

@@ -33,7 +33,7 @@ async function assertVisibleScare(page, selector, description){
 
 async function waitServer(){
  for(let i=0;i<30;i++){
-  try{const r=await fetch('http://127.0.0.1:8765/playtest/cinematic-episode/');
+  try{const r=await fetch('http://127.0.0.1:8765/playtest/cinematic-episode/classic.html');
    if(r.ok)return;}
   catch(e){}
   await new Promise(r=>setTimeout(r,350));
@@ -50,7 +50,7 @@ try{
    window.__scarePlayCalls=[];
    HTMLMediaElement.prototype.play=function(){window.__scarePlayCalls.push({url:String(this.src).slice(0,90)});return Promise.resolve()};
  });
- const response=await page.goto('http://127.0.0.1:8765/playtest/cinematic-episode/',{waitUntil:'domcontentloaded'});
+ const response=await page.goto('http://127.0.0.1:8765/playtest/cinematic-episode/classic.html',{waitUntil:'domcontentloaded'});
  assert.equal(response.status(),200);
  assert.match(await page.locator('#scare-build-id').innerText(),/v2\.2/,'Companion scare engine must load, not a stale cached script');
  await page.locator('#scare-direct-test').click();
