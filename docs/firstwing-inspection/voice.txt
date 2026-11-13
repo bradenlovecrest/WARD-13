@@ -1,0 +1,31 @@
+: "../treatment-room/audio/tavi/879cb94b193e.wav",
+  "That file is outside your authorized assignment. I suggest you return it.": "../treatment-room/audio/tavi/97a206214079.wav",
+  "That was not the patient whose chart you opened. That voice was not mine. You should leave Records.": "../treatment-room/audio/tavi/c15196e4d58e.wav"
+};
+function setTaviVoiceStatus(label){
+  const status=$('nurse-voice-state');
+  if(status)status.textContent=label;
+}
+function speakScript(line,phase=0){
+  if(!voice)return;
+  if(nursePerformer==='tavi'){
+    try{window.speechSynthesis?.cancel()}catch(e){}
+    try{currentTaviAudio?.pause()}catch(e){}
+    const src=WARD13_TAVI_DIALOGUE[line];
+    if(!src){setTaviVoiceStatus('TAVI RECORDING PENDING · CAPTIONS');return}
+    try{
+      const clip=new Audio(src);
+      clip.volume=Math.max(0,Math.min(1,voiceVolume));
+      currentTaviAudio=clip;
+      clip.play().then(()=>{
+        if(currentTaviAudio===clip)setTaviVoiceStatus('TAVI · PRERECORDED AUDIO');
+      }).catch(()=>{
+        if(currentTaviAudio===clip){currentTaviAudio=null;setTaviVoiceStatus('TAVI AUDIO NOT LOADED · CAPTIONS');showToast('Recording unavailable. Captions shown; no robot voice.')}
+      });
+    }catch(e){setTaviVoiceStatus('TAVI AUDIO NOT LOADED · CAPTIONS')}
+    return;
+  }
+  setTaviVoiceStatus('DEVICE VOICE · SYNTHETIC');
+  speakBrowserScript(line,phase);
+}
+

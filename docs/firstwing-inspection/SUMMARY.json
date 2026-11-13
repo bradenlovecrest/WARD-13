@@ -1,0 +1,138 @@
+{
+  "archive": {
+    "status": "found",
+    "start": 1063093,
+    "end": 1074211,
+    "excerpt_length": 11568
+  },
+  "treatment": {
+    "status": "found",
+    "start": 1882342,
+    "end": 1892806,
+    "excerpt_length": 10914
+  },
+  "clinical": {
+    "status": "found",
+    "start": 1169479,
+    "end": 1983048,
+    "excerpt_length": 18450
+  },
+  "treatment-mar": {
+    "status": "found",
+    "start": 1983048,
+    "end": 2073424,
+    "excerpt_length": 18450
+  },
+  "treatment-cabinet": {
+    "status": "found",
+    "start": 2073424,
+    "end": 2249512,
+    "excerpt_length": 18450
+  },
+  "intro": {
+    "status": "found",
+    "start": 603338,
+    "end": 603860,
+    "excerpt_length": 972
+  },
+  "advance": {
+    "status": "found",
+    "start": 1035195,
+    "end": 1038168,
+    "excerpt_length": 3423
+  },
+  "render": {
+    "status": "found",
+    "start": 1038168,
+    "end": 1040934,
+    "excerpt_length": 3216
+  },
+  "voice": {
+    "status": "found",
+    "start": 1024532,
+    "end": 1025459,
+    "excerpt_length": 1377
+  },
+  "api": {
+    "status": "found",
+    "start": 2253578,
+    "end": 2254157,
+    "excerpt_length": 1029
+  },
+  "function showPatient()": {
+    "offset": 1167517,
+    "preview": "photoSkipped=true;newLog('Sliding photograph revealed with accessibility skip: batch 2719');save();showPhoto()};\n });\n}\nfunction showPatient(){st.patient=true;newLog('Bedside patient assessment: RR 8, SpO\u2082 86%, difficult to arouse');save();modal('Observation 04 / Patient Investigation',`<div class=\"evidence\"><div class=\"paper\"><small>PHYSICAL CHART / R. VALE / BED 04</small><h3>Bedside Assessment</h3><p>RR: <b>8/min</b><br>SpO\u2082: <b>86%</b><br>HR: 104/min<br>Patient is difficult to arouse.</p><p>Medication note: opioid analgesic administered before the change in status.</p><p>00:11 LAB REPORT: pH <b>7.29</b>, PaCO\u2082 <b>58</b>, HCO\u2083\u207b <b>26</b>.</p></div><div><h3>What doesn't fit?</h3><p>The workstation audit says the patient was discharged. The wristband, imaging slip, and physical assessment disagree.</p><div class=\"hintbox\">This is a fictional simulation. A real patient with a low respiratory rate, low oxygen saturation, and decreased responsiveness needs urgent clinical assessment and escalation.</div>${button('patient-analyze','Open diagnostic console','primary')}</div></div>`,()=>{$('patient-analyze')"
+  },
+  "const TRUTH=": {
+    "offset": 607774,
+    "preview": "t $=id=>document.getElementById(id);\nconst SAVE='ward13-cinematic-campaign-v1';const LEGACY_SAVE='ward13-treatment-v06';const TRUTH=[2,4,1,3];\nconst fresh=()=>({started:false,room:'station',drawerOpen:false,fuse:false,wristband:false,chart:false,clipboard:false,power:false,radio:false,photo:false,photoSkipped:false,photoOrder:[4,12,0,8,11,2,15,5,7,10,1,14,3,9,13,6],photoMoves:0,slideOrder:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,0],slideMoves:0,archiveDone:false,treatmentEntered:false,treatmentDrawerOpen:false,treatmentMAR:false,treatmentTray:false,treatmentStep:0,treatmentDone:false,treatmentScared:false,treatmentDials:[0,0,0],archiveStep:0,archiveVisited:false,cabinetOpen:false,key:false,keyFace:0,keyRead:false,file:false,sliders:[0,0,0,0],rails:false,audit:false,patient:false,clinicalStep:0,answers:{},remediationNeeded:false,remediationDone:false,caseSynthesis:false,finale:false,choice:'',journal:[],assess:{},hints:0,scared:false,nursePhase:0,intakeVerified:false,cinematic004Checks:0,cinematicGlassChecks:0,dialogue:'Welcome to WARD 13, student nurse. Your preceptor is unavailable, but I will be assisting"
+  },
+  "const ARCHIVE_CASES=": {
+    "offset": 1063093,
+    "preview": "etes:'FRAGMENT 5/5 \u00b7 Paper glucose readings survived; the electronic correction followed a suppressed safety alert.'\n};\nconst ARCHIVE_CASES=[\n {id:'adrenal',tag:'07 / ENDOCRINE',name:'The Patient Who Would Not Stabilize',short:'M. Ellis \u00b7 42 years \u00b7 observation overflow',\n  story:'The electronic record claims \"stable adrenal function\". The carbon-copy bedside sheet documents repeated orthostatic dizziness, profound fatigue, recent weight loss, and darkening of skin creases. A missing-patient wristband was recovered nearby.',\n  findings:[['Blood pressure','82/48 mmHg','Low'],['Sodium','128 mEq/L','135\u2013145'],['Potassium','5.8 mEq/L','3.5\u20135.0'],['Glucose','61 mg/dL','70\u201399 fasting'],['Hormones','Low AM cortisol; low aldosterone','Below lab reference']],\n  fields:[['pattern','Which endocrine diagnosis best explains the complete pattern?',[['','Select an interpretation'],['addison','Primary adrenal insufficiency with mineralocorticoid and glucocorticoid loss'],['cushing','Secondary adrenal insufficiency with preserved aldosterone output'],['t2','SIADH with concurrent low oral intake and orthostatic hypotensi"
+  },
+  "const TREAT_CASES=": {
+    "offset": 1882342,
+    "preview": "rding unavailable or still deploying. Try again later.'))}catch(e){showToast('Unable to play this voice sample.')}})\n}\n\nconst TREAT_CASES=[\n{ id:'breathing',tag:'TRAY 6',name:'H. Rowan \u00b7 Respiratory observation',summary:'A maintenance inhaler was charted as \u201crescue given\u201d. A second respiratory panel was archived.',story:'Rowan, 69, has obstructive lung disease and is struggling to finish sentences. The electronic MAR claims salmeterol was administered \u201cfor immediate relief,\u201d and the bedside record was automatically filed as stable.', findings:[['Respiratory rate','30/min','~12\u201320/min adult resting'],['SpO\u2082','84% on room air','Interpret with clinical context; severe hypoxemia'],['ABG pH','7.30','7.35\u20137.45'],['PaCO\u2082','56 mmHg','35\u201345 mmHg'],['HCO\u2083\u207b','26 mEq/L','22\u201326 mEq/L'],['PaO\u2082','58 mmHg','~80\u2013100 mmHg']],fields:[\n ['gas','Classify the primary acid\u2013base finding.',[['','Choose diagnosis'],['ra','Respiratory acidosis with hypoxemia'],['ma','Metabolic acidosis from tissue hypoxia with secondary ventilatory fatigue'],['ral','Respiratory alkalosis inferred from rapid respiratory rate despite CO\u2082 retention'"
+  },
+  "const TREAT_CODE=": {
+    "offset": 1892806,
+    "preview": " common but less emergent adverse effect.','The ACE inhibitor\u2019s rare swelling reaction can threaten the airway.']\n]}\n];\nconst TREAT_CODE=[6,4,2];\nfunction treatScore(id,ok){track('treat_'+id,ok)}\nfunction treatmentDrawer(){\n modal('Treatment Cart / Recessed Medication Drawer',`<div class=\"treat-workbench\"><div class=\"treat-photo\"><img src=\"[EMBEDDED_IMAGE]"
+  },
+  "function archiveCase()": {
+    "offset": 1074211,
+    "preview": "ty but raise glucose and may conceal infection; swelling itself reflects increased capillary permeability.',phase:2}\n];\nfunction archiveCase(){\n if(!st.file){modal('The Sealed Clinical Archive','<p>A paper evidence packet is catalogued here, but a matching patient chart must first be recovered from the records drawer.</p>');return}\n const n=Math.min(st.archiveStep||0,ARCHIVE_CASES.length);if(n>=ARCHIVE_CASES.length)return archiveConclusion();\n const c=ARCHIVE_CASES[n];st.archiveVisited=true;save();\n const fields=c.fields.map(([id,q,opts,correct],fi)=>`<label class=\"arch-field\"><span>${escapeText(q)}</span><select class=\"arch-select\" data-field=\"${id}\">${balancedChoices(opts,correct,n,fi).map(([v,t])=>`<option value=\"${v}\">${escapeText(t)}</option>`).join('')}</select></label>`).join('');\n const rows=c.findings.map(([k,v,range])=>`<tr><th>${escapeText(k)}</th><td>${escapeText(v)}</td><td>${escapeText(range)}</td></tr>`).join('');\n const tabs=ARCHIVE_CASES.map((x,i)=>`<span class=\"arch-tab ${i===n?'active':i<n?'complete':''}\">${i<n?'\u2713':('0'+(i+1))} \u00b7 ${escapeText(x.tag.split(' / ')[1])}</span>`).join('');"
+  },
+  "function clinical()": {
+    "offset": 1169479,
+    "preview": "};z.attempts++;if(correct)z.success=true;else{z.wrong++;if(id==='abg')st.remediationNeeded=true}st.assess[id]=z;save()}\nfunction clinical(){if(!st.patient){modal('Diagnostic Console','<p>First investigate the actual patient and obtain an assessment before interpreting the analyzer.</p>');return}if(!st.keyRead){modal('Diagnostic Console / Evidence Missing','<p>The blood-gas display conflicts with an older copy. Inspect both sides of the brass key from the archive to recover the original measurements, then compare them with the bedside chart.</p><p class=\"small-note\">The key may have had a purpose beyond unlocking its cabinet.</p>');return}let step=st.clinicalStep;\n if(step===0)return clinicalABG();if(step===1)return clinicalPriority();if(step===2)return clinicalMeds();if(step===3&&st.remediationNeeded&&!st.remediationDone)return remediation();if(step>=3&&!st.caseSynthesis)return synthesis();if(step>=3)return finalize()}\nfunction clinicalABG(){modal('Clinical Terminal / Trend and Gas Interpretation',`<p>The hospital's electronic discharge entry shows a reassuring gas panel: <b>pH 7.40, PaCO\u2082 40, HCO\u2083\u207b 24<"
+  },
+  "function treatmentMAR()": {
+    "offset": 1983048,
+    "preview": "newLog('Medication cart tray index: breathing tray 6, adrenal tray 4, cardiac tray 2');save();treatmentDrawer()};\n })\n}\nfunction treatmentMAR(){\n if(!st.treatmentMAR||!st.treatmentTray){modal('MAR Records / Missing Chain of Custody',`<p>Retrieve both the handwritten MAR and the physical tray index from the medication cart drawer. The digital export alone is not an independent source.</p><div class=\"btnrow\">${button('go-cart','Inspect the medication drawer','primary')}</div>`,()=>{$('go-cart').onclick=()=>treatmentDrawer()});return}\n if((st.treatmentStep||0)>=TREAT_CASES.length){treatmentCabinet();return}\n const idx=st.treatmentStep||0,c=TREAT_CASES[idx];\n const findings=c.findings.map(a=>`<tr><th>${escapeText(a[0])}</th><td>${escapeText(a[1])}</td><td>${escapeText(a[2])}</td></tr>`).join('');\n const fields=c.fields.map(([id,prompt,options,correct,why,hint],fi)=>`<div class=\"treat-question\"><label for=\"treat-${id}\">${escapeText(prompt)}</label><select id=\"treat-${id}\">${balancedChoices(options,correct,idx+3,fi).map(([v,txt])=>`<option value=\"${escapeText(v)}\">${escapeText(txt)}</option>`).join('')}</sele"
+  },
+  "function treatmentCabinet()": {
+    "offset": 2073424,
+    "preview": "ompare independent patient dossiers','primary')}</div></div></div>`,()=>{$('treat-files').onclick=()=>treatmentMAR()})}\nfunction treatmentCabinet(){\n if((st.treatmentStep||0)<TREAT_CASES.length){modal('Restricted Treatment Cabinet',`<div class=\"treat-workbench\"><div class=\"treat-photo\"><img src=\"[EMBEDDED_IMAGE]"
+  },
+  "function advance(room)": {
+    "offset": 1035195,
+    "preview": "d]){st[id]=true;newLog(label);osc(770,.15,'triangle',.13);save();renderSide();showToast('Evidence collected: '+label)}}\nfunction advance(room){if(room==='records'&&!st.power){showToast('Security doors have no power.');return}if(room==='treatment'&&!st.archiveDone){showToast('The Treatment Room requires a reconciled archive first.');return}if(room==='observation'&&(!st.rails||!st.audit||!st.treatmentDone)){showToast('Observation remains sealed. Complete the archive rails, workstation audit and Treatment Room investigation.');return}st.room=room;save();render();startRoomAmbience(room);osc(165,.36,'sawtooth',.07);if(room==='records'&&!st.scared)say('Welcome to Records. Please remember that authorization is not the same as curiosity.',1);if(room==='treatment'&&!st.treatmentEntered){st.treatmentEntered=true;newLog('Entered Treatment Room: medication cart and three contradictory administration records');save();taviScene('treatment_intro','Welcome to the treatment room, student nurse. Three patient medication records need your attention. Do try not to make another discrepancy.',0)}if(room==='observation')say('"
+  },
+  "function render()": {
+    "offset": 1038168,
+    "preview": "ation:'Your assigned patient is R. Vale. But the surveillance feed suggests another unregistered patient is present.'};\nfunction render(){if(!st.started){$('intro').hidden=false;$('game').hidden=true;return}$('intro').hidden=true;$('game').hidden=false;$('room-title').textContent=sceneNames[st.room];$('room-sign').textContent=sceneNames[st.room].toUpperCase()+' / 00:13';$('power-tag').textContent=st.power?'POWER RESTORED':'POWER OFFLINE';$('power-tag').className='tag'+(st.power?'':' red');const stage=$('stage');stage.classList.toggle('powered',st.power);stage.classList.toggle('entered-archive',st.room==='records');$('scene-photo').className='scene-photo '+st.room;$('scene-caption').textContent=captions[st.room];$('hotspots').innerHTML=''+hotmap[st.room].map(([id,l,x,y,w,h])=>`<button type=\"button\" class=\"hot\" aria-label=\"Inspect ${l}\" data-hot=\"${id}\" style=\"left:${x}%;top:${y}%;width:${w}%;height:${h}%\"><span class=\"dot\"></span><span class=\"hot-label\">${l}</span></button>`).join('');document.querySelectorAll('[data-hot]').forEach(el=>el.addEventListener('click',()=>interact(el.dataset.hot)));$('evidenc"
+  },
+  "function save()": {
+    "offset": 1019497,
+    "preview": "qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq\"};\nfunction save(){try{localStorage.setItem(SAVE,JSON.stringify(st))}catch(e){}}\nfunction load(){try{const json=localStorage.getItem(SAVE)||localStorage.getItem(LEGACY_SAVE);const old=json?JSON.parse(json):null;if(old&&old.started){st={...fresh(),...old};return true}}catch(e){}return false}\nfunction newLog(text){if(!st.journal.includes(text)){st.journal.unshift(text);if(st.journal.length>35)st.journal.length=35;save()}renderSide()}\n/* Recorded iPhone-compatible horror scream, local file; no synthetic sting fallback. */\nconst wardScream=new Audio('./assets/real-human-scream-v22.mp3');\nwardScream.preload='auto';\nwardScream.addEventListener('canplay',()=>{document.documentElement.dataset.wardScreamAudio='ready'});\nwardScream.addEventListener('error',()=>{document.documentElement.dataset.wardScreamAudio='missing';const status=document.getElementById('scare-build-id');if(status)status.textContent='SCREAM ENGINE v2.2 / AUDIO FILE MISSING'});\nfunction playRecordedScare(level=.9){\n if(!sound)retu"
+  },
+  "id=\"enter-button\"": {
+    "offset": 603338,
+    "preview": "ty still comes first.</p><p class=\"motto\">OBSERVE // INVESTIGATE // INTERPRET // SURVIVE</p><div class=\"btnrow\"><button id=\"enter-button\" class=\"btn primary\">\u25b6 Begin investigation</button><button id=\"audio-start\" class=\"btn\" aria-pressed=\"false\">\u266b Enable cinematic audio + voice</button><button id=\"resume-button\" class=\"btn\" hidden>\u21bb Resume saved shift</button><button id=\"clear-button\" class=\"btn soft\">Reset progress</button></div><p class=\"small-note\">4 connected rooms \u00b7 cinematic scenery \u00b7 Tavi voice \u00b7 patient scares \u00b7 original puzzle engine \u00b7 linked sliders \u00b7 clinical case \u00b7 optional voice/audio \u00b7 autosave</p></div></section>\n<main id=\"game\" hidden><section class=\"stagecard\"><div class=\"stagehead\"><div><small>RIVERMERE MEDICAL CENTER / RESTRICTED CLINICAL WING</small><h2 id=\"room-title\">Nurses' Station</h2></div><span class=\"tag red\" id=\"power-tag\">POWER OFFLINE</span></div><div id=\"stage\" class=\"stage\" role=\"group\" aria-label=\"Interactive hospital room\"><div id=\"scene-photo\" class=\"scene-photo station\"></div><div class=\"room-sign\" id=\"room-sign\">NURSES' STATION / 00:13</div><div id=\"hotspots\"></div><"
+  },
+  "id=\"scene-photo\"": {
+    "offset": 604194,
+    "preview": "r-tag\">POWER OFFLINE</span></div><div id=\"stage\" class=\"stage\" role=\"group\" aria-label=\"Interactive hospital room\"><div id=\"scene-photo\" class=\"scene-photo station\"></div><div class=\"room-sign\" id=\"room-sign\">NURSES' STATION / 00:13</div><div id=\"hotspots\"></div><div id=\"scene-caption\" class=\"bottom-caption\" aria-live=\"polite\">Investigate the nurses' station.</div></div><div id=\"evidence-strip\" class=\"evidence-strip\" aria-label=\"Always-accessible room interactions\"></div><div class=\"stagefoot\"><div id=\"room-nav\" class=\"room-pills\" aria-label=\"Room navigation\"></div><div class=\"mini-actions\"><button id=\"objects-button\" class=\"btn small soft\">Show interactive areas</button><button id=\"scare-preview\" class=\"btn small soft\" type=\"button\">\u26a1 REPLAY ROOM SCARE</button><button id=\"report-button\" class=\"btn small soft\">Learning log</button></div></div></section><aside class=\"rail\"><section class=\"sidepanel\"><div class=\"micro\">ACTIVE OBJECTIVES</div><h3>Night Shift</h3><ol id=\"objectives\" class=\"objectives\"></ol><div class=\"progress\" style=\"margin-top:13px\"><i id=\"progress-fill\" style=\"width:0%\"></i></div></secti"
+  },
+  "data-hot": {
+    "offset": 1038895,
+    "preview": "spots').innerHTML=''+hotmap[st.room].map(([id,l,x,y,w,h])=>`<button type=\"button\" class=\"hot\" aria-label=\"Inspect ${l}\" data-hot=\"${id}\" style=\"left:${x}%;top:${y}%;width:${w}%;height:${h}%\"><span class=\"dot\"></span><span class=\"hot-label\">${l}</span></button>`).join('');document.querySelectorAll('[data-hot]').forEach(el=>el.addEventListener('click',()=>interact(el.dataset.hot)));$('evidence-strip').innerHTML=hotmap[st.room].map(([id,label])=>`<button type=\"button\" class=\"evidence-chip\" data-evidence=\"${id}\" aria-label=\"Inspect ${label}\">${escapeText(label)}</button>`).join('');$('evidence-strip').querySelectorAll('[data-evidence]').forEach(el=>el.onclick=()=>interact(el.dataset.evidence));if($('scare-preview'))$('scare-preview').onclick=previewScare;const nav=[['station','01 \u00b7 Station',true],['records','02 \u00b7 Records',st.power],['treatment','03 \u00b7 Treatment',st.archiveDone],['observation','04 \u00b7 Observation',st.rails&&st.audit&&st.treatmentDone]];$('room-nav').innerHTML=nav.map(([id,label,ready])=>`<button class=\"room-pill\" data-room=\"${id}\" ${!ready?'disabled':''} aria-current=\"${st.room===id}\">${label}$"
+  },
+  "N.U.R.S.E.": {
+    "offset": 602930,
+    "preview": "gn \u00b7 Episode Zero Pilot</div><h1>THE MISSING<br><em>ADMISSION.</em></h1><p>You are the only student on the night shift. N.U.R.S.E. is the ward\u2019s clinical supervision AI\u2014not a human preceptor. She has sealed the ward under an unexplained administrative directive. Four interconnected rooms, altered clinical records, and someone who should not be on the census. Examine carefully; your assigned patient's safety still comes first.</p><p class=\"motto\">OBSERVE // INVESTIGATE // INTERPRET // SURVIVE</p><div class=\"btnrow\"><button id=\"enter-button\" class=\"btn primary\">\u25b6 Begin investigation</button><button id=\"audio-start\" class=\"btn\" aria-pressed=\"false\">\u266b Enable cinematic audio + voice</button><button id=\"resume-button\" class=\"btn\" hidden>\u21bb Resume saved shift</button><button id=\"clear-button\" class=\"btn soft\">Reset progress</button></div><p class=\"small-note\">4 connected rooms \u00b7 cinematic scenery \u00b7 Tavi voice \u00b7 patient scares \u00b7 original puzzle engine \u00b7 linked sliders \u00b7 clinical case \u00b7 optional voice/audio \u00b7 autosave</p></div></section>\n<main id=\"game\" hidden><section class=\"stagecard\"><div class=\"stagehead\"><di"
+  },
+  "nursePerformer": {
+    "offset": 1024593,
+    "preview": "rse-voice-state');\n  if(status)status.textContent=label;\n}\nfunction speakScript(line,phase=0){\n  if(!voice)return;\n  if(nursePerformer==='tavi'){\n    try{window.speechSynthesis?.cancel()}catch(e){}\n    try{currentTaviAudio?.pause()}catch(e){}\n    const src=WARD13_TAVI_DIALOGUE[line];\n    if(!src){setTaviVoiceStatus('TAVI RECORDING PENDING \u00b7 CAPTIONS');return}\n    try{\n      const clip=new Audio(src);\n      clip.volume=Math.max(0,Math.min(1,voiceVolume));\n      currentTaviAudio=clip;\n      clip.play().then(()=>{\n        if(currentTaviAudio===clip)setTaviVoiceStatus('TAVI \u00b7 PRERECORDED AUDIO');\n      }).catch(()=>{\n        if(currentTaviAudio===clip){currentTaviAudio=null;setTaviVoiceStatus('TAVI AUDIO NOT LOADED \u00b7 CAPTIONS');showToast('Recording unavailable. Captions shown; no robot voice.')}\n      });\n    }catch(e){setTaviVoiceStatus('TAVI AUDIO NOT LOADED \u00b7 CAPTIONS')}\n    return;\n  }\n  setTaviVoiceStatus('DEVICE VOICE \u00b7 SYNTHETIC');\n  speakBrowserScript(line,phase);\n}\n\nfunction speakBrowserScript(line,phase=0){if(sound)soundCue(phase===0?'intercom_welcome':phase===1?'intercom_directive':'intercom_frac"
+  },
+  "function speakScript": {
+    "offset": 1024532,
+    "preview": "\"\n};\nfunction setTaviVoiceStatus(label){\n  const status=$('nurse-voice-state');\n  if(status)status.textContent=label;\n}\nfunction speakScript(line,phase=0){\n  if(!voice)return;\n  if(nursePerformer==='tavi'){\n    try{window.speechSynthesis?.cancel()}catch(e){}\n    try{currentTaviAudio?.pause()}catch(e){}\n    const src=WARD13_TAVI_DIALOGUE[line];\n    if(!src){setTaviVoiceStatus('TAVI RECORDING PENDING \u00b7 CAPTIONS');return}\n    try{\n      const clip=new Audio(src);\n      clip.volume=Math.max(0,Math.min(1,voiceVolume));\n      currentTaviAudio=clip;\n      clip.play().then(()=>{\n        if(currentTaviAudio===clip)setTaviVoiceStatus('TAVI \u00b7 PRERECORDED AUDIO');\n      }).catch(()=>{\n        if(currentTaviAudio===clip){currentTaviAudio=null;setTaviVoiceStatus('TAVI AUDIO NOT LOADED \u00b7 CAPTIONS');showToast('Recording unavailable. Captions shown; no robot voice.')}\n      });\n    }catch(e){setTaviVoiceStatus('TAVI AUDIO NOT LOADED \u00b7 CAPTIONS')}\n    return;\n  }\n  setTaviVoiceStatus('DEVICE VOICE \u00b7 SYNTHETIC');\n  speakBrowserScript(line,phase);\n}\n\nfunction speakBrowserScript(line,phase=0){if(sound)soundCue(phase===0?'in"
+  },
+  "function say(": {
+    "offset": 1025959,
+    "preview": "e===1?.85:.76;u.pitch=phase===0?1.11:phase===1?.83:.91;u.volume=voiceVolume;window.speechSynthesis.speak(u)}catch(e){}}\nfunction say(line,phase){dialoguePhase=phase??st.nursePhase??dialoguePhase;st.nursePhase=dialoguePhase;st.dialogue=line;$('nurse-line').textContent=line;updateNurseUI();save();speakScript(line,dialoguePhase)}\nfunction updateNurseUI(){const p=st.nursePhase??0;$('nurse').dataset.phase=String(p);$('nurse-voice-state').textContent=['ORIENTATION MODE','SECURITY DIRECTIVE','SIGNAL FRACTURE'][p]||'INTERCOM ONLINE'}\nfunction showToast(t){const x=$('toast');x.textContent=t;x.classList.add('on');clearTimeout(toastTimer);toastTimer=setTimeout(()=>x.classList.remove('on'),3600)}\nfunction ensureAudio(){if(!sound)return null;try{ctx=ctx||new(window.AudioContext||window.webkitAudioContext)();if(ctx.state==='suspended')ctx.resume();if(!master){master=ctx.createGain();master.gain.value=.30;master.connect(ctx.destination)}return ctx}catch(e){return null}}\nfunction osc(f=450,d=.13,type='sine',v=.10){const a=ensureAudio();if(!a)return;const now=a.currentTime;const o=a.createOscillator(),g=a.createGain();o"
+  }
+}
