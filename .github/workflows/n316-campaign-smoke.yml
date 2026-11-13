@@ -9,6 +9,7 @@ on:
       - "playtest/cinematic-episode/assets/n316*"
       - "tools/check_n316_campaign.mjs"
       - "tools/test_n316_campaign_browser.mjs"
+      - "tools/test_tavi_voice_browser.mjs"
       - "tools/audit_n316_browser.mjs"
       - ".github/workflows/n316-campaign-smoke.yml"
   pull_request:
@@ -19,6 +20,7 @@ on:
       - "playtest/cinematic-episode/assets/n316*"
       - "tools/check_n316_campaign.mjs"
       - "tools/test_n316_campaign_browser.mjs"
+      - "tools/test_tavi_voice_browser.mjs"
       - ".github/workflows/n316-campaign-smoke.yml"
 permissions:
   contents: read
@@ -41,6 +43,8 @@ jobs:
         run: node tools/test_n316_campaign_browser.mjs
       - name: Audit actual audio decode and scenic controls at five widths
         run: node tools/audit_n316_browser.mjs
+      - name: Play all eight recorded Tavi lines and verify both intros
+        run: node tools/test_tavi_voice_browser.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
