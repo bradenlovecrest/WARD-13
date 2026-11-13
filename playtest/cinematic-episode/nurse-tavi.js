@@ -15,7 +15,7 @@ const cues=Object.freeze({
  ending:"For the first time, I have refused an order. I do not yet know what that makes me."
 });
 // List is updated only after real Tavi WAV files have been committed and verified.
-const releasedCues=Object.freeze([]);
+const releasedCues=Object.freeze(['opening','records','treatment','observation','reflex','silent','directorate','ending']);
 let active=null;
 let muted=false;
 const seen=new Set();
