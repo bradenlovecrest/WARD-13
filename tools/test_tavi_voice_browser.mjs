@@ -45,7 +45,7 @@ try{
  // Original first-wing introduction must be explicitly AI, with same voice module.
  const legacy=await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true});
  const legacyErrors=[];legacy.on('pageerror',e=>legacyErrors.push(e.message));
- const orig=await legacy.goto(base+'index.html',{waitUntil:'domcontentloaded'});
+ const orig=await legacy.goto(base+'classic.html',{waitUntil:'domcontentloaded'});
  assert.equal(orig.status(),200);
  await legacy.locator('#btn-tavi-opening').waitFor({timeout:10000});
  assert.match(await legacy.locator('#nurse-ai-intro').textContent(),/Nursing Utility for Records, Safety, and Evaluation/);
@@ -53,6 +53,14 @@ try{
  await legacy.locator('#btn-tavi-opening').click();
  await legacy.waitForFunction(()=>window.WARD13Tavi?.activeCue==='opening',{timeout:8000});
  assert.deepEqual(legacyErrors,[],'No original first-wing intro errors');
- console.log('PASS: Tavi-only voice pack has 8 real WAV recordings, each decodes; both game introductions establish N.U.R.S.E. as AI and use the same recorded Tavi voice.');
+ const full=await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true});
+ const first=await full.goto(base+'unified.html',{waitUntil:'domcontentloaded'});
+ assert.equal(first.status(),200);
+ assert.match(await full.locator('#nurse-ai-introduction').textContent(),/Nursing Utility for Records, Safety, and Evaluation/);
+ await full.locator('#btn-hear-intro').click();
+ await full.waitForFunction(()=>window.WARD13Tavi?.played?.includes('opening'),{timeout:8000});
+ assert.match(await full.locator('#tavi-voice-status').textContent(),/Tavi/);
+
+ console.log('PASS: Tavi-only voice pack has 8 real WAV recordings, each decodes; all three game introductions establish N.U.R.S.E. as AI and use the same recorded Tavi voice.');
  console.log('CUES:',samples.map(s=>s.id+'='+s.seconds+'s').join(', '));
 }finally{await browser?.close();server.kill();}
