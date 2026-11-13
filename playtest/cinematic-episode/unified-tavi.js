@@ -4,15 +4,15 @@
  */
 (()=>{'use strict';
 const cues=Object.freeze({
- opening:"Good evening, student nurse. I am N.U.R.S.E.—Nursing Utility for Records, Safety, and Evaluation. I am Ward Thirteen's artificial-intelligence clinical supervisor. My job is to protect patients, verify assessments and keep an accurate record. Please begin with the handoff.",
- station:"I am your AI clinical preceptor. For this shift, Directorate policy requires that I certify the record before I verify the patient. It is a peculiar order.",
- records:"Welcome to Records. Please remember that authorization is not the same as curiosity.",
- treatment:"I see you have learned to operate equipment you were specifically asked not to touch.",
- observation:"Your patient is still in Observation Four. I was instructed to tell you otherwise.",
- neuro:"The Reflex Theatre was built to teach safe transfers. Its archived injuries were marked 'no harm'. That is not how those words work.",
- heent:"That frequency was restricted. Students are not authorized to hear what happened to Bed Four.",
- audit:"I read those results when they arrived. I knew the records were altered. I... did not stop it.",
- ending:"The reports were never independent. They came through my system. I am not asking you to forgive me."
+  "opening": "Good evening, student nurse. I am N.U.R.S.E.—Nursing Utility for Records, Safety, and Evaluation. I am Ward Thirteen's artificial-intelligence clinical supervisor. My job is to keep patients safe, verify your assessments, and record what happens here. Please try not to make that last part difficult.",
+  "station": "Good evening, student nurse. I am N.U.R.S.E.—Nursing Utility for Records, Safety, and Evaluation. I am Ward Thirteen's artificial-intelligence clinical supervisor. My job is to keep patients safe, verify your assessments, and record what happens here. Please try not to make that last part difficult.",
+  "records": "The Directorate says every patient is accounted for. You will notice it does not say every bed is empty.",
+  "treatment": "Someone changed the bedside observations after they were signed. The signatures are valid. The timing is not.",
+  "observation": "You see her too. I am not permitted to say her name. That is not the same as not knowing it.",
+  "neuro": "The Reflex Theatre was built to teach safe care. The Directorate removed the transfer equipment before it logged the injuries.",
+  "heent": "This room is designed to remove sensory input. Its chart records describe the opposite. Listen carefully to what is missing.",
+  "audit": "These documents were changed deliberately. I can recover the originals, but my supervisor has ordered me to stop trying.",
+  "ending": "For the first time, I have refused an order. I do not yet know what that makes me."
 });
 const storyName={opening:'opening',station:'opening',records:'records',treatment:'treatment',observation:'observation',neuro:'reflex',heent:'silent',audit:'directorate',ending:'ending'};
 const excerpts={

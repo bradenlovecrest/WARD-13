@@ -2,3 +2,5 @@ WARD 13 — one-time recorded Tavi story cue pack.
 N.U.R.S.E. = Nursing Utility for Records, Safety, and Evaluation.
 8 lines from playtest/cinematic-episode/nurse-tavi.js, beginning with exact AI introduction.
 No browser speech substitute. Stop on quota failures, preserving completed recordings.
+
+Seven-room story audio production request, 2026-11-13: one-time attempt; stop on provider/quota errors; preserve completed Tavi recordings.
