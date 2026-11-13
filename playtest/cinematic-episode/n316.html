@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#071011"><meta name="description" content="Ward 13 Exam 3: The South Wing, a cinematic clinical-assessment escape room with three cinematic rooms, 40 NURS 316 clinical questions, evidence clues and local saves.">
-<title>WARD 13 — NURS 316 Exam 3: The South Wing</title><link rel="stylesheet" href="./chapter-two.css?v=1"><link rel="stylesheet" href="./n316.css?v=1"></head>
+<title>WARD 13 — NURS 316 Exam 3: The South Wing</title><link rel="stylesheet" href="./chapter-two.css?v=1"><link rel="stylesheet" href="./n316.css?v=1"><link rel="stylesheet" href="./ward13-minigames.css?v=1"></head>
 <body>
 <div class="grain" aria-hidden="true"></div>
 <header class="hud">
@@ -39,7 +39,7 @@
       <div class="scene-clues" aria-hidden="true"><div class="forensic-wall"><div class="forensic-paper"><strong>PAIN ASSESSMENT</strong><span>ORIGINAL: 8 / 10</span><span class="forensic-red">ALTERED: 3 / 10</span><span>Reassessment disputed</span><span>Signed: [REDACTED]</span></div><div class="forensic-paper"><strong>COGNITIVE BASELINE</strong><span>Attention: altered</span><span>Onset: sudden</span><span>Delirium or dementia?</span><span class="forensic-red">History overwritten</span></div><div class="forensic-paper"><strong>OPIOID SAFETY</strong><span>Monitor breathing</span><span>Assess sedation</span><span>Verify consent</span><span class="forensic-red">ALERT SUPPRESSED</span></div></div><div class="forensic-folder">CAREGIVER RECORD<br/>ACCESS RESTRICTED</div></div><div id="hotspots" class="hotspots" role="group" aria-label="Clickable clinical chart locations"></div>
       <div class="scanlines"></div>
      </div>
-     <div class="stage-bottom"><div><span class="indicator"></span> <span id="room-status">SELECT A CHART TO EXAMINE</span></div><button id="btn-gate" class="gate-btn" type="button" hidden>UNSEAL NEXT DOOR →</button></div>
+     <div class="stage-bottom"><div><span class="indicator"></span> <span id="room-status">SELECT A CHART TO EXAMINE</span></div><button id="btn-minigame" type="button" class="gate-btn">◈ OPTIONAL EVIDENCE PUZZLE</button><button id="btn-gate" class="gate-btn" type="button" hidden>UNSEAL NEXT DOOR →</button></div>
      <div id="accessible-charts" class="chart-list" aria-label="Chart access list"></div>
    </section>
    <aside class="sidebar">
@@ -68,4 +68,5 @@
 <script src="./n316-room06.js?v=1" defer></script>
 <script src="./n316-room07.js?v=1" defer></script>
 <script src="./nurse-tavi.js?v=1" defer></script>
+<script src="./ward13-minigames.js?v=1" defer></script>
 <script src="./n316.js?v=2" defer></script></body></html>

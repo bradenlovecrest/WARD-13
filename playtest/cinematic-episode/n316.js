@@ -46,6 +46,13 @@ function render(){
  var completed=r.questions.filter(function(q){return isDone(q.id);}).length;
  $('room-status').textContent=gateDone(r.id)?'SECURITY SEAL ACCEPTED • EXIT OPEN':completed===r.questions.length?'ALL CHARTS VERIFIED • SEAL READY':completed+' OF '+r.questions.length+' CLINICAL CHARTS VERIFIED';
  var gate=$('btn-gate');gate.hidden=completed<r.questions.length;gate.textContent=gateDone(r.id)?(state.room===2?'VIEW FINAL TRANSMISSION →':'CONTINUE TO NEXT ROOM →'):'UNSEAL NEXT DOOR →';
+ var mg={neuro:'maze',heent:'memory',audit:'jigsaw'}[r.id];
+ var mgBtn=$('btn-minigame');
+ if(mgBtn){
+  var mgSystem=window.WARD13Minigames,solved=mgSystem?.completed(mg);
+  mgBtn.textContent=(solved?'✓ EVIDENCE RECONSTRUCTED: ':'◈ OPTIONAL PUZZLE: ')+(mgSystem?.defs?.[mg]?.title||'PATIENT EVIDENCE');
+  mgBtn.onclick=function(){if(window.WARD13Minigames)window.WARD13Minigames.open(mg);else toast('Mini-game module is unavailable. Your exam progress is safe.');};
+ }
  $('stats-line').textContent='Completed: '+progress()+'/'+allCount+'. Incorrect attempts: '+Object.values(state.misses).reduce(function(a,b){return a+b;},0)+'. Concepts to revisit: '+pendingReview().length+'.';
  $('btn-review').textContent='REVIEW MISSED CONCEPTS'+(pendingReview().length?' ('+pendingReview().length+')':'');
 }
@@ -85,6 +92,8 @@ function renderEvidence(){
  var all=[];
  state.done.forEach(function(id){var q=cases.get(id);if(q)all.push({name:q.hotspot,clue:q.clue});});
  state.gates.forEach(function(id){var r=rooms.find(function(x){return x.id===id;});if(r)all.push({name:'SEAL '+r.number,clue:r.gate.clue});});
+ var minigames=window.WARD13Minigames;
+ if(minigames)Object.keys(minigames.defs).forEach(function(type){if(minigames.completed(type)){var d=minigames.defs[type];all.push({name:'MINI-GAME / '+d.room,clue:d.reward});}});
  $('evidence-count').textContent=String(all.length).padStart(2,'0');
  if(!all.length){var em=document.createElement('p');em.className='empty';em.textContent='No records retrieved.';log.appendChild(em);return;}
  all.slice().reverse().forEach(function(item){var div=document.createElement('div');div.className='evidence-item';var strong=document.createElement('strong');strong.textContent=item.name;var p=document.createElement('span');p.textContent=item.clue;div.append(strong,p);log.appendChild(div);});
@@ -204,6 +213,7 @@ function boot(){
  if(state.room<0||state.room>2)state.room=0;
  if(!roomAccessible(state.room))state.room=0;
  $('btn-start').addEventListener('click',begin);
+ window.addEventListener('ward13:minigame-completed',function(){if(!$('game').hidden)render();});
  $('btn-hear-intro').addEventListener('click',function(){window.WARD13Tavi?.play('opening');});
  $('btn-tavi').addEventListener('click',function(){var t=window.WARD13Tavi;if(!t)return;t.setMuted(!t.muted);if(!t.muted&&state.started)t.play(currentRoom().id,{captionElement:$('nurse-line')});});
  $('btn-test-scream').addEventListener('click',function(){
