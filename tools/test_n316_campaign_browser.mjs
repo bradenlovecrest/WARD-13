@@ -19,6 +19,7 @@ try{
  const rooms=await page.evaluate(()=>window.WARD13_N316_ROOMS);
  assert.equal(rooms.reduce((n,r)=>n+r.questions.length+1,0),40);
  await page.locator('#btn-start').click();await page.locator('#game:not([hidden])').waitFor();
+ assert.equal(await page.locator('.hotspot-stack').first().textContent(),'0/2','Unverified folder must begin at 0/2');
  let seen=0;
  for(let ri=0;ri<rooms.length;ri++){
   const room=rooms[ri];
@@ -52,6 +53,7 @@ try{
     await page.locator('#btn-dismiss-scare').click();
    }
    assert.match(await page.locator('#answer-feedback').innerText(),/ASSESSMENT VERIFIED/);
+   if(ri===0&&qi===0)assert.equal(await page.locator('.hotspot-stack').first().textContent(),'1/2','Verified record increments folder to 1/2');
    await page.locator('#btn-submit').click();
    await page.locator('#question-overlay').waitFor({state:'hidden'});seen++;
   }

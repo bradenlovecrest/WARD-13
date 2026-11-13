@@ -70,7 +70,7 @@ function renderHotspots(r){
   button.className='hotspot'+(!remaining.length&&groupItems.length?' completed':'')+(g.ids.length===0?' locked-marker':'');
   button.style.left=g.x+'%';button.style.top=g.y+'%';button.style.setProperty('--x',g.x+'%');button.style.setProperty('--y',g.y+'%');
   button.setAttribute('aria-label','Inspect '+g.label+(remaining.length?' — '+remaining.length+' records unread':''));
-  button.innerHTML='<span class="hotspot-id">'+String(i+1).padStart(2,'0')+'</span><span class="hotspot-name">'+escapeText(g.label)+'</span>'+(groupItems.length?'<span class="hotspot-stack">'+remaining.length+'/'+groupItems.length+'</span>':'');
+  button.innerHTML='<span class="hotspot-id">'+String(i+1).padStart(2,'0')+'</span><span class="hotspot-name">'+escapeText(g.label)+'</span>'+(groupItems.length?'<span class="hotspot-stack">'+(groupItems.length-remaining.length)+'/'+groupItems.length+'</span>':'');
   button.addEventListener('click',function(){if(target)openQuestion(target,false,false);else if(g.ids.length===0)door();});
   spots.appendChild(button);
  });
