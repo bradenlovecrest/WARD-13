@@ -43,6 +43,14 @@ assert.match(engine,/ward13\.n316\.exam3\.v1/);
 assert.match(engine,/allCount=rooms\.reduce/);
 assert.ok(!engine.includes("'Completed: '+progress()+'/27"),'Outdated /27 progress counter persists');
 assert.match(html,/btn-test-scream/);
+const tavi=read('nurse-tavi.js');
+assert.match(html,/nurse-tavi\.js/);
+assert.match(html,/Nursing Utility for Records, Safety, and Evaluation/);
+assert.match(tavi,/const releasedCues=Object\.freeze/);
+assert.match(tavi,/new Audio\(/);
+assert.ok(!/window\.speechSynthesis|new SpeechSynthesisUtterance|speechSynthesis\.speak/.test(tavi),'N.U.R.S.E. voice may not synthesize browser speech');
+for(const cue of ['opening','records','treatment','observation','reflex','silent','directorate','ending'])assert.match(tavi,new RegExp('\\b'+cue+':"'));
+
 assert.match(html,/scene-clues/);
 assert.match(engine,/modal\.selected\.includes/);
 for(const id of ['n316-room05.js','n316-room06.js','n316-room07.js','n316.js','n316.css'])assert.ok(html.includes(id),'Missing linked file '+id);
