@@ -1,0 +1,26 @@
+name: WARD 13 — First Wing source inspection (temporary)
+on:
+  push:
+    branches: [main]
+    paths:
+      - "voice-jobs/inspect-firstwing-01.txt"
+permissions:
+  contents: write
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Extract source bank and existing interaction contracts
+        run: python3 tools/inspect_firstwing.py
+      - name: Commit safe, bounded inspection excerpts
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/firstwing-inspection/
+          if ! git diff --cached --quiet; then
+            git commit -m "Document first-wing clinical bank and puzzle structure for N316 migration"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
