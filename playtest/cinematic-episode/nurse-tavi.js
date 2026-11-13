@@ -14,6 +14,8 @@ const cues=Object.freeze({
  directorate:"These documents were changed deliberately. I can recover the originals, but my supervisor has ordered me to stop trying.",
  ending:"For the first time, I have refused an order. I do not yet know what that makes me."
 });
+// List is updated only after real Tavi WAV files have been committed and verified.
+const releasedCues=Object.freeze([]);
 let active=null;
 let muted=false;
 const seen=new Set();
@@ -46,6 +48,7 @@ function showCaption(id,container){
 function play(id, options={}){
  if(!Object.prototype.hasOwnProperty.call(cues,id))return Promise.resolve(false);
  showCaption(id,options.captionElement);
+ if(!releasedCues.includes(id)){stop();setStatus('Tavi recording pending — captions on (no substitute voice)');return Promise.resolve(false);}
  if(muted){setStatus('Tavi voice muted — captions on');return Promise.resolve(false);}
  stop();
  const audio=players[id];
@@ -61,5 +64,5 @@ function play(id, options={}){
  }catch(e){active=null;setStatus('Tavi recording unavailable — captions on (no synthetic voice)');return Promise.resolve(false);}
 }
 function hasCue(id){return Object.prototype.hasOwnProperty.call(cues,id);}
-window.WARD13Tavi={cues,play,stop,setMuted,showCaption,hasCue,get muted(){return muted;},get activeCue(){return Object.keys(players).find(id=>players[id]===active)||null;},get played(){return [...seen];}};
+window.WARD13Tavi={cues,releasedCues,play,stop,setMuted,showCaption,hasCue,get muted(){return muted;},get activeCue(){return Object.keys(players).find(id=>players[id]===active)||null;},get played(){return [...seen];}};
 })();
