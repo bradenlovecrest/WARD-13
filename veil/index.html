@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0e1421">
+<title>WARD 13: The Veil of Senses — A Nursing Fantasy RPG</title>
+<style>
+:root{--bg:#090e19;--deep:#0e1624;--panel:#172235;--gold:#f0d29b;--pale:#f8f0dc;--light:#d6dfeb;--mint:#a7e4d2;--violet:#bcacff;--red:#f3a19f;--edge:#57617a;--blue:#94bee7}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}body{margin:0;min-height:100dvh;color:var(--pale);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.48;background:radial-gradient(circle at 8% 0,#253453 0,transparent 30%),radial-gradient(circle at 92% 0,#33233c 0,transparent 26%),linear-gradient(#0a0f1c,#10131d 70%,#090e17)}
+button,input,textarea{font:inherit}button{cursor:pointer}button:disabled{opacity:.45;cursor:not-allowed}
+button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--mint);outline-offset:3px}
+h1,h2,h3,.serif{font-family:Georgia,Times,serif;line-height:1.13}h1{font-size:clamp(2rem,6vw,4.1rem);margin:.3em 0}h2{font-size:clamp(1.65rem,3.6vw,2.5rem);margin:.3em 0 .55em}h3{margin:.2em 0 .6em}p{margin:.5em 0 1em}small,.dim{color:#bac6d2}a{color:var(--mint)}
+#app{max-width:1230px;margin:0 auto;padding:12px 18px 62px}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 3px;border-bottom:1px solid #58617a80;flex-wrap:wrap}
+.brand{font-family:Georgia,serif;font-size:1.25rem;font-weight:bold;color:var(--gold);letter-spacing:.05em}.brand span{font-size:.72em;color:var(--mint)}
+.hud{display:flex;gap:9px;flex-wrap:wrap}.hud b{display:block;font-size:1.1rem}.hud div{background:#152236c9;border:1px solid #586d81;border-radius:10px;padding:6px 11px;text-align:center;min-width:89px}.hud small{display:block;font-size:.68rem;text-transform:uppercase;letter-spacing:.1em}
+.nav{display:flex;gap:9px;overflow-x:auto;padding:15px 0}.nav button{white-space:nowrap;border:1px solid #6b6f8b;background:#202a3f;color:#fff3d3;border-radius:99px;padding:9px 15px;font-weight:750}.nav button.on{background:linear-gradient(115deg,#6b4e37,#a2754c);border-color:#f2cc90}
+button.action{border:1px solid #c09a61;border-radius:12px;background:linear-gradient(135deg,#a27542,#d6a969);color:#201a17;font-weight:800;padding:12px 17px;min-height:44px;box-shadow:0 4px 15px #02070a88}
+button.action.secondary{background:#28384e;color:#f9ebd2;border-color:#748698}
+button.action.ghost{background:transparent;color:var(--mint);border-color:#507e79}button.action.warn{background:#582d36;color:#ffe4e4;border-color:#bd6e6e}
+button.action:active,button.choice:active,button.rune:active{transform:scale(.97)}
+.buttonRow{display:flex;gap:10px;flex-wrap:wrap;margin-top:17px}.kicker{color:var(--mint);font-size:.75rem;letter-spacing:.18em;font-weight:900;text-transform:uppercase}
+.banner{position:relative;min-height:295px;border:1px solid #736c62;border-radius:19px;overflow:hidden;display:grid;grid-template-columns:1fr .8fr;background:linear-gradient(110deg,#142030 0%,#131a2b 58%,#283047 100%);box-shadow:0 20px 50px #03060f88}
+.bannerText{position:relative;z-index:2;padding:clamp(22px,4vw,42px)}.banner p{max-width:540px;color:#d8dce2}.heroArt{align-self:end;justify-self:center;width:min(100%,420px);height:auto;filter:drop-shadow(0 0 19px #e3bd7133)}
+.banner:after{content:"✧  ✦   ✧    ✦";letter-spacing:33px;position:absolute;left:42%;top:13%;color:#efcf7a55;font-size:23px;pointer-events:none}
+.intro{margin-top:20px;padding:19px;background:#172134;border:1px solid #626c7f;border-radius:17px}.intro h3{font-size:1.55rem}
+.classGrid,.map,.shopGrid,.galleryGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}.classBtn{border:1px solid #6a7195;border-radius:14px;text-align:left;color:#e8e6e8;background:linear-gradient(145deg,#23304b,#171d30);min-height:141px;padding:18px}.classBtn strong,.classBtn small{display:block}.classBtn strong{font-family:Georgia,serif;font-size:1.28rem;color:#ffe0a5;margin:8px 0}.classBtn .emoji{font-size:2rem}
+.section{margin:25px 0 12px;display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}.section h2{margin:0}
+.mapCard{position:relative;min-height:204px;border:1px solid #657181;border-radius:17px;background:linear-gradient(145deg,#23304a,#141e31);color:#e8e8e7;text-align:left;padding:16px;overflow:hidden;display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between}
+.mapCard .big{font-size:3rem;filter:drop-shadow(0 5px 15px #eac26b55);line-height:1.4;display:block;transition:transform .25s}.mapCard:not(:disabled):hover .big{transform:scale(1.16) rotate(-4deg)}
+.mapCard h3{color:#ffe1ab;font-size:1.21rem}.mapCard p{font-size:.82rem;color:#c4d4db}.mapCard .stamp{position:absolute;right:11px;top:11px;color:#b4ffe1;background:#20453b;border-radius:99px;font-size:.75rem;padding:4px 8px}
+.mapCard.locked{filter:grayscale(.7);opacity:.6}.mapCard.done{border-color:#73ae97}
+.parchment{border:1px solid #85745c;background:linear-gradient(125deg,#202836,#202333);border-radius:15px;padding:21px;margin-top:18px;box-shadow:0 8px 25px #04060d66}
+.questHeading{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.questHeading h2{margin:6px 0}.sceneArt{background:radial-gradient(circle at 50% 27%,#76624455,transparent 40%),linear-gradient(130deg,#2b3b4b,#1c2030);height:145px;border-radius:14px;display:flex;justify-content:center;align-items:center;gap:15px;margin:17px 0;border:1px solid #63738a;position:relative;overflow:hidden}.sceneArt::before{content:"✧  ✦    ✧  ✨     ✧   ✦";position:absolute;top:16px;left:10px;color:#f6dea77c;letter-spacing:9px}.sceneArt i{font-style:normal;font-size:clamp(2rem,6vw,4.4rem);filter:drop-shadow(0 7px 15px #070a12);z-index:1}
+.choiceGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:15px 0}
+.choice{border:1px solid #788099;border-radius:12px;background:#23324a;color:#eae8ed;padding:13px;min-height:74px;text-align:center;font-weight:650;overflow-wrap:anywhere}
+.choice.selected{background:#405869;border-color:#b7ecd8;box-shadow:0 0 0 2px #9de6cb55 inset}.choice.correct{background:#234e42;border-color:#8be6ba}.choice.wrong{background:#4e2835;border-color:#de9b9b}
+.choice .glyph{display:block;font-size:2rem;margin-bottom:4px}.triptych{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0}
+.well{background:#20273a;border:2px dashed #7d8190;border-radius:13px;text-align:center;padding:12px;min-height:105px}.well.selected{border-color:#b9ecdb}.well strong{display:block;color:var(--gold)}.well p{color:#d7e6e0;font-size:.82rem;margin:7px 0}
+.pickCard{background:#2b354b;border:1px solid #677b87;border-radius:13px;padding:15px;margin:13px 0}.pickCard strong{color:#f6ddb0}.pill{display:inline-block;border:1px solid #7e8f9b;border-radius:99px;padding:4px 10px;font-size:.75rem;color:var(--mint);background:#223145}
+.feedback{background:#182e2b;border:1px solid #6fb29a;border-radius:12px;padding:12px 15px;margin-top:14px;color:#e8fff1}.feedback.bad{background:#39272d;border-color:#c4878a;color:#ffe3df}
+.runeGrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}.rune{background:#202d42;color:#e5e7ef;border:1px solid #8790a3;border-radius:11px;min-height:91px;padding:8px 5px;font-weight:650}.rune span{display:block;font-size:1.7rem;color:#edcf8c}.rune small{font-size:.7rem}.rune:disabled{opacity:.2}.rune.false{border-color:#db8e8b;background:#4b303b}
+.trail{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0}.trail span{background:#284d43;border:1px solid #75bca2;padding:4px 9px;border-radius:20px;font-size:.82rem}
+.meterRows{display:grid;gap:14px;margin:20px 0}.meter{display:grid;grid-template-columns:130px 1fr 150px;align-items:center;gap:14px}.meter strong{color:var(--gold)}.meter input{width:100%;accent-color:#cbb37b}.meter span{font-size:.84rem;color:var(--mint)}
+.statBox{background:#172a32;border:1px solid #5e8a8e;border-radius:14px;padding:17px}.pulse{height:14px;border-radius:99px;background:#1b293b;overflow:hidden}.pulse i{display:block;background:linear-gradient(90deg,#ce8d77,#c8c676,#93e3b5);height:100%;transition:width .3s}
+.queue{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0;min-height:50px}.queue span{background:#3b3d53;border:1px solid #a69cc5;border-radius:8px;padding:9px}
+.scoreRow{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid #535e6a}.scoreRow input{width:95px;min-height:43px;border-radius:9px;background:#101c2d;color:#fff;border:1px solid #91aaaf;text-align:center;font-size:1.3rem}
+.prize{background:linear-gradient(155deg,#2c3146,#171f30);border:1px solid #756f89;border-radius:16px;padding:15px;display:flex;flex-direction:column;gap:7px}
+.prize .art{height:97px;border-radius:12px;background:radial-gradient(circle,#8b785a66,transparent 64%),linear-gradient(115deg,#313e51,#161b2b);display:flex;align-items:center;justify-content:center;font-size:3rem}
+.prize h3{color:var(--gold);font-size:1.13rem;margin:5px 0}.prize p{font-size:.83rem;flex:1;color:#d5dbe3;margin:0}.prize .price{color:var(--mint);font-size:.9rem}
+.galleryGrid{grid-template-columns:repeat(4,minmax(0,1fr))}.galleryGrid .prize{min-height:210px}
+.note{width:100%;background:#0f1c2b;color:#f2f1ec;border:1px solid #788ea0;padding:12px;border-radius:10px;min-height:100px;resize:vertical}
+.journal{background:#1c2738;border:1px solid #626e82;border-radius:14px;padding:14px}.journalRow{border-bottom:1px solid #435167;padding:10px 0}.journalRow:last-child{border:0}
+.modalBackdrop{position:fixed;inset:0;z-index:99;background:#000b;display:none;align-items:center;justify-content:center;padding:12px}.modalBackdrop.open{display:flex}.modal{max-height:93dvh;overflow:auto;width:min(620px,100%);background:linear-gradient(145deg,#293448,#141c2c);border:2px solid #c1a273;box-shadow:0 20px 85px #000; border-radius:18px;padding:clamp(18px,4vw,28px)}.modal h2{margin:9px 0}.modal .center{text-align:center}.die{font-size:7rem;display:block;line-height:1.5;text-align:center;filter:drop-shadow(0 0 23px #deb66b66);transition:transform .3s}.die.spin{animation:twirl .5s 2}@keyframes twirl{50%{transform:rotate(185deg) scale(1.24)}}.toast{position:fixed;bottom:15px;left:50%;transform:translateX(-50%);max-width:94vw;background:#1e493f;color:#fff4dc;border:1px solid #b8dab5;border-radius:99px;padding:11px 17px;z-index:110;display:none;text-align:center;box-shadow:0 8px 35px #03060be0}.toast.on{display:block}
+.ledgerWarn{background:#433021;border:1px solid #b88b4c;padding:15px;border-radius:12px;margin:12px 0}
+.questP{font-size:1.1rem;max-width:950px;color:#e2e0e3}
+.footer{font-size:.73rem;color:#a4b0c7;text-align:center;margin-top:45px;border-top:1px solid #485571;padding:20px 0}
+@media(max-width:850px){.map,.shopGrid,.classGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.galleryGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.banner{grid-template-columns:1fr}.heroArt{position:absolute;bottom:-35px;right:-40px;width:56%;opacity:.37}.bannerText{padding:26px;z-index:2}.meter{grid-template-columns:100px 1fr}.meter span{grid-column:2}}
+@media(max-width:580px){#app{padding:8px 10px 45px}.brand{font-size:1.05rem}.hud{width:100%;justify-content:space-between}.hud div{flex:1;min-width:0;padding:5px}.hud b{font-size:1rem}.hud small{font-size:.59rem}.map,.classGrid,.shopGrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.mapCard{min-height:187px;padding:12px}.mapCard h3{font-size:1.05rem}.choiceGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.runeGrid{grid-template-columns:repeat(3,minmax(0,1fr))}.rune{min-height:80px}.triptych{gap:6px}.well{padding:7px;min-height:100px}.well strong{font-size:.72rem}.well p{font-size:.71rem}.banner{min-height:285px}.bannerText{padding:18px}.banner p{font-size:.93rem}.parchment{padding:13px}.nav button{padding:9px 12px}.galleryGrid{gap:8px}.sceneArt{height:105px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div id="app">
+<header class="top"><div class="brand">⚔ WARD 13 <span>• THE VEIL OF SENSES</span></div>
+<div class="hud"><div><small>Guild tickets</small><b id="balance">—</b></div><div><small>Adventurer</small><b id="level">Lv. 1</b></div><div><small>Resolve</small><b id="hp">♥ 8</b></div></div></header>
+<nav class="nav" aria-label="RPG sections"><button data-nav="adventure" class="on">🗺 Quest map</button><button data-nav="shop">🛒 Guild merchant</button><button data-nav="gallery">🏆 Trophy gallery</button><button data-nav="journal">📜 Chronicle</button></nav>
+<main id="content"></main>
+<footer class="footer">Original nursing fantasy learning game · NURS 316 sensory perception & cognition · Progress and tickets saved locally in this browser. For study, not a clinical protocol.</footer>
+</div>
+<div id="overlay" class="modalBackdrop"><section class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Game dialog"></section></div><div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+'use strict';
+const $=x=>document.getElementById(x), esc=x=>String(x).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])), fmt=x=>Number(x||0).toLocaleString('en-US');
+const MIDWAY_KEY='ward13-midnight-midway-v1',RPG_KEY='ward13-veil-senses-v1';
+const shuffle=a=>{const b=a.slice();for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]]}return b};
+const CLASSES={warden:{name:'Warden',icon:'🛡️',gift:'Steadfast protection',bonus:2,style:'A shield-bearer who keeps the vulnerable safe.'},seer:{name:'Seer',icon:'🔮',gift:'Piercing perception',bonus:3,style:'A rune-reader trained to notice subtle changes.'},bard:{name:'Bard',icon:'🎻',gift:'Comforting presence',bonus:2,style:'A storyteller who restores calm to troubled minds.'}};
+const CHAPTERS=[
+{id:'echo',name:'The Inn of Echoes',icon:'🏚️',subtitle:'Sort the sensory curses',theme:'Sensory overload, deprivation, and deficits',base:160,art:'🧍 🕯️ 🦻'},
+{id:'forest',name:'Forest of Twelve',icon:'🌲',subtitle:'Awaken the cranial runes',theme:'Names and functions of CN I–XII',base:300,art:'🌲 👁️ 🌲'},
+{id:'chamber',name:'The Lantern Chamber',icon:'🏮',subtitle:'Balance the world',theme:'Sensory interventions and aging',base:200,art:'🕯️ 👵 🕯️'},
+{id:'library',name:'The Library of Thought',icon:'📚',subtitle:'Rebuild six shattered domains',theme:'Cognitive domains and daily function',base:200,art:'📜 🧠 📜'},
+{id:'scribe',name:'The Scribe of Thirty',icon:'📜',subtitle:'Decode cognitive screening',theme:'MMSE areas, scoring, and limitations',base:220,art:'📖 ✒️ 🧮'},
+{id:'boss',name:'The False-Signal Dragon',icon:'🐉',subtitle:'Final clinical judgment trial',theme:'Acute delirium, assessment, and priority care',base:440,art:'🛡️ 🐲 ⚡'}
+];
+const CLASSIC=[
+['parade','Midway Master Relic','🎪','Mythic',null,'Integrate safety and assessment across nursing concepts.'],
+['fortuneDeck','Madame Cortex Tarot Deck','🔮','Epic',480,'An acute attention change warrants delirium assessment.'],
+['crown','Crown of the Head Nurse','👑','Legendary',950,'Clinical priorities begin with safety and physiology.'],
+['ferris','Pocket Ferris Wheel','🎡','Legendary',720,'Morse Fall Scale includes six scored areas.'],
+['tinyTavi','Tiny Tavi Automaton','🤖','Epic',560,'Assess unmet needs before restricting a distressed patient.'],
+['pin','Night Shift Survivor Pin','📌','Common',55,'Compare cognition to the patient’s baseline.'],
+['cotton','Ectoplasm Cotton Candy','🍬','Common',75,'Use simple cues and familiar routines for dementia.'],
+['gait','Gilded Gait Belt','🏅','Uncommon',100,'Match transfer devices to functional ability.'],
+['badge','Batwing Badge Reel','🦇','Uncommon',130,'Plan fall prevention for individual risks.'],
+['eye','Spectral Glass Eye','🧿','Uncommon',165,'Correct sensory barriers before interpreting assessments.'],
+['steth','Moonlight Stethoscope','🩺','Rare',210,'Slow breathing after opioids requires urgent action.'],
+['jar','Brain in a Carnival Jar','🧠','Rare',260,'Differentiate Lewy body and vascular dementia.'],
+['lamp','Anatomical Heart Lantern','🫀','Rare',340,'Support vascular risk reduction.'],
+['owl','The Midnight Preceptor','🦉','Epic',430,'Distinguish pain mechanism from duration.'],
+['skullBalloon','Anatomical Skull Balloon','🎈','Uncommon',195,'Maroon skin may indicate deep-tissue pressure injury.'],
+['carouselHorse','Golden Carousel Horse','🎠','Rare',310,'Assess, intervene, then reassess patient response.'],
+['ringTrophy','Cursed Transfer Ring','⭕','Legendary',790,'Choose transfers according to weight-bearing ability.']
+].map(x=>({id:x[0],name:x[1],icon:x[2],rarity:x[3],price:x[4],pearl:x[5],classic:true}));
+const NEW_PRIZES=[
+{id:'veil_dice',name:'Whisperstone D20',icon:'🎲',rarity:'Uncommon',price:850,pearl:'Perception is not the same as cognition; correct sensory barriers first.',description:'An enchanted die whose natural 20 is always suspicious.',unlock:''},
+{id:'veil_lantern',name:'Lantern of Gentle Dawn',icon:'🏮',rarity:'Rare',price:1750,pearl:'For sensory overload, reduce competing stimulation and protect rest; for deprivation, supply meaningful input.',description:'The only lantern allowed in a patient room without a provider order.',unlock:'chamber'},
+{id:'veil_helm',name:'Helm of Twelve Paths',icon:'🪖',rarity:'Epic',price:4800,pearl:'CN I smell; II vision; III IV VI eye movements; V face sensation and chewing; VII expression; VIII hearing/balance; IX X swallowing; XI shoulder; XII tongue.',description:'Twelve runes, one rather heavy hat.',unlock:'forest'},
+{id:'veil_grimoire',name:'Grimoire of Clear Thought',icon:'📕',rarity:'Legendary',price:7800,pearl:'Sudden inattention and a fluctuating course suggest delirium even when dementia already exists.',description:'Its pages only appear after the dragon is defeated.',unlock:'boss'},
+{id:'veil_dragon',name:'Veilbreaker Dragon Familiar',icon:'🐲',rarity:'Mythic',price:12000,pearl:'Recognize cues, protect safety, investigate reversible causes, collaborate, and reassess.',description:'A legendary companion who refuses to chart.',unlock:'boss'}
+];
+const PRIZES=CLASSIC.concat(NEW_PRIZES);
+const ECHOES=[
+{t:'The bell tower blasts all night; the patient is anxious, sleepless, and overwhelmed.',a:'Overload',why:'Excessive competing stimuli lead to sensory overload.'},
+{t:'A patient has remained alone in a dark, silent chamber with almost no meaningful interaction.',a:'Deprivation',why:'Insufficient sensory input and isolation suggest sensory deprivation.'},
+{t:'An elder cannot hear instructions unless the nurse faces them with working hearing aids.',a:'Deficit',why:'Impaired hearing is a sensory deficit; adapt communication.'},
+{t:'A patient with diabetic neuropathy cannot detect heat applied to their feet.',a:'Deficit',why:'Reduced tactile and temperature sensation are sensory deficits and create burn risk.'},
+{t:'Harsh torches, multiple visitors, and constant alarms cause a patient to become restless.',a:'Overload',why:'Environmental noise, light, and interruptions can overwhelm.'},
+{t:'A hospitalized older adult becomes lonely and withdrawn after days without activities or conversation.',a:'Deprivation',why:'Low meaningful stimulation can contribute to deprivation.'}
+];
+const NERVES=[
+['I','Olfactory','👃','Unable to identify familiar smells with each nostril'],
+['II','Optic','👁️','Reduced visual acuity or visual field'],
+['III','Oculomotor','🌟','Ptosis, impaired most eye movements, or abnormal pupil constriction'],
+['IV','Trochlear','↘️','Difficulty moving the eye down and in'],
+['V','Trigeminal','🦷','Reduced facial sensation or weak chewing'],
+['VI','Abducens','↔️','Eye fails to abduct laterally'],
+['VII','Facial','😊','Unable to smile symmetrically or close an eye tightly'],
+['VIII','Vestibulocochlear','👂','Hearing impairment or impaired balance from vestibular dysfunction'],
+['IX','Glossopharyngeal','👅','Reduced posterior tongue taste or impaired gag afferent sensation'],
+['X','Vagus','🗣️','Hoarse voice, altered palatal movement, or impaired swallowing'],
+['XI','Accessory','💪','Weak shoulder shrug or head turning'],
+['XII','Hypoglossal','🐍','Tongue deviates during protrusion']
+];
+const ENVS=[
+{title:'The Overwhelmed Apprentice',story:'Harsh bells, bright torches, and constant interruptions are keeping an ill elder awake.',type:'overload',target:[0,1,1],aid:false,why:'Reduce competing stimuli, keep calm appropriate lighting, and offer reassuring periodic interaction.'},
+{title:'The Forgotten Hermit',story:'A patient has barely seen daylight and has had no company or meaningful activity for days.',type:'deprivation',target:[1,2,2],aid:false,why:'Provide comfortable lighting, meaningful conversation or activity, and a manageable sensory environment.'},
+{title:'The Hard-of-Hearing Archivist',story:'A client struggles to understand instructions while bells ring. Hearing aids are stored in a drawer.',type:'deficit',target:[0,2,1],aid:true,why:'Reduce background sound, supply adequate light for facial cues, restore hearing aids, and speak face-to-face.'}
+];
+const DOMAINS=[
+['Attention','Cannot maintain focus on a simple conversation despite being awake.','🎯'],
+['Executive function','Remembers a recipe but cannot plan the order of steps.','♟️'],
+['Learning & memory','Cannot recall three words a few minutes after hearing them.','🧩'],
+['Language','Struggles to name a familiar object or understand spoken sentences.','🗣️'],
+['Perceptual-motor','Sees a shirt but cannot organize movements to dress correctly.','🧵'],
+['Social cognition','Misses social cues and makes unexpectedly inappropriate judgments.','🎭']
+];
+const MMSE_CASES=[
+{story:'A 76-year-old hears and sees adequately with their usual aids. Orientation 8/10; registration 3/3; attention/calculation 4/5; recall 1/3; language 8/9.',vals:[8,3,4,1,8],barrier:false,why:'Total 24/30. Document findings, compare with baseline, and follow up; do not diagnose dementia from a screening score.'},
+{story:'An 80-year-old is evaluated WITHOUT hearing aids despite significant hearing loss. Orientation 7/10; registration 2/3; attention 3/5; recall 2/3; language 6/9.',vals:[7,2,3,2,6],barrier:true,why:'Total 20/30, but testing without hearing accommodations may be invalid. Restore hearing and reassess before interpreting cognitive status.'},
+{story:'A 68-year-old with sudden confusion following infection completes a screening assessment: orientation 6/10, registration 3/3, attention 2/5, recall 1/3, language 7/9.',vals:[6,3,2,1,7],barrier:false,why:'Total 19/30. Sudden change requires prompt assessment for delirium and physiologic causes. MMSE does not identify the cause.'}
+];
+const BOSS_CLUES=[
+['Acute change over hours',true],['Difficulty sustaining attention',true],['Fluctuating awareness',true],['Age 82 years',false],['Longstanding memory problems',false],['Family brought a favorite sweater',false]
+];
+const BOSS_ACTIONS=[
+['Stay with the client and reduce immediate fall or injury risk',0],
+['Assess vital signs, oxygenation, glucose as indicated, and focused acute status',1],
+['Gather baseline, medications, symptoms and notify the appropriate team promptly',2],
+['Implement ordered evaluation and reassess the response',3]
+];
+const BOSS_INTERVENTIONS=[
+['Provide working glasses/hearing aids and calm orientation cues',true],
+['Look for infection, medication effects, hypoxia, and other reversible causes',true],
+['Ask family about the usual baseline and collaborate promptly',true],
+['Assume the change is ordinary dementia progression',false],
+['Apply physical restraints as routine first-line treatment',false],
+['Delay assessment until a routine memory-test appointment',false]
+];
+function blankLedger(){return {version:1,tickets:0,lifetime:0,owned:[],favorites:[],notes:{},stats:{},boothFirst:[],bonuses:[],parade:false,history:[],totalCorrect:0,totalAsked:0,earnedByBooth:{},playedAt:Date.now()}}
+function getLedger(){try{const x=JSON.parse(localStorage.getItem(MIDWAY_KEY));if(x&&x.version===1&&Array.isArray(x.owned)&&typeof x.tickets==='number')return {...blankLedger(),...x}}catch(e){}return blankLedger()}
+function storeLedger(x){localStorage.setItem(MIDWAY_KEY,JSON.stringify(x))}
+function hasLedger(){try{return !!localStorage.getItem(MIDWAY_KEY)}catch(e){return false}}
+function blankRpg(){return {version:1,cls:null,hp:8,xp:0,done:[],awards:[],rolls:[],mistakes:[],attempts:0,history:[],config:{},session:{},pendingRoll:null,bossPerfect:false,created:Date.now()}}
+function getGame(){try{const x=JSON.parse(localStorage.getItem(RPG_KEY));if(x&&x.version===1&&Array.isArray(x.done))return {...blankRpg(),...x}}catch(e){}return blankRpg()}
+let game=getGame(), view='adventure', active=null, selected=null, toastTimer=0;
+function save(){try{localStorage.setItem(RPG_KEY,JSON.stringify(game))}catch(e){}}
+function wallet(fn){try{let x=getLedger();fn(x);storeLedger(x);return x}catch(e){alert('This browser blocked saving the ticket wallet. Please open the game directly in Safari rather than a file preview.');return getLedger()}}
+function earn(n){wallet(x=>{x.tickets+=n;x.lifetime+=n})}
+function spend(p){let result=false;wallet(x=>{if(x.tickets>=p.price&&!x.owned.includes(p.id)){x.tickets-=p.price;x.owned.push(p.id);result=true}});return result}
+function owned(id){return getLedger().owned.includes(id)}
+function unlocked(p){return !p.unlock||game.done.includes(p.unlock)}
+function alertToast(t){const a=$('toast');a.textContent=t;a.classList.add('on');clearTimeout(toastTimer);toastTimer=setTimeout(()=>a.classList.remove('on'),3100)}
+function sceneTemplate(heading,intro,art,body){return '<div class="parchment"><div class="questHeading"><div><span class="kicker">✦ TABLETOP ENCOUNTER ✦</span><h2>'+heading+'</h2></div><span class="pill">🧭 '+(game.cls?CLASSES[game.cls].name:'Adventurer')+'</span></div><p class="questP">'+intro+'</p><div class="sceneArt">'+art.split(' ').map(x=>'<i>'+x+'</i>').join('')+'</div>'+body+'</div>'}
+function btn(text,act,style){return '<button class="action '+(style||'')+'" data-act="'+act+'">'+text+'</button>'}
+function draw(){const x=getLedger();$('balance').textContent=fmt(x.tickets)+' 🎟';$('level').textContent='Lv. '+Math.max(1,Math.floor(game.xp/200)+1);$('hp').textContent='♥ '+game.hp;document.querySelectorAll('[data-nav]').forEach(e=>e.classList.toggle('on',e.dataset.nav===view));if(view==='adventure')drawAdventure();else if(view==='shop')drawShop();else if(view==='gallery')drawGallery();else drawJournal()}
+function drawAdventure(){let html='<section class="banner"><div class="bannerText"><div class="kicker">A WARD 13 FANTASY ADVENTURE</div><h1>The Veil<br>of Senses</h1><p>Six realms. Twelve cranial runes. A dragon made of false clinical signals. Save the kingdom by recognizing the findings others miss.</p><span class="pill">D&D-style study quest · Sensory perception & cognition</span></div><svg class="heroArt" viewBox="0 0 430 315" aria-label="Illustrated fantasy castle under stars" role="img"><circle cx="318" cy="62" r="42" fill="#eacb8c" opacity=".75"/><path d="M0 286L79 148 141 233 201 93 284 240 359 151 430 275V315H0" fill="#293e58"/><path d="M116 315V176L139 156 162 176V315M205 315V98L236 55 268 98V315M307 315V184L327 167 349 184V315" fill="#141e30" stroke="#c9b88b" stroke-width="3"/><path d="M205 98H268M116 176H162M307 184H349" stroke="#d7c497" stroke-width="4"/><rect x="227" y="117" width="16" height="29" rx="8" fill="#ebd090"/><rect x="129" y="218" width="16" height="23" rx="8" fill="#e6ce88"/><rect x="324" y="226" width="12" height="21" rx="6" fill="#e6ce88"/><path d="M0 291Q87 246 161 288T430 287V315H0" fill="#0f1727"/><g fill="#fbe1a4"><circle cx="43" cy="48" r="2"/><circle cx="96" cy="78" r="2"/><circle cx="156" cy="29" r="3"/><circle cx="386" cy="26" r="2"/><circle cx="356" cy="114" r="2"/></g></svg></section>';
+if(!game.cls){html+='<div class="intro"><div class="kicker">CHARACTER CREATION</div><h3>Choose your calling</h3><p>Your class changes your dice-roll bonus, not whether a clinical decision is correct.</p><div class="classGrid">'+Object.keys(CLASSES).map(id=>{const c=CLASSES[id];return '<button class="classBtn" data-class="'+id+'"><span class="emoji">'+c.icon+'</span><strong>'+c.name+'</strong><small>'+c.style+' +'+c.bonus+' to treasure rolls.</small></button>'}).join('')+'</div></div>';}
+else{html+='<div class="intro"><b>🧙 '+esc(CLASSES[game.cls].name)+' · '+game.done.length+'/6 realms cleared</b><p>Earn first-clear tickets, fill the guild gallery, and roll a d20 for bonus loot after victories. Wrong answers never earn credit just because of a lucky roll.</p><div class="buttonRow">'+btn('🎲 '+(game.pendingRoll?'Roll your pending loot':'Dice & rules'),'rules','secondary')+btn('💾 Export your report','export','ghost')+'</div></div>';}
+if(!hasLedger()){html+='<div class="ledgerWarn"><b>🎟 Carnival ticket save not detected in this browser.</b><p>Your previous Midway results reported 3,488 tickets and four collectibles. If you played the carnival in this same Safari origin, the wallet normally syncs automatically. Otherwise, use the snapshot import below or paste a carnival backup in Chronicle.</p>'+btn('Import my reported 3,488-ticket snapshot','snapshot','secondary')+'</div>';}
+html+='<div class="section"><h2>🗺️ The quest map</h2><span class="pill">Five chapters + final boss</span></div><section class="map">'+CHAPTERS.map((c,i)=>{const done=game.done.includes(c.id),lock=!game.cls||i>0&&!game.done.includes(CHAPTERS[i-1].id);return '<button class="mapCard '+(done?'done ':'')+(lock?'locked':'')+'" data-enter="'+c.id+'" '+(lock?'disabled':'')+'><span class="big">'+c.icon+'</span>'+(done?'<span class="stamp">✓ CLEARED</span>':'')+'<div><small>CHAPTER '+(i+1)+' · '+c.subtitle+'</small><h3>'+c.name+'</h3><p>'+c.theme+'</p><span class="pill">'+(lock?'🔒 Locked':done?'Replay for practice':'🎟 '+c.base+' first-clear tickets')+'</span></div></button>'}).join('')+'</section>';
+$('content').innerHTML=html;
+}
+function enter(id){const i=CHAPTERS.findIndex(x=>x.id===id);if(!game.cls||i<0||i>0&&!game.done.includes(CHAPTERS[i-1].id))return;active=id;selected=null;if(!game.config[id]){if(id==='echo')game.config[id]={order:shuffle(ECHOES.map((_,j)=>j)),pos:0,miss:0};else if(id==='forest')game.config[id]={order:shuffle(NERVES.map((_,j)=>j)),runes:shuffle(NERVES.map((_,j)=>j)),pos:0,miss:0};else if(id==='chamber')game.config[id]={order:shuffle(ENVS.map((_,j)=>j)),pos:0,miss:0,knobs:[1,1,1],aid:false};else if(id==='library')game.config[id]={order:shuffle(DOMAINS.map((_,j)=>j)),runes:shuffle(DOMAINS.map((_,j)=>j)),pos:0,miss:0};else if(id==='scribe')game.config[id]={order:shuffle(MMSE_CASES.map((_,j)=>j)),pos:0,miss:0};else game.config[id]={phase:0,clues:[],sequence:[],interventions:[],clueOrder:shuffle(BOSS_CLUES.map((_,j)=>j)),actOrder:shuffle(BOSS_ACTIONS.map((_,j)=>j)),intOrder:shuffle(BOSS_INTERVENTIONS.map((_,j)=>j)),miss:0};save()}
+drawEncounter()}
+function sayWrong(label,reason){game.attempts++;game.hp=Math.max(1,game.hp-1);game.mistakes.push({zone:active,question:label,why:reason,date:new Date().toISOString()});if(game.mistakes.length>120)game.mistakes=game.mistakes.slice(-120);save();alertToast('⚔ Not quite. −1 resolve. '+reason.slice(0,105))}
+function sayRight(label,why){game.history.push({zone:active,question:label,why,date:new Date().toISOString()});if(game.history.length>100)game.history=game.history.slice(-100);save()}
+function finishZone(){const ch=CHAPTERS.find(x=>x.id===active);const first=!game.done.includes(active);if(first){game.done.push(active);game.xp+=active==='boss'?280:150;earn(ch.base)}else{earn(Math.round(ch.base*.18));}if(active==='boss'){game.bossPerfect=game.config.boss.miss===0;if(!owned('veil_crest'))wallet(x=>{if(!x.owned.includes('veil_crest'))x.owned.push('veil_crest')})}let zone=active;game.config[zone]=null;game.hp=Math.min(10,game.hp+2);if(first)game.pendingRoll=zone;save();active=null;draw();openModal('<div class="kicker">✦ QUEST COMPLETE ✦</div><h2>'+ch.icon+' '+ch.name+'</h2><p>'+ (first?'The realm is restored.':'You returned for training.') +' You earned <b>'+ (first?ch.base:Math.round(ch.base*.18))+' guild tickets</b> and restored 2 resolve.</p>'+(zone==='boss'?'<p>🐉 The dragon is defeated! The Veil Crest has been added to your unified study gallery.</p>':'')+ '<div class="buttonRow">'+(first?btn('🎲 Roll for bonus treasure','roll'):'')+btn('🗺 Return to the map','close','secondary')+'</div>')}
+function drawEncounter(){const c=game.config[active],ch=CHAPTERS.find(x=>x.id===active);if(!c||!ch){active=null;draw();return}let body='';if(active==='echo'){const item=ECHOES[c.order[c.pos]];body='<p>Read the situation, then assign it to one of the three enchanted wards. <b>'+(c.pos+1)+'/6</b> curses lifted.</p><div class="pickCard"><strong>👤 Patient clue</strong><p>'+esc(item.t)+'</p></div><div class="triptych">'+['Overload','Deprivation','Deficit'].map(x=>'<button class="choice" data-echo="'+x+'"><span class="glyph">'+({Overload:'🔊',Deprivation:'🌑',Deficit:'🦻'}[x])+'</span>'+x+'</button>').join('')+'</div><p class="dim">The patient is not a monster. The environment might be.</p>'}
+if(active==='forest'){const n=NERVES[c.order[c.pos]];body='<p>Identify which cranial nerve explains this finding. Rune positions are shuffled every adventure, not after every tap. <b>'+(c.pos+1)+'/12</b> pathways.</p><div class="pickCard"><strong>🔍 A finding appears in the mist:</strong><p style="font-size:1.15rem">'+esc(n[3])+'</p></div><div class="runeGrid">'+c.runes.map(ix=>{const k=NERVES[ix];return '<button class="rune" data-nerve="'+ix+'"><span>'+k[2]+'</span>'+k[0]+'<small>'+k[1]+'</small></button>'}).join('')+'</div><div class="trail">'+Array.from({length:12},(_,j)=>'<span>'+ (j<c.pos?'✦': '◇')+'</span>').join('')+'</div>'}
+if(active==='chamber'){const e=ENVS[c.order[c.pos]],nums=c.knobs;const labels=[['Quiet','Comfortable','Noisy'],['Dark','Soft','Bright'],['Alone','Check-ins','Engaged']];body='<p>Move the three environment controls until the patient benefits. Press <b>Apply your care plan</b> to test the room. <b>'+(c.pos+1)+'/3</b> rooms.</p><div class="pickCard"><strong>🏮 '+esc(e.title)+'</strong><p>'+esc(e.story)+'</p></div><div class="meterRows">'+['Sound','Lighting','Interaction'].map((n,j)=>'<label class="meter"><strong>'+n+'</strong><input type="range" min="0" max="2" step="1" value="'+nums[j]+'" data-knob="'+j+'"><span data-knoblabel="'+j+'">'+labels[j][nums[j]]+'</span></label>').join('')+'</div>'+(e.aid?'<label class="choice" style="display:block;text-align:left"><input type="checkbox" id="hearingAids" '+(c.aid?'checked':'')+'> Restore the patient’s hearing aids</label>':'')+'<div class="buttonRow">'+btn('✨ Apply your care plan','applyEnv')+'</div>'}
+if(active==='library'){const d=DOMAINS[c.order[c.pos]];body='<p>Repair the Book of Thought. Match each real-world difficulty to its cognitive domain. <b>'+(c.pos+1)+'/6</b> chapters recovered.</p><div class="pickCard"><span style="font-size:2rem">'+d[2]+'</span><p><strong>'+esc(d[1])+'</strong></p></div><div class="choiceGrid">'+c.runes.map(ix=>'<button class="choice" data-domain="'+ix+'">'+esc(DOMAINS[ix][0])+'</button>').join('')+'</div>'}
+if(active==='scribe'){const m=MMSE_CASES[c.order[c.pos]];body='<p>The scribe has five scoring fields. Enter the values reported in the case, calculate the total, and interpret the screening result. <b>'+(c.pos+1)+'/3</b> ledgers.</p><div class="pickCard"><strong>📜 Clinical record</strong><p>'+esc(m.story)+'</p></div>'+['Orientation (0–10)','Registration (0–3)','Attention (0–5)','Recall (0–3)','Language (0–9)'].map((name,j)=>'<label class="scoreRow"><span>'+name+'</span><input type="number" inputmode="numeric" min="0" max="'+[10,3,5,3,9][j]+'" value="" data-mmse="'+j+'" aria-label="'+name+'"></label>').join('')+'<label class="scoreRow"><b>TOTAL / 30</b><input id="mmseTotal" type="number" inputmode="numeric" min="0" max="30" aria-label="Total MMSE score"></label><p class="dim">Remember: an MMSE score is a screen, not a standalone dementia diagnosis.</p><div class="buttonRow">'+btn('🪶 Verify the ledger','checkMMSE')+'</div>'}
+if(active==='boss'){if(c.phase===0){body='<p><b>Phase 1 — Recognize cues.</b> An 82-year-old with longstanding dementia develops new confusion after surgery. Pick the <b>three findings</b> that most strongly indicate an acute cognitive change.</p><div class="choiceGrid">'+c.clueOrder.map(ix=>'<button class="choice '+(c.clues.includes(ix)?'selected':'')+'" data-bossclue="'+ix+'">'+esc(BOSS_CLUES[ix][0])+'</button>').join('')+'</div><p class="dim">'+c.clues.length+'/3 findings selected</p>'+btn('🛡 Seal the evidence','sealClues')}
+else if(c.phase===1){body='<p><b>Phase 2 — Prioritize actions.</b> The dragon has scattered the clinical plan. Tap actions in an appropriate broad order. In practice, urgent measures can overlap.</p><div class="choiceGrid">'+c.actOrder.filter(ix=>!c.sequence.includes(ix)).map(ix=>'<button class="choice" data-bossstep="'+ix+'">'+esc(BOSS_ACTIONS[ix][0])+'</button>').join('')+'</div><div class="queue">'+c.sequence.map((ix,j)=>'<span>'+(j+1)+'. '+esc(BOSS_ACTIONS[ix][0])+'</span>').join('')+'</div><div class="buttonRow">'+btn('↩ Undo last','bossUndo','secondary')+btn('⚔ Verify sequence','sealSteps')+'</div>'}
+else{body='<p><b>Phase 3 — Break the illusion.</b> Select the <b>three appropriate interventions</b> for new inattention and fluctuating cognition in a person with dementia.</p><div class="choiceGrid">'+c.intOrder.map(ix=>'<button class="choice '+(c.interventions.includes(ix)?'selected':'')+'" data-bossinter="'+ix+'">'+esc(BOSS_INTERVENTIONS[ix][0])+'</button>').join('')+'</div><p class="dim">'+c.interventions.length+'/3 prepared</p>'+btn('🐉 Cast the final care plan','sealInter')}
+}
+const content=sceneTemplate(ch.name,'<i>'+ch.subtitle+'</i><p>'+ch.theme+'</p>',ch.art,body+'<div class="buttonRow">'+btn('← Leave the scene (progress saved)','leave','secondary')+'</div>');
+$('content').innerHTML=content;window.scrollTo({top:0,behavior:'smooth'})}
+function progressOne(label,why,total){const c=game.config[active];sayRight(label,why);c.pos++;save();if(c.pos>=total)finishZone();else{drawEncounter();alertToast('✦ Correct! '+why.slice(0,125))}}
+function echoPick(x){const c=game.config.echo,item=ECHOES[c.order[c.pos]];if(x===item.a)progressOne(item.t,item.why,6);else{c.miss++;sayWrong(item.t,item.why);drawEncounter()}}
+function nervePick(x){const c=game.config.forest,n=NERVES[c.order[c.pos]];if(x===c.order[c.pos])progressOne(n[3],n[0]+' '+n[1]+': '+n[3],12);else{c.miss++;sayWrong(n[3],'Review the specific sensory or motor function and retry.');drawEncounter()}}
+function domainPick(x){const c=game.config.library,d=DOMAINS[c.order[c.pos]];if(x===c.order[c.pos])progressOne(d[1],'Cognitive domain: '+d[0],6);else{c.miss++;sayWrong(d[1],'Distinguish this function from attention, language and recall.');drawEncounter()}}
+function applyEnv(){const c=game.config.chamber,e=ENVS[c.order[c.pos]];if(e.aid)c.aid=$('hearingAids')?.checked||false;const good=c.knobs.every((x,j)=>x===e.target[j])&&(!e.aid||c.aid);if(good){c.knobs=[1,1,1];c.aid=false;progressOne(e.title,e.why,3)}else{c.miss++;sayWrong(e.title,'This room still needs adjustment. Think about the amount and kind of meaningful stimulation.');save()}}
+function checkMMSE(){const c=game.config.scribe,m=MMSE_CASES[c.order[c.pos]],inputs=[...document.querySelectorAll('[data-mmse]')];const vals=inputs.map(x=>x.value===''?NaN:Number(x.value)),total=Number($('mmseTotal').value);if(vals.every((x,j)=>x===m.vals[j])&&$('mmseTotal').value!==''&&total===m.vals.reduce((a,b)=>a+b,0))progressOne(m.story,m.why,3);else{c.miss++;sayWrong(m.story,'Recheck the five domain values and sum them; hearing/vision barriers affect interpretation.');save()}}
+function toggle(arr,index,max){const p=arr.indexOf(index);if(p>=0)arr.splice(p,1);else if(arr.length<max)arr.push(index)}
+function bossClue(ix){const c=game.config.boss;toggle(c.clues,ix,3);save();drawEncounter()}
+function sealClues(){const c=game.config.boss;if(c.clues.length!==3){alertToast('Choose exactly three clues.');return}if(c.clues.every(ix=>BOSS_CLUES[ix][1])){c.phase=1;sayRight('Acute change cues','Abrupt inattention and fluctuation favor delirium over stable dementia.');drawEncounter()}else{c.miss++;sayWrong('Acute cognitive changes','Look for timing, attention and fluctuation rather than background age or dementia alone.');drawEncounter()}}
+function bossStep(ix){const c=game.config.boss;if(!c.sequence.includes(ix))c.sequence.push(ix);save();drawEncounter()}
+function sealSteps(){const c=game.config.boss;if(c.sequence.length!==4){alertToast('Place all four actions.');return}if(c.sequence.every((ix,j)=>ix===j)){c.phase=2;sayRight('Clinical prioritization','Immediate safety, focused assessment, prompt collaboration, then ongoing reassessment.');drawEncounter()}else{c.miss++;c.sequence=[];sayWrong('Clinical prioritization','Start by protecting the patient, then assess the acute change and escalate.');drawEncounter()}}
+function bossInter(ix){const c=game.config.boss;toggle(c.interventions,ix,3);save();drawEncounter()}
+function sealInter(){const c=game.config.boss;if(c.interventions.length!==3){alertToast('Choose exactly three interventions.');return}if(c.interventions.every(ix=>BOSS_INTERVENTIONS[ix][1])){sayRight('Delirium superimposed on dementia','Treat acute inattention as a potential reversible physiologic change; preserve comfort and safety.');finishZone()}else{c.miss++;sayWrong('Delirium care','Avoid routine restraints and delay; restore sensory aids and evaluate possible reversible causes.');drawEncounter()}}
+function openModal(s){$('modal').innerHTML=s;$('overlay').classList.add('open');document.body.style.overflow='hidden'}
+function closeModal(){$('overlay').classList.remove('open');$('modal').innerHTML='';document.body.style.overflow='';draw()}
+function rollLoot(){if(!game.pendingRoll){openModal('<h2>🎲 Rules of the dice</h2><p>Your clinical answers are graded on clinical meaning; dice affect only bonus loot.</p><p>On a first-clear victory, roll a d20 and add your class bonus. A total of 14 or higher grants <b>45 extra tickets</b>. Each chapter awards its treasure roll only once.</p>'+btn('Return','close','secondary'));return}const zone=game.pendingRoll,d20=Math.floor(Math.random()*20)+1,bonus=CLASSES[game.cls].bonus,win=d20+bonus>=14?45:0;game.pendingRoll=null;game.rolls.push({zone,d20,bonus,won:win});if(win)earn(win);save();openModal('<div class="center"><div class="kicker">THE FATES HAVE SPOKEN</div><span class="die">🎲</span><h2>Natural '+d20+' + '+bonus+' = '+(d20+bonus)+'</h2><p>'+ (win?'✨ Treasure check successful: +45 guild tickets!':'The die clatters on stone. No extra tickets—but your clinical victory stands.')+'</p>'+btn('Return to quest map','close')+'</div>');draw()}
+function drawShop(){const money=getLedger().tickets;let html='<div class="parchment"><div class="kicker">GUILD REDEMPTION COUNTER</div><h2>⚔️ The Dragon Merchant</h2><p>These rewards join your <b>existing carnival ticket wallet</b>. Legendary artifacts require quest progress as well as tickets. The expensive prizes are designed for future adventures, not one shopping spree.</p><span class="pill">🎟 '+fmt(money)+' tickets</span></div><div class="section"><h2>New fantasy relics</h2><span class="pill">Persistent collectibles</span></div><section class="shopGrid">'+NEW_PRIZES.map(prizeCard).join('')+'</section><div class="section"><h2>Midnight Midway collection</h2><span class="pill">Your classic rewards</span></div><section class="shopGrid">'+CLASSIC.map(prizeCard).join('')+'</section>';$('content').innerHTML=html}
+function prizeCard(p){const own=owned(p.id),unlock=unlocked(p),allow=!p.unlock||unlock;return '<article class="prize"><div class="art">'+p.icon+'</div><small>'+p.rarity+' · '+(p.classic?'Midway':'Veil of Senses')+'</small><h3>'+esc(p.name)+'</h3><p>'+esc(p.description||'A collectible from the carnival that shares your ticket wallet.')+'</p><strong class="price">'+(own?'✓ Owned':p.price==null?'Quest exclusive':'🎟 '+fmt(p.price))+'</strong>'+(allow||own?'':'<small>🔒 Complete '+esc(CHAPTERS.find(x=>x.id===p.unlock)?.name||p.unlock)+' first</small>')+'<button class="action '+(own?'secondary':'')+'" data-prize="'+p.id+'" '+(!own&&(!allow||p.price==null||getLedger().tickets<p.price)?'disabled':'')+'>'+ (own?'View in gallery':!allow?'Locked':'Redeem')+'</button></article>'}
+function drawGallery(){const x=getLedger();const own=x.owned;let arr=own.map(id=>PRIZES.find(p=>p.id===id)||{id,name:id,icon:'💎',rarity:'Unknown',pearl:'A previous collectible saved in your shared wallet.'});$('content').innerHTML='<div class="parchment"><div class="kicker">THE SHARED STUDY GALLERY</div><h2>🏆 Your Cabinet of Curiosities</h2><p>Every reward from the carnival and this adventure stays in the same wallet. Add your own nursing memory hooks. Your four previously reported prizes should appear automatically when played in the original Safari storage.</p><span class="pill">'+own.length+' collected · '+fmt(x.tickets)+' tickets remaining</span></div><div class="section"><h2>Your treasures</h2></div><section class="galleryGrid">'+(arr.length?arr.map(p=>'<article class="prize"><div class="art">'+p.icon+'</div><small>'+p.rarity+(x.favorites.includes(p.id)?' ★ FAVORITE':'')+'</small><h3>'+esc(p.name)+'</h3><p>'+esc(p.pearl)+'</p><button class="action secondary" data-detail="'+p.id+'">📚 Open & annotate</button></article>').join(''):'<p class="parchment">Your trophy shelves are waiting. Collect your first relic at the Guild Merchant.</p>')+'</section>'}
+function detail(id){const x=getLedger(),p=PRIZES.find(p=>p.id===id);if(!x.owned.includes(id))return;const fav=x.favorites.includes(id);const note=x.notes[id]||'';openModal('<div class="kicker">GALLERY COLLECTION · '+esc(p?.rarity||'Trophy')+'</div><h2>'+esc(p?.icon||'💎')+' '+esc(p?.name||id)+'</h2><p>'+esc(p?.pearl||'An artifact from your study adventures.')+'</p><label for="noteText">Your study mnemonic or memory hook</label><textarea id="noteText" class="note" maxlength="1200">'+esc(note)+'</textarea><div class="buttonRow">'+btn('💾 Save note','saveNote')+btn(fav?'★ Unfavorite':'☆ Favorite','favorite','secondary')+btn('Back','close','secondary')+'</div>');$('modal').dataset.prize=id}
+function drawJournal(){const x=getLedger();const errors=game.mistakes.slice().reverse();$('content').innerHTML='<div class="parchment"><div class="kicker">THE ADVENTURER CHRONICLE</div><h2>📜 Quest record & saved treasures</h2><p>You've completed '+game.done.length+' of 6 story chapters, earned '+game.xp+' experience, and collected '+x.owned.length+' treasures.</p><p>Guild balance: <b>🎟 '+fmt(x.tickets)+'</b> · Lifetime tickets: <b>'+fmt(x.lifetime)+'</b></p><div class="buttonRow">'+btn('📋 Copy study report','export')+btn('💾 Backup combined save','backup','secondary')+btn('📥 Restore carnival backup','restore','secondary')+btn('⚔ Restart quest only','restart','warn')+'</div></div><div class="section"><h2>Areas to revisit</h2><span class="pill">'+errors.length+' incorrect attempts</span></div><section class="journal">'+(errors.length?errors.slice(0,50).map(m=>'<div class="journalRow"><b>'+esc(CHAPTERS.find(c=>c.id===m.zone)?.name||m.zone)+'</b><p>'+esc(m.question)+'</p><small>'+esc(m.why)+'</small></div>').join(''):'<p>No logged errors yet. The dragon is concerned.</p>')+'</section>'}
+function reportText(){const x=getLedger();return ['WARD 13 — THE VEIL OF SENSES RPG STUDY REPORT','Character: '+(game.cls?CLASSES[game.cls].name:'Not chosen'),'Chapters completed: '+game.done.length+'/6','Experience: '+game.xp,'Missed attempts: '+game.mistakes.length,'Tickets available (shared with Midnight Midway): '+x.tickets,'Tickets earned lifetime: '+x.lifetime,'Collectibles: '+x.owned.map(id=>PRIZES.find(p=>p.id===id)?.name||id).join(', '),'','CHAPTERS',...CHAPTERS.map(c=>c.name+': '+(game.done.includes(c.id)?'Cleared':'Not cleared')),'','MISTAKES',...game.mistakes.map(m=>m.zone+': '+m.question+' | '+m.why)].join('\n')}
+function exportText(kind){let s=kind==='report'?reportText():JSON.stringify({rpg:game,carnival:getLedger()},null,2);openModal('<h2>'+ (kind==='report'?'📋 Share your clinical report':'💾 Back up both games')+'</h2><p>Copy this text to save or share. Your data is not sent to a server automatically.</p><textarea id="exportBox" class="note" style="min-height:255px"></textarea><div class="buttonRow">'+btn('📋 Copy text','copy')+btn('Close','close','secondary')+'</div>');$('exportBox').value=s}
+function restoreDialog(){openModal('<h2>📥 Restore a saved carnival wallet</h2><p>Paste the exact JSON backup from the Carnival Results tab. This replaces the shared carnival wallet on this browser; your D&D adventure progress stays separate.</p><textarea id="restoreBox" class="note" style="min-height:190px"></textarea><div class="buttonRow">'+btn('Restore wallet','restoreApply')+btn('Cancel','close','secondary')+'</div>')}
+function restoreApply(){try{const txt=$('restoreBox').value,rec=JSON.parse(txt);const data=rec.carnival||rec;if(data.version!==1||!Array.isArray(data.owned)||!Number.isFinite(data.tickets)||data.tickets<0)throw Error('Invalid wallet');if(!confirm('Replace this browser’s current carnival ticket wallet and collection?'))return;storeLedger({...blankLedger(),...data});closeModal();alertToast('🎟 Wallet restored')}catch(e){alertToast('Invalid backup; no data changed')}}
+function importSnapshot(){if(hasLedger()){alertToast('Existing wallet detected; import skipped to protect your saves.');return}if(!confirm('Import your last SHARED report: 3,488 tickets, 5,638 lifetime and four prizes? Only use if this browser does not have newer carnival progress.'))return;const x=blankLedger();x.tickets=3488;x.lifetime=5638;x.owned=['parade','fortuneDeck','crown','ferris'];x.parade=true;x.boothFirst=['toss','balloon','fortune','morse','whack','mirror','carousel'];x.totalCorrect=46;x.totalAsked=49;storeLedger(x);draw();alertToast('🎟 Snapshot imported. Your reported four prizes are restored.')}
+function purchase(id){const p=PRIZES.find(z=>z.id===id);if(!p||p.price==null||!unlocked(p))return;if(spend(p)){draw();alertToast('🏆 '+p.name+' added to your shared gallery!')}else alertToast('Insufficient tickets or already owned.')}
+document.addEventListener('click',async ev=>{
+const b=ev.target.closest('button');if(!b||b.disabled)return;
+if(b.dataset.nav){view=b.dataset.nav;active=null;closeOverlayOnly();draw();return}
+if(b.dataset.class){if(!game.cls){game.cls=b.dataset.class;save();draw()}return}
+if(b.dataset.enter){enter(b.dataset.enter);return}
+if(b.dataset.echo){echoPick(b.dataset.echo);return}
+if(b.dataset.nerve!==undefined){nervePick(Number(b.dataset.nerve));return}
+if(b.dataset.domain!==undefined){domainPick(Number(b.dataset.domain));return}
+if(b.dataset.knob!==undefined)return;
+if(b.dataset.bossclue!==undefined){bossClue(Number(b.dataset.bossclue));return}
+if(b.dataset.bossstep!==undefined){bossStep(Number(b.dataset.bossstep));return}
+if(b.dataset.bossinter!==undefined){bossInter(Number(b.dataset.bossinter));return}
+if(b.dataset.prize){if(owned(b.dataset.prize)) {view='gallery';draw();detail(b.dataset.prize)}else purchase(b.dataset.prize);return}
+if(b.dataset.detail){detail(b.dataset.detail);return}
+const a=b.dataset.act;if(!a)return;
+if(a==='leave'){active=null;draw();return}
+if(a==='applyEnv'){applyEnv();return}
+if(a==='checkMMSE'){checkMMSE();return}
+if(a==='sealClues'){sealClues();return}
+if(a==='sealSteps'){sealSteps();return}
+if(a==='bossUndo'){game.config.boss.sequence.pop();save();drawEncounter();return}
+if(a==='sealInter'){sealInter();return}
+if(a==='roll'||a==='rules'){rollLoot();return}
+if(a==='close'){closeModal();return}
+if(a==='export'){exportText('report');return}
+if(a==='backup'){exportText('backup');return}
+if(a==='restore'){restoreDialog();return}
+if(a==='restoreApply'){restoreApply();return}
+if(a==='snapshot'){importSnapshot();return}
+if(a==='copy'){const ta=$('exportBox');try{await navigator.clipboard.writeText(ta.value);alertToast('Copied to clipboard!')}catch(e){ta.focus();ta.select();alertToast('Select the highlighted text and choose Copy.')}return}
+if(a==='saveNote'){const id=$('modal').dataset.prize;wallet(x=>{if(x.owned.includes(id))x.notes[id]=$('noteText').value.slice(0,1200)});alertToast('Your study note was saved!');return}
+if(a==='favorite'){const id=$('modal').dataset.prize;wallet(x=>{if(x.owned.includes(id))x.favorites=x.favorites.includes(id)?x.favorites.filter(z=>z!==id):x.favorites.concat(id)});detail(id);draw();return}
+if(a==='restart'){if(!confirm('Restart this D&D quest? Your carnival tickets, purchased prizes, and gallery notes are preserved.'))return;game=blankRpg();save();view='adventure';draw();alertToast('New quest created. Guild treasures were not touched.');return}
+});
+document.addEventListener('input',e=>{const el=e.target;if(el.dataset.knob===undefined)return;if(!active||active!=='chamber')return;const j=Number(el.dataset.knob),c=game.config.chamber;const names=[['Quiet','Comfortable','Noisy'],['Dark','Soft','Bright'],['Alone','Check-ins','Engaged']];c.knobs[j]=Number(el.value);document.querySelector('[data-knoblabel="'+j+'"]').textContent=names[j][c.knobs[j]];save()});
+function closeOverlayOnly(){$('overlay').classList.remove('open');document.body.style.overflow=''}
+if(game.pendingRoll&&game.cls){setTimeout(()=>alertToast('🎲 You have an unclaimed first-clear treasure roll!'),750)}
+draw();
+</script>
+</body>
+</html>
