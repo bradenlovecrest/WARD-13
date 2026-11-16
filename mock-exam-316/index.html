@@ -1,0 +1,855 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#172741"><title>NURS 316 Exam 3 — 40-Question Mock Assessment</title>
+<style>
+:root{--navy:#172740;--navy2:#243a59;--mint:#2a7b71;--tint:#e8f3ef;--ink:#223044;--muted:#677584;--line:#d5dde1;--paper:#fff;--cream:#f5f7f8;--warn:#885e23;--fail:#a83e42}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font:15px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}button,input{font:inherit}button{cursor:pointer}button:disabled{opacity:.45;cursor:not-allowed}button:focus-visible,input:focus-visible{outline:3px solid #5ba5a0;outline-offset:2px}h1,h2,h3{line-height:1.22;margin:0 0 12px}h1{font-size:clamp(1.6rem,3.1vw,2.25rem)}h2{font-size:clamp(1.35rem,2.5vw,1.9rem)}h3{font-size:1.08rem}p{margin:8px 0 14px}.wrap{max-width:1120px;margin:0 auto;padding:0 18px 48px}
+.top{background:var(--navy);color:#fff}.topInner{max-width:1120px;margin:auto;padding:15px 18px;display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}.brand{font-size:1.02rem;font-weight:800;letter-spacing:.04em}.brand small{display:block;color:#bfd3e3;font-weight:500;letter-spacing:0}.topScore{display:flex;gap:8px;flex-wrap:wrap}.topScore span{background:#304863;padding:6px 12px;border-radius:8px;font-size:.78rem}.topScore b{color:#c5efe2}.eyebrow{color:var(--mint);font-size:.73rem;font-weight:850;letter-spacing:.13em;text-transform:uppercase}.surface{border:1px solid var(--line);border-radius:13px;background:var(--paper);box-shadow:0 4px 24px #253d5810}.intro{padding:clamp(22px,4vw,38px);margin:26px 0}.intro h1{margin:7px 0 13px}.lede{font-size:1.07rem;color:#4d5c6f;max-width:780px}.blueprint{width:100%;border-collapse:collapse;margin:22px 0}.blueprint th,.blueprint td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line)}.blueprint th{background:#ebf2f5;font-size:.78rem;letter-spacing:.02em}.blueprint td:last-child,.blueprint th:last-child{text-align:right}.note{background:#f0f6f7;border:1px solid #cee2e3;padding:13px 16px;border-radius:9px;margin:16px 0;color:#354d53}.note.warn{background:#fff7e9;border-color:#e8d2ab;color:#66502e}
+.btn{border-radius:9px;border:1px solid var(--navy);padding:11px 18px;font-weight:750;background:var(--navy);color:#fff;min-height:45px}.btn.secondary{background:#fff;color:var(--navy);border-color:#8797a9}.btn.tertiary{background:#e7f1ef;color:#195a55;border-color:#7db7ad}.btn.danger{background:#fff;color:#a13c3e;border-color:#d0a5a3}.btn:active,.navTile:active,.option:active{transform:scale(.985)}.actions{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin:18px 0 4px}.actions .push{margin-left:auto}
+.examBar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:16px 0}.progress{height:9px;border-radius:100px;background:#dce4e8;overflow:hidden;margin:0 0 12px}.progress span{display:block;height:100%;width:0;background:#248b78;transition:width .2s}.examGrid{display:grid;grid-template-columns:minmax(0,1fr) 250px;gap:17px}.examPaper{padding:25px 26px;min-height:440px}.minor{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:17px;flex-wrap:wrap}.tag{display:inline-block;background:#edf4f2;border:1px solid #b9d6cf;border-radius:100px;color:#315e57;padding:4px 10px;font-size:.73rem;font-weight:700}.qtitle{font-size:1.23rem;line-height:1.5;font-weight:650;margin:16px 0 21px}.casePrompt{border-left:4px solid #7ba7a7;padding:10px 15px;background:#f3f7f8;margin-bottom:18px}.casePrompt strong{display:block;font-size:.82rem;color:#39636a;margin-bottom:4px}.optionList{display:grid;gap:10px}.option{width:100%;display:flex;gap:14px;align-items:flex-start;text-align:left;padding:15px 16px;background:#fff;color:var(--ink);border:1.5px solid #cbd4dc;border-radius:10px;min-height:55px}.option.selected{background:#eaf0f8;border-color:#45709c;box-shadow:inset 0 0 0 1px #45709c}.letter{font-weight:800;color:#56687d;min-width:26px}.option.selected .letter{color:#274e7b}.check{width:21px;height:21px;border:1.8px solid #72859b;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;border-radius:50%;background:#fff;margin-top:1px}.check.multi{border-radius:4px}.option.selected .check{background:#3c668e;border-color:#3c668e;color:white}.option.selected .check:after{content:'✓';font-size:14px;font-weight:900}.highlightList{display:grid;gap:8px}.highlightItem{display:flex;gap:9px;text-align:left;align-items:flex-start;border:1px solid #cdd8e1;border-radius:8px;background:#fff;padding:13px 15px;color:#263b4f}.highlightItem .mark{flex:0 0 22px;color:#788b97}.highlightItem.chosen{background:#fff0b9;border-color:#d3a841;box-shadow:inset 0 0 0 1px #c59b36}.highlightItem.chosen .mark:before{content:'▣';color:#836021}.highlightItem:not(.chosen) .mark:before{content:'□'}
+.side{padding:17px;align-self:start;position:sticky;top:14px}.side h3{font-size:.95rem}.qgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin-top:12px}.navTile{height:38px;border-radius:7px;background:#fff;color:#3b5167;border:1px solid #b7c4cf;font-weight:750}.navTile.answered{background:#e2f1ec;border-color:#7eb7a5}.navTile.current{background:#213a58;color:white;border-color:#213a58}.navTile.flagged{box-shadow:inset 0 -4px #d99a34}.legend{display:grid;gap:7px;font-size:.78rem;color:#536679;margin-top:19px}.legend span:before{content:'■';color:#c7d6de;margin-right:7px}.legend .answeredLabel:before{color:#8dbba9}.legend .flagLabel:before{color:#d99a34}.flagBtn{border:1px solid #d8c197;border-radius:9px;background:#fff8e8;color:#75511b;padding:7px 11px;font-size:.82rem;font-weight:700}.flagBtn.flagged{background:#f5dda7}.help{font-size:.82rem;color:#677889}.review{padding:24px;margin:20px 0}.reviewHead{display:flex;justify-content:space-between;flex-wrap:wrap;gap:13px}.resultBig{font-weight:900;font-size:clamp(2.3rem,6vw,4.1rem);letter-spacing:-.05em;color:var(--navy)}.resultBig span{font-size:.42em;color:#596b7b;letter-spacing:0}.topicBox{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.topicCell{padding:12px;border:1px solid #d7e0e5;border-radius:10px}.topicCell span{color:#69798a;font-size:.82rem}.topicCell strong{display:block}.meter{height:6px;background:#e3e9ee;border-radius:9px;margin-top:9px;overflow:hidden}.meter div{height:100%;background:#338c80}.resultItem{margin:12px 0;padding:18px;border:1px solid var(--line);border-radius:10px}.resultItem.ok{border-left:5px solid #3b977f}.resultItem.no{border-left:5px solid #b96262}.resultItem h3{margin:4px 0 8px}.choiceSummary{font-size:.87rem;margin:10px 0}.choiceSummary b{color:#46636b}.rationale{background:#f1f6f7;border-radius:8px;padding:10px 13px;font-size:.9rem}.filterBar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:17px}.filterBar button{font-size:.84rem}.filterBar button.active{background:#e0f2ec;border-color:#479c8f;color:#1e625a}.footer{color:#8090a0;text-align:center;font-size:.75rem;margin:28px 0}.studyCall{background:#f6faf7;border-left:4px solid #4c9d81;padding:12px 15px;margin-top:15px}
+@media(max-width:820px){.examGrid{grid-template-columns:1fr}.side{position:static;order:2}.examPaper{padding:20px}.qgrid{grid-template-columns:repeat(10,1fr)}.topicBox{grid-template-columns:1fr 1fr}}
+@media(max-width:500px){.wrap{padding:0 10px 35px}.topInner{padding:12px}.topScore{width:100%}.topScore span{flex:1;text-align:center}.intro{padding:18px;margin:15px 0}.examPaper{padding:16px}.option{padding:13px 11px;gap:8px}.qgrid{grid-template-columns:repeat(8,1fr)}.side{padding:13px}.examBar{gap:7px}.topicBox{grid-template-columns:1fr}.resultItem{padding:13px}.actions .push{margin-left:0}.qtitle{font-size:1.12rem}}
+@media print{.top,.side,.actions,.filterBar{display:none!important}.examGrid{display:block}.surface{box-shadow:none}.wrap{max-width:100%}}
+</style></head><body><header class="top"><div class="topInner"><div class="brand">WSU NURS 316 · Exam 3 <small>Independent, blueprint-aligned practice assessment — not an official WSU exam</small></div><div class="topScore"><span><b>40</b> questions</span><span><b>49</b> points</span><span id="clock">● Ready</span></div></div></header><div class="wrap"><main id="content"></main><footer class="footer">Original practice questions based on your NURS 316 review guide, instructor lecture decks, case studies, and MMSE/Morse handouts. No connection to ATI or WSU gradebooks. Your responses are stored only in this browser.</footer></div>
+<script>
+'use strict';
+const BANK=[
+  {
+    "id": "Q01",
+    "topic": "Mobility",
+    "objective": "Ergonomics and safe handling",
+    "format": "mc",
+    "stem": "Two nurses must transfer a sedated, fully dependent client from the bed to a stretcher at the same height. The client cannot assist. Which plan best reduces musculoskeletal injury to staff and patient?",
+    "options": [
+      "Use a draw sheet to pull the client across while the nurses bend from the waist.",
+      "Use a mechanical lateral transfer device or friction-reducing system with appropriately trained staff.",
+      "Have one nurse lift the shoulders and the other lift both legs at the same time.",
+      "Raise the head of the bed and ask the client to stand briefly before transferring."
+    ],
+    "correct": [
+      1
+    ],
+    "rationale": "A dependent horizontal move calls for appropriate mechanical or friction-reducing lateral transfer equipment, with trained personnel; manual lifting or relying on an unresponsive patient is unsafe.",
+    "source": "Lecture + blueprint",
+    "points": 1
+  },
+  {
+    "id": "Q02",
+    "topic": "Mobility",
+    "objective": "Complications of immobility",
+    "format": "mc",
+    "stem": "A client has spent six days largely in bed after a fracture. Breath sounds are diminished at both bases, and the client coughs weakly. Which nursing plan most directly addresses the likely respiratory consequence of immobility?",
+    "options": [
+      "Position supine for uninterrupted sleep and decrease turns.",
+      "Offer high-calorie snacks and reassess lung sounds at discharge.",
+      "Limit pulmonary exercises to avoid fatigue during recovery.",
+      "Assist with upright positioning, coughing/deep breathing and prescribed incentive spirometry."
+    ],
+    "correct": [
+      3
+    ],
+    "rationale": "Bed rest increases risk for atelectasis and pneumonia. Positioning, pulmonary hygiene, and mobility as tolerated support lung expansion.",
+    "source": "Lecture + blueprint",
+    "points": 1
+  },
+  {
+    "id": "Q03",
+    "topic": "Mobility",
+    "objective": "Aging and benefits of exercise",
+    "format": "mc",
+    "stem": "An 83-year-old reports progressively slower walking and difficulty rising from a chair. After evaluation, the nurse plans health promotion. Which intervention best addresses common age-related muscle loss while supporting safety?",
+    "options": [
+      "Develop an individualized, gradually progressive strength and balance program.",
+      "Recommend avoiding exertion because sarcopenia is irreversible.",
+      "Prioritize passive stretching only because resistance activity is unsafe after age 80.",
+      "Recommend complete rest on days the client feels weak to prevent further muscle loss."
+    ],
+    "correct": [
+      0
+    ],
+    "rationale": "Age-related sarcopenia and reduced endurance are helped by individualized resistance and balance activity. Prescribed exercise should be tailored to functional ability and safety.",
+    "source": "Lecture + blueprint",
+    "points": 1
+  },
+  {
+    "id": "Q04",
+    "topic": "Mobility",
+    "objective": "Morse Fall Scale",
+    "format": "mc",
+    "stem": "An inpatient fell seven weeks ago, has two current medical diagnoses, is on bedrest with nurse assistance, has a saline lock, cannot ambulate for gait assessment, and accurately recognizes the need for help. What is the Morse Fall Scale score?",
+    "options": [
+      "45",
+      "60",
+      "75",
+      "95"
+    ],
+    "correct": [
+      1
+    ],
+    "rationale": "25 recent fall + 15 secondary diagnosis + 0 bedrest/nurse assist + 20 saline lock + 0 bedrest gait + 0 recognizes limitations = 60. The score indicates elevated risk under the example cutoff in the supplied Morse handout.",
+    "source": "Morse Fall Scale handout + mobility slides",
+    "points": 1
+  },
+  {
+    "id": "Q05",
+    "topic": "Mobility",
+    "objective": "Immobility prevention across body systems",
+    "format": "sata",
+    "stem": "A nurse plans care for a client who cannot get out of bed independently. Which interventions address complications of immobility? Select all that apply.",
+    "options": [
+      "Perform and document appropriate active or passive range-of-motion exercises.",
+      "Encourage prescribed deep-breathing exercises and frequent positioning changes.",
+      "Apply ordered sequential compression devices when indicated and monitor skin beneath them.",
+      "Massage a newly tender calf to decrease the risk of venous thrombosis.",
+      "Avoid repositioning when the client reports mild fatigue.",
+      "Promote fluids/fiber and toileting as appropriate to reduce constipation and retention."
+    ],
+    "correct": [
+      0,
+      1,
+      2,
+      5
+    ],
+    "rationale": "ROM helps reduce contracture; pulmonary hygiene reduces atelectasis; appropriate compression helps reduce VTE risk; fluids, fiber, and bowel/bladder measures address GI/renal problems. Never massage a potentially thrombosed calf and do not withhold necessary repositioning.",
+    "source": "Lecture + blueprint",
+    "points": 2
+  },
+  {
+    "id": "Q06",
+    "topic": "Mobility",
+    "objective": "Recognize cues before mobility",
+    "format": "highlight",
+    "stem": "Before helping a client stand, highlight the TWO findings in this shift note that require immediate follow-up before ambulation.",
+    "options": [
+      "Client uses a walker at baseline.",
+      "New tenderness and swelling of the left calf compared with the right.",
+      "Wears prescription eyeglasses while walking.",
+      "Blood pressure falls from 128/74 lying to 91/57 standing, accompanied by near-syncope.",
+      "Reports preferring physical therapy in the morning.",
+      "Says the room feels cool."
+    ],
+    "correct": [
+      1,
+      3
+    ],
+    "rationale": "Unilateral calf swelling and tenderness raise concern for DVT, and symptomatic orthostatic hypotension creates immediate fall/syncope risk. Stop and assess/escalate before attempting ambulation.",
+    "source": "Lecture + blueprint",
+    "points": 2
+  },
+  {
+    "id": "Q07",
+    "topic": "Tissue Integrity",
+    "objective": "Pressure injury staging",
+    "format": "mc",
+    "stem": "During a skin assessment, the nurse finds a shallow open area over the sacrum with a pink, moist wound bed and exposed dermis. No adipose or deeper structures are visible. Which classification is most appropriate?",
+    "options": [
+      "Stage 1 pressure injury",
+      "Stage 2 pressure injury",
+      "Stage 3 pressure injury",
+      "Deep-tissue pressure injury"
+    ],
+    "correct": [
+      1
+    ],
+    "rationale": "Stage 2 involves partial-thickness skin loss with exposed dermis. Stage 1 is intact skin; stage 3 involves full-thickness loss; DTPI usually has persistent deep red/maroon/purple discoloration.",
+    "source": "Lecture + blueprint",
+    "points": 1
+  },
+  {
+    "id": "Q08",
+    "topic": "Tissue Integrity",
+    "objective": "Pressure injury staging",
+    "format": "mc",
+    "stem": "A heel wound has full-thickness tissue loss. A deep tendon is directly visible at the base. Which documented stage best matches the finding?",
+    "options": [
+      "Stage 3",
+      "Unstageable",
+      "Stage 4",
+      "Deep-tissue pressure injury"
+    ],
+    "correct": [
+      2
+    ],
+    "rationale": "Directly visible or palpable deeper structures such as tendon, fascia, muscle, or bone meet stage 4 criteria; depth is not obscured in this scenario.",
+    "source": "Lecture + blueprint",
+    "points": 1
+  },
+  {
+    "id": "Q09",
+    "topic": "Tissue Integrity",
+    "objective": "Pressure and shear prevention in older adults",
+    "format": "mc",
+    "stem": "A frail older adult has dry, thin skin and frequent urinary incontinence. Which intervention best addresses combined moisture, friction, and shear risks?",
+    "options": [
+      "Use absorbent layers continuously and avoid skin checks to minimize disruption.",
+      "Massage reddened bony areas while turning to stimulate circulation.",
+      "Keep the head of bed elevated as high as possible throughout the day.",
+      "Use appropriate lift/reposition aids, cleanse and protect the skin, and individualize pressure relief."
+    ],
+    "correct": [
+      3
+    ],
+    "rationale": "Reduced skin elasticity, incontinence-associated moisture, friction, and shear increase breakdown risk. Lift/reposition rather than drag, use moisture protection, and individualize turning/support surfaces.",
+    "source": "Lecture + blueprint",
+    "points": 1
+  },
+  {
+    "id": "Q10",
+    "topic": "Tissue Integrity",
+    "objective": "Wound complications",
+    "format": "mc",
+    "stem": "On postoperative day five, a client with a well-approximated abdominal incision has new feculent drainage from a small abnormal opening in the skin adjacent to the incision. What complication is the nurse most concerned about?",
+    "options": [
+      "Fistula formation",
+      "Evisceration",
+      "Hematoma",
+      "Superficial dehiscence"
+    ],
+    "correct": [
+      0
+    ],
+    "rationale": "Abnormal communication between bowel and skin suggests an enterocutaneous fistula. Evisceration involves protruding organs and dehiscence is separation of wound edges.",
+    "source": "Lecture + blueprint",
+    "points": 1
+  },
+  {
+    "id": "Q11",
+    "topic": "Tissue Integrity",
+    "objective": "Pressure injury prevention",
+    "format": "sata",
+    "stem": "Which interventions are appropriate for a hospitalized client at high risk for pressure injuries? Select all that apply.",
+    "options": [
+      "Inspect skin beneath oxygen tubing and other medical devices.",
+      "Reposition based on assessment and use appropriate pressure-redistribution surfaces.",
+      "Support adequate calories, protein, and hydration when clinically appropriate.",
+      "Rub nonblanchable redness firmly during every turn.",
+      "Keep skin clean and protect areas exposed to excess moisture.",
+      "Use a specialty mattress instead of any turning or assessment."
+    ],
+    "correct": [
+      0,
+      1,
+      2,
+      4
+    ],
+    "rationale": "Device checks, off-loading/repositioning, nutrition, and moisture control help protect tissue. Do not massage pressure-injured skin, and support surfaces supplement rather than replace assessment and repositioning.",
+    "source": "Lecture + blueprint",
+    "points": 2
+  },
+  {
+    "id": "Q12",
+    "topic": "Tissue Integrity",
+    "objective": "Recognize early pressure injury",
+    "format": "highlight",
+    "stem": "The nurse reviews a client’s skin note. Highlight the TWO findings most consistent with localized pressure-related tissue injury needing follow-up.",
+    "options": [
+      "Dry, thin skin over the forearms without a lesion.",
+      "Persistent nonblanchable redness beneath the oxygen tubing at the ear.",
+      "Light, transient indentation from a loose sock that resolves after removal.",
+      "Intact heel skin with a persistent maroon-purple area over a pressure point.",
+      "Several flat age spots over sun-exposed hands.",
+      "Normal skin color over the elbows."
+    ],
+    "correct": [
+      1,
+      3
+    ],
+    "rationale": "Nonblanchable erythema is consistent with stage 1 pressure injury; deep maroon or purple skin over a pressure point can indicate deep-tissue pressure injury. Device-related pressure also matters.",
+    "source": "Lecture + blueprint",
+    "points": 2
+  },
+  {
+    "id": "Q13",
+    "topic": "Sensory Perception",
+    "objective": "Sensory overload",
+    "format": "mc",
+    "stem": "A hospitalized client says, “The alarms, fluorescent lights, and people talking at once make me feel like I cannot think.” The client has slept two hours and feels anxious. Which nursing response best addresses the immediate problem?",
+    "options": [
+      "Encourage more visitor activity to distract from the sounds.",
+      "Request a sedative before changing the environment.",
+      "Reduce unnecessary stimulation, cluster care when safe, and ask what promotes rest.",
+      "Keep a television playing to provide a familiar auditory stimulus."
+    ],
+    "correct": [
+      2
+    ],
+    "rationale": "The description is sensory overload. Control modifiable light/noise/interruptions and support rest rather than adding stimuli or automatically using medication.",
+    "source": "Lecture + blueprint",
+    "points": 1
+  },
+  {
+    "id": "Q14",
+    "topic": "Sensory Perception",
+    "objective": "Sensory deprivation",
+    "format": "mc",
+    "stem": "An alert resident recovering from illness has remained alone in a quiet, dark room for most of the week. They are withdrawn and say the days blend together. Which intervention most directly addresses the sensory problem?",
+    "options": [
+      "Arrange meaningful conversation, daytime light, and individualized activities.",
+      "Further reduce conversation and keep the blinds closed.",
+      "Provide only written information and limit all visitors.",
+      "Apply restraints to prevent the resident from wandering for stimulation."
+    ],
+    "correct": [
+      0
+    ],
+    "rationale": "Sensory deprivation occurs when meaningful input is insufficient. Structured interaction, appropriate light, and personally meaningful activities help counter it.",
+    "source": "Lecture + blueprint",
+    "points": 1
+  },
+  {
+    "id": "Q15",
+    "topic": "Sensory Perception",
+    "objective": "Communication with hearing impairment",
+    "format": "mc",
+    "stem": "An older adult with presbycusis repeatedly misunderstands medication teaching. Which modification should the nurse attempt before judging their cognition?",
+    "options": [
+      "Speak with a high-pitched voice close to one ear.",
+      "Keep discussing the instructions while looking down at the chart.",
+      "Raise volume by shouting each sentence slowly.",
+      "Check hearing aids, face the client in good lighting, reduce background noise, and verify understanding."
+    ],
+    "correct": [
+      3
+    ],
+    "rationale": "Working sensory aids, face-to-face communication, reduced noise, and teach-back accommodate hearing changes and avoid mislabeling sensory barriers as cognitive impairment.",
+    "source": "Lecture + blueprint",
+    "points": 1
+  },
+  {
+    "id": "Q16",
+    "topic": "Sensory Perception",
+    "objective": "Cranial nerves and functions",
+    "format": "mc",
+    "stem": "The nurse observes a new hoarse voice, asymmetric elevation of the soft palate, and difficulty swallowing. Which cranial nerve is most closely associated with these motor findings?",
+    "options": [
+      "Trigeminal (V)",
+      "Glossopharyngeal (IX)",
+      "Vagus (X)",
+      "Accessory (XI)"
+    ],
+    "correct": [
+      2
+    ],
+    "rationale": "CN X contributes to vocal-cord/pharyngeal motor function, palate elevation, and swallowing; CN IX is more strongly associated with posterior tongue sensation and the sensory limb of gag.",
+    "source": "Lecture + blueprint",
+    "points": 1
+  },
+  {
+    "id": "Q17",
+    "topic": "Sensory Perception",
+    "objective": "Proprioception",
+    "format": "mc",
+    "stem": "After a stroke, a client can move the left leg when asked but says, “Without looking, I cannot tell where my leg is.” Which sensory function is impaired?",
+    "options": [
+      "Gustation",
+      "Proprioception",
+      "Olfaction",
+      "Hearing acuity"
+    ],
+    "correct": [
+      1
+    ],
+    "rationale": "Proprioceptors inform the brain about limb position and movement. Loss of position sense can occur after neurologic injury.",
+    "source": "Lecture + blueprint",
+    "points": 1
+  },
+  {
+    "id": "Q18",
+    "topic": "Sensory Perception",
+    "objective": "Cranial nerve motor assessment",
+    "format": "mc",
+    "stem": "A client can protrude the tongue symmetrically and speaks clearly, but cannot elevate the right shoulder against resistance or turn the head strongly to the left. Which nerve requires focused assessment?",
+    "options": [
+      "Facial (VII)",
+      "Hypoglossal (XII)",
+      "Glossopharyngeal (IX)",
+      "Accessory (XI)"
+    ],
+    "correct": [
+      3
+    ],
+    "rationale": "CN XI innervates sternocleidomastoid and trapezius for head turning and shoulder elevation. CN XII controls tongue movement.",
+    "source": "Lecture + blueprint",
+    "points": 1
+  },
+  {
+    "id": "Q19",
+    "topic": "Sensory Perception",
+    "objective": "Cranial nerve differentiation",
+    "format": "sata",
+    "stem": "The nurse interprets several focused neurologic findings. Which findings are correctly matched to their cranial nerve? Select all that apply.",
+    "options": [
+      "Reduced facial light-touch sensation — CN V (trigeminal).",
+      "Weak head turn against resistance — CN XI (accessory).",
+      "Reduced posterior tongue sensation — CN IX (glossopharyngeal).",
+      "Inability to abduct the eye laterally — CN III (oculomotor).",
+      "Weak smiling with preserved facial sensation — CN V (trigeminal).",
+      "Tongue deviation with protrusion — CN X (vagus)."
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "rationale": "Trigeminal serves facial sensation and chewing, accessory governs neck/shoulders, and glossopharyngeal serves posterior tongue and pharyngeal sensory functions. Lateral gaze is CN VI, smiling is CN VII, and tongue protrusion is CN XII.",
+    "source": "Lecture + blueprint",
+    "points": 2
+  },
+  {
+    "id": "Q20",
+    "topic": "Sensory Perception",
+    "objective": "Identify cues of sensory overload",
+    "format": "highlight",
+    "stem": "The nurse reviews a note about an alert postoperative client. Highlight the TWO findings that specifically support sensory overload rather than a baseline sensory deficit or ordinary preference.",
+    "options": [
+      "Uses reading glasses for close print at home.",
+      "States, “When three people talk and alarms sound, I cannot focus on anyone.”",
+      "Has long-standing bilateral hearing loss with hearing aids.",
+      "Has been awakened by multiple monitors, staff conversations, and overhead announcements throughout the night.",
+      "Prefers a warmer blanket.",
+      "Asks for water with medications."
+    ],
+    "correct": [
+      1,
+      3
+    ],
+    "rationale": "Multiple competing auditory stimuli, sleep disruption, and inability to process simultaneous input support sensory overload. Chronic hearing/vision changes alone are deficits, not necessarily overload.",
+    "source": "Lecture + blueprint",
+    "points": 2
+  },
+  {
+    "id": "Q21",
+    "topic": "Pain",
+    "objective": "Pain classification by mechanism",
+    "format": "mc",
+    "stem": "A client with abdominal inflammation describes deep, poorly localized cramping and pressure that increases with movement. Which pain mechanism best explains this presentation?",
+    "options": [
+      "Visceral nociceptive pain",
+      "Peripheral neuropathic pain",
+      "Phantom limb pain",
+      "Central neuropathic pain"
+    ],
+    "correct": [
+      0
+    ],
+    "rationale": "Deep, diffuse, poorly localized pain from internal-organ inflammation or distention is visceral nociceptive pain. Burning/electric allodynic pain is more typical of neuropathic pain.",
+    "source": "Lecture + blueprint",
+    "points": 1
+  },
+  {
+    "id": "Q22",
+    "topic": "Pain",
+    "objective": "Pain in older adults",
+    "format": "mc",
+    "stem": "An older adult who normally converses comfortably becomes restless and refuses meals after a painful procedure but denies pain when asked a single yes/no question. What is the nurse’s best next step?",
+    "options": [
+      "Conclude that pain is absent because the client said no.",
+      "Request a sedative before further assessment.",
+      "Reassess with accessible questions about location, activity, behavior and possible discomfort, considering baseline cognition.",
+      "Use blood pressure alone as a proxy measure for pain intensity."
+    ],
+    "correct": [
+      2
+    ],
+    "rationale": "Pain can appear atypically in older adults and communication may be limited. Perform an individualized assessment; self-report is preferred when reliable, supplemented by behavioral/functional cues.",
+    "source": "Lecture + blueprint",
+    "points": 1
+  },
+  {
+    "id": "Q23",
+    "topic": "Pain",
+    "objective": "Chronic neuropathic pain",
+    "format": "mc",
+    "stem": "Four months after shingles lesions healed, a client reports burning pain when a shirt lightly brushes the affected area. Which interpretation is most accurate?",
+    "options": [
+      "Acute somatic pain because skin contact triggers it.",
+      "Chronic neuropathic pain with allodynia.",
+      "Visceral nociceptive pain from healing tissue.",
+      "Pain cannot be clinically meaningful after the rash resolves."
+    ],
+    "correct": [
+      1
+    ],
+    "rationale": "Persistent burning pain provoked by normally nonpainful touch after a nerve injury is characteristic of neuropathic pain and allodynia. Four months indicates chronic duration.",
+    "source": "Lecture + blueprint",
+    "points": 1
+  },
+  {
+    "id": "Q24",
+    "topic": "Pain",
+    "objective": "End-of-life pain and patient goals",
+    "format": "mc",
+    "stem": "A client with metastatic cancer has severe pain but fears medication will prevent meaningful conversations with family. Which response best reflects individualized palliative nursing care?",
+    "options": [
+      "Promise that opioids will never cause drowsiness.",
+      "Recommend avoiding analgesics to preserve alertness.",
+      "Encourage the family to decide without involving the client.",
+      "Explore desired balance of alertness and comfort and collaborate on titrated therapy and adjunctive measures."
+    ],
+    "correct": [
+      3
+    ],
+    "rationale": "Palliative pain management is patient-centered. Clarify goals, assess symptoms and concerns, collaborate on titration, and consider nonpharmacologic interventions. Avoid false assurances and undertreatment.",
+    "source": "Lecture + blueprint",
+    "points": 1
+  },
+  {
+    "id": "Q25",
+    "topic": "Pain",
+    "objective": "Nonpharmacological pain strategies",
+    "format": "mc",
+    "stem": "A client recovering from surgery reports moderate discomfort between scheduled analgesic doses. The incision is intact and the client can follow directions. Which adjunct best reflects the lecture’s nonpharmacological strategies?",
+    "options": [
+      "Guided imagery, supported positioning, and appropriate relaxation techniques.",
+      "Apply direct heat to an insensate limb for as long as the client desires.",
+      "Omit ordered analgesics whenever relaxation is offered.",
+      "Avoid any repositioning because movement always worsens pain."
+    ],
+    "correct": [
+      0
+    ],
+    "rationale": "Guided imagery, positioning, and relaxation are examples of adjunctive nonpharmacologic pain measures. They complement rather than automatically replace ordered medications.",
+    "source": "Lecture + blueprint",
+    "points": 1
+  },
+  {
+    "id": "Q26",
+    "topic": "Pain",
+    "objective": "Opioid adverse effects and priority",
+    "format": "mc",
+    "stem": "A client receiving opioid medication is difficult to arouse, has a respiratory rate of 8/min, and an oxygen saturation of 96% on supplemental oxygen. What is the priority nursing action?",
+    "options": [
+      "Document adequate oxygenation and reassess at the next scheduled vital signs.",
+      "Offer oral fluids to increase alertness.",
+      "Stop/hold further opioid administration, stimulate and assess breathing, summon immediate assistance per protocol, and prepare indicated reversal/support.",
+      "Administer the next opioid dose because pain control must remain consistent."
+    ],
+    "correct": [
+      2
+    ],
+    "rationale": "Sedation and markedly slowed respirations suggest opioid-induced ventilatory depression even with adequate pulse oximetry on supplemental oxygen. Act immediately to support ventilation and follow local rapid-response/naloxone protocols.",
+    "source": "Lecture + blueprint",
+    "points": 1
+  },
+  {
+    "id": "Q27",
+    "topic": "Pain",
+    "objective": "Comprehensive pain assessment",
+    "format": "sata",
+    "stem": "The nurse assesses pain in a client with a history of chronic back pain and depression. Which assessment practices are appropriate? Select all that apply.",
+    "options": [
+      "Ask the client to describe location, quality, timing, aggravating factors, and effect on daily activities.",
+      "Accept that normal vital signs exclude meaningful pain.",
+      "Explore emotional stress, sleep, social limitations, and the client’s goals.",
+      "Use a self-report tool when the client can communicate reliably.",
+      "Assume reports are exaggerated because the client has a previous substance-use disorder.",
+      "When self-report is unavailable, use behavioral assessment and collateral information."
+    ],
+    "correct": [
+      0,
+      2,
+      3,
+      5
+    ],
+    "rationale": "The biopsychosocial model addresses quality, function, sleep, mood and relationships. Self-report is the preferred assessment when possible; behavioral data supplement it if not. Normal vitals or substance-use history do not negate pain.",
+    "source": "Lecture + blueprint",
+    "points": 2
+  },
+  {
+    "id": "Q28",
+    "topic": "Pain",
+    "objective": "Pain behavior at end of life",
+    "format": "highlight",
+    "stem": "A nonverbal client receiving comfort care has stable vital signs. Highlight the TWO observations that most strongly suggest pain during repositioning and warrant a focused comfort assessment.",
+    "options": [
+      "Respiratory rate is 16/min at rest.",
+      "Client grimaces and guards the abdomen each time the nurse turns them.",
+      "Family brought a familiar photograph to the bedside.",
+      "Client moans and tenses visibly while the bed sheet is changed.",
+      "Hands rest loosely at the sides when not being moved.",
+      "Room temperature is 22°C (72°F)."
+    ],
+    "correct": [
+      1,
+      3
+    ],
+    "rationale": "Inability to speak does not rule out pain. Grimacing, guarding, moaning, and tensing during care are behavioral cues requiring assessment and intervention aligned with comfort goals.",
+    "source": "Lecture + blueprint",
+    "points": 2
+  },
+  {
+    "id": "Q29",
+    "topic": "Cognition",
+    "objective": "Executive function",
+    "format": "mc",
+    "stem": "A client accurately recalls a medication list and recognizes family members but cannot plan a morning routine or put dressing tasks in sequence. Which cognitive domain is most affected?",
+    "options": [
+      "Language comprehension",
+      "Executive functioning",
+      "Remote memory",
+      "Hearing perception"
+    ],
+    "correct": [
+      1
+    ],
+    "rationale": "Executive function encompasses planning, organization, sequencing, and mental flexibility. Good recall does not establish intact executive skills.",
+    "source": "Lecture + blueprint",
+    "points": 1
+  },
+  {
+    "id": "Q30",
+    "topic": "Cognition",
+    "objective": "MMSE limitations",
+    "format": "mc",
+    "stem": "A client scores 21/30 on the MMSE after several questions were presented without their usual hearing aids. Which interpretation is most appropriate?",
+    "options": [
+      "The score alone confirms Alzheimer disease.",
+      "The score is unimportant because hearing loss never influences testing.",
+      "The score proves the client is unable to consent to treatment.",
+      "The score may be influenced by an unaddressed sensory barrier; restore hearing access and reassess in clinical context."
+    ],
+    "correct": [
+      3
+    ],
+    "rationale": "The MMSE is a screening instrument, not a diagnosis; sensory and communication barriers can artificially lower performance. Use history, baseline, and focused evaluation.",
+    "source": "MMSE handout + cognition slides",
+    "points": 1
+  },
+  {
+    "id": "Q31",
+    "topic": "Cognition",
+    "objective": "Assessment of acute cognitive changes",
+    "format": "mc",
+    "stem": "An older client who was attentive yesterday is newly unable to follow a conversation today. Orientation to person and place remains intact. What is the nurse’s most appropriate initial response?",
+    "options": [
+      "Assess acute physical status, medications, oxygenation, infection-related findings and baseline change.",
+      "Assume cognition is normal because the client can state name and location.",
+      "Schedule routine dementia screening in six months.",
+      "Tell the family the change is unavoidable with aging."
+    ],
+    "correct": [
+      0
+    ],
+    "rationale": "Sudden inattention can signal delirium even when orientation is retained. Assess immediate safety and physiologic/medication causes and escalate findings appropriately.",
+    "source": "Lecture + blueprint",
+    "points": 1
+  },
+  {
+    "id": "Q32",
+    "topic": "Cognition",
+    "objective": "Nursing diagnoses for cognition",
+    "format": "mc",
+    "stem": "A resident has a months-long progressive decline in memory and judgment that interferes with daily function but no abrupt change this week. Which nursing diagnosis most directly describes the cognitive pattern?",
+    "options": [
+      "Acute Confusion",
+      "Ineffective Airway Clearance",
+      "Chronic Confusion",
+      "Risk for Deficient Fluid Volume"
+    ],
+    "correct": [
+      2
+    ],
+    "rationale": "Progressive, longstanding cognitive impairment supports Chronic Confusion. Acute Confusion applies more to an abrupt, potentially reversible change.",
+    "source": "Lecture + blueprint",
+    "points": 1
+  },
+  {
+    "id": "Q33",
+    "topic": "Cognition",
+    "objective": "Independent nursing interventions",
+    "format": "mc",
+    "stem": "A client with mild cognitive impairment becomes overwhelmed when a nurse gives five instructions for morning hygiene all at once. Which independent action is best?",
+    "options": [
+      "Repeat the same five instructions more loudly.",
+      "Break tasks into brief one-step instructions and allow extra response time.",
+      "Perform all care without offering participation.",
+      "Limit all family involvement during personal care."
+    ],
+    "correct": [
+      1
+    ],
+    "rationale": "Short, concrete steps, calm pacing, preserved independence, and adapted communication reduce confusion and support function.",
+    "source": "Lecture + blueprint",
+    "points": 1
+  },
+  {
+    "id": "Q34",
+    "topic": "Cognition",
+    "objective": "Signs of cognitive impairment",
+    "format": "sata",
+    "stem": "Which observations may indicate impairment in distinct cognitive domains and warrant further assessment? Select all that apply.",
+    "options": [
+      "Cannot sustain attention long enough to follow one question.",
+      "Remembers details but repeatedly cannot organize bill payments or medication schedules.",
+      "Suddenly has difficulty naming common items in ordinary conversation.",
+      "Uses prescription glasses to read small print without other changes.",
+      "Has difficulty interpreting social cues and makes new inappropriate judgments.",
+      "Walks more slowly after a leg fracture while cognition is unchanged."
+    ],
+    "correct": [
+      0,
+      1,
+      2,
+      4
+    ],
+    "rationale": "Attention, executive functioning, language, and social cognition are recognized domains. Corrected visual acuity and fracture-related mobility alone do not establish cognitive impairment.",
+    "source": "Lecture + blueprint",
+    "points": 2
+  },
+  {
+    "id": "Q35",
+    "topic": "Neurocognitive Disorders",
+    "objective": "Vascular dementia risk and pattern",
+    "format": "mc",
+    "stem": "A 72-year-old’s family describes abrupt declines in planning and walking after separate strokes, with several months of relative stability between events. The client has hypertension and diabetes. Which disorder is most consistent with this course?",
+    "options": [
+      "Lewy body dementia",
+      "Vascular dementia",
+      "Frontotemporal dementia",
+      "Typical Alzheimer disease"
+    ],
+    "correct": [
+      1
+    ],
+    "rationale": "Cerebrovascular injury and stepwise decline with vascular risks support vascular dementia, rather than the usual gradual pattern of Alzheimer disease.",
+    "source": "Lecture + blueprint",
+    "points": 1
+  },
+  {
+    "id": "Q36",
+    "topic": "Neurocognitive Disorders",
+    "objective": "Lewy body dementia",
+    "format": "mc",
+    "stem": "A client experiences vivid recurrent visual hallucinations, fluctuating levels of alertness, and slow shuffling movement. Which neurocognitive disorder best fits the combination?",
+    "options": [
+      "Vascular dementia",
+      "Normal aging",
+      "Lewy body dementia",
+      "Frontotemporal dementia"
+    ],
+    "correct": [
+      2
+    ],
+    "rationale": "Visual hallucinations, cognitive fluctuation, and parkinsonian motor signs are a characteristic Lewy body pattern.",
+    "source": "Lecture + blueprint",
+    "points": 1
+  },
+  {
+    "id": "Q37",
+    "topic": "Neurocognitive Disorders",
+    "objective": "Frontotemporal dementia",
+    "format": "mc",
+    "stem": "A 57-year-old develops disinhibition, loss of empathy, repetitive behavior, and subtle language difficulty. Recent episodic memory is relatively preserved. Which disorder should the nurse suspect?",
+    "options": [
+      "Frontotemporal dementia",
+      "Delirium due to infection",
+      "Vascular dementia",
+      "Typical late-onset Alzheimer disease"
+    ],
+    "correct": [
+      0
+    ],
+    "rationale": "Early behavioral/personality and language changes with relatively spared episodic memory at a younger age raise concern for frontotemporal dementia.",
+    "source": "Lecture + blueprint",
+    "points": 1
+  },
+  {
+    "id": "Q38",
+    "topic": "Neurocognitive Disorders",
+    "objective": "Delirium superimposed on dementia",
+    "format": "mc",
+    "stem": "A resident with established Alzheimer disease becomes acutely restless overnight and cannot maintain attention. The change fluctuates and began after a medication change. What is the nurse’s priority?",
+    "options": [
+      "Assume progressive Alzheimer disease and offer no new assessment.",
+      "Use physical restraints for all residents with dementia who become restless.",
+      "Arrange an annual memory-screening appointment.",
+      "Protect safety and promptly assess for delirium triggers such as medications, hypoxia, infection, and other acute illness."
+    ],
+    "correct": [
+      3
+    ],
+    "rationale": "A sudden fluctuating attentional change is not explained by stable dementia alone. Evaluate delirium precipitants promptly while addressing immediate safety.",
+    "source": "Lecture + blueprint",
+    "points": 1
+  },
+  {
+    "id": "Q39",
+    "topic": "Neurocognitive Disorders",
+    "objective": "Dementia and wandering safety",
+    "format": "mc",
+    "stem": "A client with moderate dementia repeatedly approaches an exit stating, “My children need me at school.” The client is not aggressive. What is the most appropriate response?",
+    "options": [
+      "Argue repeatedly that the children are adults until the client accepts it.",
+      "Validate the underlying concern, redirect to a supervised activity or safe walking route, and ensure environmental safeguards.",
+      "Provide a sedating medication solely to stop walking.",
+      "Apply a restraint until the desire to leave resolves."
+    ],
+    "correct": [
+      1
+    ],
+    "rationale": "Calm validation/redirection, structured activity, supervision, and safe environmental planning are preferable to arguing, unnecessary medication, or routine restraint.",
+    "source": "Lecture + blueprint",
+    "points": 1
+  },
+  {
+    "id": "Q40",
+    "topic": "Neurocognitive Disorders",
+    "objective": "Caregiver support",
+    "format": "mc",
+    "stem": "The spouse of a person with progressing dementia reports exhaustion, missed personal appointments, and fear of leaving the client alone. Which nursing response best addresses the emerging concern?",
+    "options": [
+      "Explain that caregiver strain is expected and does not warrant nursing intervention.",
+      "Tell the spouse to keep the client isolated to simplify routines.",
+      "Assess caregiver strain and connect the family with respite, education, community support, and interdisciplinary planning.",
+      "Recommend that the spouse manage all needs without outside resources."
+    ],
+    "correct": [
+      2
+    ],
+    "rationale": "Caregiver burden is a major impact of neurocognitive disorders. Assess needs and facilitate appropriate support, respite, education, and team planning.",
+    "source": "Lecture + blueprint",
+    "points": 1
+  }
+];
+const KEY='ward13-n316-exam3-authentic-mock-v1';
+const TOPICS=['Mobility','Tissue Integrity','Sensory Perception','Pain','Cognition','Neurocognitive Disorders'];
+const COUNTS={'Mobility':6,'Tissue Integrity':6,'Sensory Perception':8,'Pain':8,'Cognition':6,'Neurocognitive Disorders':6};
+const $=id=>document.getElementById(id);
+const esc=x=>String(x).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function shuffle(a){const r=a.slice();for(let i=r.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[r[i],r[j]]=[r[j],r[i]]}return r}
+function fresh(){return {version:1,started:Date.now(),status:'intro',order:shuffle(BANK.map(q=>q.id)),options:Object.fromEntries(BANK.map(q=>[q.id,q.format==='highlight'?q.options.map((_,i)=>i):shuffle(q.options.map((_,i)=>i))])),answers:{},flags:[],index:0,completed:null,reviewFilter:'all'}}
+function read(){try{const r=JSON.parse(localStorage.getItem(KEY));if(r&&r.version===1&&Array.isArray(r.order)&&r.order.length===40)return r}catch(e){}return fresh()}
+let state=read();
+function save(){try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){}}
+function activeQ(){return BANK.find(q=>q.id===state.order[state.index])}
+function answered(id){return (state.answers[id]||[]).length>0}
+function answeredTotal(){return state.order.filter(answered).length}
+function fmtClock(millis){const sec=Math.max(0,Math.floor(millis/1000)),h=Math.floor(sec/3600),m=Math.floor(sec%3600/60),s=sec%60;return (h?String(h).padStart(2,'0')+':':'')+String(m).padStart(2,'0')+':'+String(s).padStart(2,'0')}
+function clockTick(){const e=$('clock');if(!e)return;if(state.status==='intro')e.textContent='● Ready';else e.textContent='◷ '+fmtClock((state.completed||Date.now())-state.started)}
+function button(text,action,cls=''){return '<button class="btn '+cls+'" data-act="'+action+'">'+text+'</button>'}
+function start(){state.status='exam';state.started=Date.now();save();render()}
+function render(){save();clockTick();if(state.status==='intro')renderIntro();else if(state.status==='exam')renderExam();else renderResults()}
+function renderIntro(){const hasOld=state.order.some(answered);let h='<div class="surface intro"><div class="eyebrow">Exam-readiness check · Fall 2026</div><h1>NURS 316 — Comprehensive Exam 3 Mock</h1><p class="lede">A realistic, original 40-question assessment matched to your instructor’s published blueprint. There are no hints, correct-answer highlights, or rationales until you submit your exam.</p><div class="note"><b>Test conditions:</b> Work without notes and avoid looking up answers. The clock measures elapsed time, but this practice test does <b>not</b> impose an official WSU time limit. Use roughly 55–70 minutes as an optional self-imposed goal.</div><h3>Blueprint</h3><table class="blueprint"><thead><tr><th>Exam content</th><th>Questions</th></tr></thead><tbody>'+TOPICS.map(t=>'<tr><td>'+t+'</td><td>'+COUNTS[t]+'</td></tr>').join('')+'</tbody></table><div class="note"><b>Item formats:</b> 31 single-answer multiple-choice, 5 select-all-that-apply (SATA), and 4 highlight-the-relevant-text. <b>Maximum 49 points:</b> single-answer items are worth 1 point; SATA and highlight items are worth 2 points, with partial credit and a penalty for incorrect selections. This is our transparent practice scoring scheme, not a claim about your instructor’s scoring rules.</div><p class="help">Question order and multiple-choice positions shuffle with each fresh attempt. You can flag items, review your choices and navigate back. All answers stay hidden until final submission.</p><div class="actions">'+button('Begin 40-question exam','start')+button('Clear and generate a fresh attempt','new','secondary')+'</div></div>';
+$('content').innerHTML=h}
+function renderExam(){let q=activeQ(),selected=state.answers[q.id]||[],order=state.options[q.id],pos=state.index,complete=answeredTotal(),flagged=state.flags.includes(q.id),kind=q.format==='mc'?'Single best answer':q.format==='sata'?'Select all that apply':'Highlight text';
+let opt='';if(q.format==='highlight')opt='<div class="casePrompt"><strong>Nursing documentation</strong>Select the specific statements that answer the question. Tap to highlight or unhighlight a finding.</div><div class="highlightList">'+q.options.map((a,i)=>'<button class="highlightItem '+(selected.includes(i)?'chosen':'')+'" data-answer="'+i+'"><span class="mark"></span><span>'+esc(a)+'</span></button>').join('')+'</div>';
+else opt='<div class="optionList">'+order.map((ix,j)=>'<button class="option '+(selected.includes(ix)?'selected':'')+'" data-answer="'+ix+'" aria-pressed="'+selected.includes(ix)+'"><span class="letter">'+String.fromCharCode(65+j)+'.</span><span class="check '+(q.format==='sata'?'multi':'')+'"></span><span>'+esc(q.options[ix])+'</span></button>').join('')+'</div>';
+const h='<div class="examBar"><div><div class="eyebrow">Practice assessment</div><strong>Question '+(pos+1)+' of 40</strong> <span class="tag">'+kind+' · '+q.points+' '+(q.points===1?'point':'points')+'</span></div><div class="help">'+complete+'/40 answered · '+state.flags.length+' flagged</div></div><div class="progress"><span style="width:'+(complete/40*100)+'%"></span></div><div class="examGrid"><section class="surface examPaper"><div class="minor"><span class="eyebrow">Clinical judgment item</span><button class="flagBtn '+(flagged?'flagged':'')+'" data-act="flag">'+(flagged?'⚑ Flagged for review':'⚐ Flag for review')+'</button></div><div class="qtitle">'+esc(q.stem)+'</div>'+opt+'<p class="help" style="margin-top:15px">'+(q.format==='sata'?'Select every option you believe is appropriate.':'')+(q.format==='highlight'?'Highlight the TWO findings requested in the question.':'')+'</p><div class="actions"><button class="btn secondary" data-act="prev" '+(pos===0?'disabled':'')+'>← Previous</button>'+button('Clear response','clear','secondary')+'<span class="push"></span>'+(pos===39?button('Review & submit','finish'):button('Next question →','next'))+'</div></section><aside class="surface side"><h3>Question navigator</h3><p class="help">Tap any number to revisit that question.</p><div class="qgrid">'+state.order.map((id,i)=>'<button class="navTile '+(answered(id)?'answered ':'')+(i===pos?'current ':'')+(state.flags.includes(id)?'flagged':'')+'" data-jump="'+i+'" title="Question '+(i+1)+'" aria-label="Question '+(i+1)+(answered(id)?', answered':'')+(state.flags.includes(id)?', flagged':'')+'">'+(i+1)+'</button>').join('')+'</div><div class="legend"><span class="answeredLabel">Answered</span><span class="flagLabel">Orange underline: flagged</span><span>Unanswered</span></div><div class="actions">'+button('Review & submit','finish','secondary')+'</div><p class="help">Your responses save automatically in this browser. The exam remains ungraded until you submit.</p></aside></div>';$('content').innerHTML=h}
+function choose(ix){const q=activeQ(),prev=state.answers[q.id]||[];if(q.format==='mc')state.answers[q.id]=[ix];else if(prev.includes(ix))state.answers[q.id]=prev.filter(a=>a!==ix);else state.answers[q.id]=prev.concat(ix);renderExam();save()}
+function move(delta){state.index=Math.max(0,Math.min(39,state.index+delta));save();renderExam();window.scrollTo({top:0,behavior:'smooth'})}
+function finish(){const missing=40-answeredTotal();if(missing>0&&!confirm('You have '+missing+' unanswered question(s). Submit anyway? Unanswered items receive zero points.'))return;if(state.flags.length&&!confirm('You have '+state.flags.length+' flagged question(s). Submit now and show your score?'))return;if(missing===0&&!state.flags.length&&!confirm('Submit all 40 questions and reveal the answer key? You cannot change responses afterward.'))return;state.status='results';state.completed=Date.now();save();renderResults();window.scrollTo({top:0,behavior:'smooth'})}
+function round2(v){return Math.round((v+Number.EPSILON)*100)/100}
+function score(q){const ans=state.answers[q.id]||[];if(q.format==='mc')return ans.length===1&&ans[0]===q.correct[0]?1:0;const correctHit=ans.filter(i=>q.correct.includes(i)).length,falseHits=ans.filter(i=>!q.correct.includes(i)).length;return round2(Math.max(0,Math.min(2,(correctHit-falseHits)*2/q.correct.length)))}
+function fullCorrect(q){const a=state.answers[q.id]||[];return a.length===q.correct.length&&q.correct.every(i=>a.includes(i))}
+function formatOpts(q,ids){if(!ids?.length)return 'No response';return ids.map(i=>q.options[i]).join(' · ')}
+function formatTime(){return fmtClock(state.completed-state.started)}
+function resultTopics(){return TOPICS.map(topic=>{let list=BANK.filter(q=>q.topic===topic);return {topic,max:list.reduce((a,q)=>a+q.points,0),earned:round2(list.reduce((a,q)=>a+score(q),0)),right:list.filter(fullCorrect).length,total:list.length}})}
+function resultText(){const pts=round2(BANK.reduce((sum,q)=>sum+score(q),0));const lines=['NURS 316 EXAM 3 — 40-QUESTION MOCK STUDY REPORT','Score: '+pts+'/49 ('+round2(pts/49*100)+'%)','Items exactly correct: '+BANK.filter(fullCorrect).length+'/40','Time: '+formatTime(),'','TOPIC PERFORMANCE'];for(const x of resultTopics())lines.push(x.topic+': '+x.earned+'/'+x.max+' points; '+x.right+'/'+x.total+' exactly correct');lines.push('','MISSED OR PARTIAL-CREDIT QUESTIONS');for(const id of state.order){const q=BANK.find(a=>a.id===id);if(fullCorrect(q))continue;lines.push('',q.id+' | '+q.topic+' | '+q.objective,'Prompt: '+q.stem,'My answer: '+formatOpts(q,state.answers[id]),'Correct: '+formatOpts(q,q.correct),'Score: '+score(q)+'/'+q.points,'Rationale: '+q.rationale)}return lines.join('\n')}
+function renderResults(){const pts=round2(BANK.reduce((sum,q)=>sum+score(q),0)),pct=round2(pts/49*100),correct=BANK.filter(fullCorrect).length,topics=resultTopics(),filter=state.reviewFilter||'all',items=state.order.filter(id=>{const q=BANK.find(z=>z.id===id);return filter==='all'||filter==='missed'&&!fullCorrect(q)||filter==='flagged'&&state.flags.includes(id)});
+let html='<div class="surface review"><div class="eyebrow">Submitted assessment · scored</div><div class="reviewHead"><div><h1>Your NURS 316 Mock Exam Results</h1><div class="resultBig">'+pts+'<span> / 49</span></div><h2 style="color:#2a766e">'+pct+'%</h2><p>'+correct+'/40 items exactly correct · Elapsed time '+formatTime()+'</p></div><div class="note"><b>Score interpretation</b><p>This score measures this original mock—not your probability of passing the actual WSU exam. The practice test applies partial credit to two-point SATA/highlight items, while WSU’s exact rubric is unknown.</p></div></div><div class="actions">'+button('📋 Copy results for ChatGPT','copy','tertiary')+button('🖨 Print review','print','secondary')+button('🔁 New attempt','new','secondary')+'</div><h3 style="margin:22px 0 14px">Performance by blueprint section</h3><div class="topicBox">'+topics.map(x=>'<div class="topicCell"><strong>'+x.topic+'</strong><span>'+x.earned+'/'+x.max+' points · '+x.right+'/'+x.total+' items fully correct</span><div class="meter"><div style="width:'+(x.earned/x.max*100)+'%"></div></div></div>').join('')+'</div><div class="studyCall"><b>Suggested review:</b> Revisit every missed item, then prioritize the topics with the lowest point percentages. Compare your choices with the rationale, not only the answer key.</div></div><div class="surface review"><h2>Full answer review</h2><div class="filterBar"><button class="btn '+(filter==='all'?'tertiary':'secondary')+'" data-filter="all">All 40</button><button class="btn '+(filter==='missed'?'tertiary':'secondary')+'" data-filter="missed">Missed or partial</button><button class="btn '+(filter==='flagged'?'tertiary':'secondary')+'" data-filter="flagged">Flagged</button></div>'+ (items.length?items.map(id=>{const q=BANK.find(z=>z.id===id),a=state.answers[id]||[],displayPos=state.order.indexOf(id)+1;const complete=fullCorrect(q);return '<article class="resultItem '+(complete?'ok':'no')+'"><div class="eyebrow">Q'+displayPos+' · '+q.topic+' · '+q.objective+'</div><h3>'+esc(q.stem)+'</h3><p><span class="tag">'+q.format.toUpperCase()+' · '+score(q)+'/'+q.points+' points</span></p><div class="choiceSummary"><b>Your response:</b> '+esc(formatOpts(q,a))+'</div><div class="choiceSummary"><b>Correct response:</b> '+esc(formatOpts(q,q.correct))+'</div><div class="rationale"><b>Rationale:</b> '+esc(q.rationale)+'</div></article>'}).join(''):'<p>No questions match this filter.</p>')+'</div>';$('content').innerHTML=html}
+async function copyReport(){const data=resultText();try{await navigator.clipboard.writeText(data);alert('Study report copied! Paste it into your ChatGPT conversation.')}catch(e){const area=document.createElement('textarea');area.value=data;area.style.position='fixed';area.style.top='0';area.style.left='0';area.style.width='100%';area.style.height='60vh';document.body.appendChild(area);area.focus();area.select();alert('Clipboard permission blocked. Select the report text and copy it manually.');}}
+function freshStart(){if(!confirm('Generate a new practice attempt? The current answers and score in this browser will be replaced. Copy your results first if you want to keep them.'))return;state=fresh();save();render();window.scrollTo({top:0,behavior:'smooth'})}
+document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b.disabled)return;const d=b.dataset;if(d.answer!==undefined){choose(Number(d.answer));return}if(d.jump!==undefined){state.index=Number(d.jump);save();renderExam();window.scrollTo({top:0,behavior:'smooth'});return}if(d.filter){state.reviewFilter=d.filter;save();renderResults();return}const a=d.act;if(!a)return;if(a==='start')start();else if(a==='next')move(1);else if(a==='prev')move(-1);else if(a==='flag'){const id=activeQ().id;state.flags=state.flags.includes(id)?state.flags.filter(x=>x!==id):state.flags.concat(id);save();renderExam()}else if(a==='clear'){delete state.answers[activeQ().id];save();renderExam()}else if(a==='finish')finish();else if(a==='new')freshStart();else if(a==='copy')copyReport();else if(a==='print')window.print()});
+setInterval(clockTick,1000);
+render();
+</script></body></html>
